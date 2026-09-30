@@ -20,3 +20,17 @@ The sign command generates development signing material and updates
 `build-profile.json5` with local passwords. Keep that changed file out of commits
 and keep generated material in the ignored `signatures/` directory. Production
 distribution requires separately managed signing credentials and profiles.
+
+## F-OH catalog submission
+
+The F-OH Oniro catalog submission uses bundle `com.stakar.solitaire` and version
+`1.0.0`. Its record is added to `allAppList.json` in the `f-oh-data` repository,
+with `data/com.stakar.solitaire/icon.png` and
+`data/com.stakar.solitaire/Solitaire-1.0.0.hap`. The icon is a 512 px rendition
+of the approved Four Suits Mark. The package is a signed release build made
+with `oniro-app build . --product default --module entry --mode release` from
+the existing development checkout. The catalog points back to this source
+repository.
+
+For updates, keep the bundle name and signing identity stable, increase the app
+version, build a new signed release HAP, and update the catalog record and HAP.

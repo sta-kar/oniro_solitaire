@@ -796,3 +796,15 @@ The user approved adding a dark-brown, gently curved hairline with two small
 side-swept sections beneath the Detailed queen's crown. The refinement keeps the
 existing face, crown, palette, mirrored portrait geometry, and Simple deck
 unchanged while making the queen's hair read continuously across her forehead.
+
+---
+
+## September 30 F-OH listing approval
+
+The user approved the public F-OH catalog listing for version 1.0.0: name
+"Solitaire"; description "Klondike solitaire with draw-one and draw-three
+rules, undo, autocomplete, and visual themes"; vendor "@sta-kar"; tags
+"Card Game, Solitaire, Klondike"; the approved Four Suits Mark as icon; and
+release date 2026-09-30. The catalog entry uses type `game`, bundle
+`com.stakar.solitaire`, and the Apache-licensed source repository at
+`https://github.com/sta-kar/oniro_solitaire`.
