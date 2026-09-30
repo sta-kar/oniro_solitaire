@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="45" height="67.5" viewBox="0 0 45 67.5" preserveAspectRatio="xMidYMid meet" data-card-aspect="2:3">
+  <title>Emerald Art Deco 02 — Steps</title>
+  <g transform="scale(1 0.9926470588235294)" data-source-viewBox="0 0 45 68">
+  <defs>
+    <clipPath id="clip"><rect x="0.5" y="0.5" width="44" height="67" rx="6.5"/></clipPath>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#022D25"/><stop offset="1" stop-color="#0C6A52"/></linearGradient>
+  </defs>
+  <g clip-path="url(#clip)">
+    <rect width="45" height="68" fill="url(#bg)"/>
+<g fill="none" stroke="#E3C46E"><path d="M5 10H14V6H31V10H40V22H35V29H30"/><path d="M5 58H14V62H31V58H40V46H35V39H30"/><path d="M15 18L22.5 10L30 18L22.5 26Z"/><path d="M15 50L22.5 58L30 50L22.5 42Z"/></g>
+<path d="M22.5 23L33 34L22.5 45L12 34Z" fill="#04362C" stroke="#E3C46E" stroke-width="1.2"/><path d="M22.5 27L29 34L22.5 41L16 34Z" fill="#0D8B68"/><path d="M22.5 30L26 34L22.5 38L19 34Z" fill="#FFE798"/>
+  </g>
+  <rect x="0.5" y="0.5" width="44" height="67" rx="6.5" fill="none" stroke="#C9A94D"/>
+  <rect x="2" y="2" width="41" height="64" rx="5" fill="none" stroke="#E3C46E" stroke-width="0.7"/>
+  </g>
+</svg>

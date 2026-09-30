@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="45" height="67.5" viewBox="0 0 45 67.5" preserveAspectRatio="xMidYMid meet" data-card-aspect="2:3">
+  <title>Oniro Orbit 02 — Gyroscope</title>
+  <g transform="scale(1 0.9926470588235294)" data-source-viewBox="0 0 45 68">
+  <defs>
+    <clipPath id="clip"><rect x="0.5" y="0.5" width="44" height="67" rx="6.5"/></clipPath>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#071832"/><stop offset="1" stop-color="#28104B"/></linearGradient>
+  </defs>
+  <g clip-path="url(#clip)">
+    <rect width="45" height="68" fill="url(#bg)"/>
+<g fill="none" stroke-width="1.7"><ellipse cx="22.5" cy="34" rx="17" ry="7" stroke="#00D4DF" transform="rotate(22 22.5 34)"/><ellipse cx="22.5" cy="34" rx="17" ry="7" stroke="#FF35B9" transform="rotate(-22 22.5 34)"/><ellipse cx="22.5" cy="34" rx="16" ry="6.5" stroke="#FFE45C" transform="rotate(90 22.5 34)"/></g>
+<circle cx="22.5" cy="34" r="5.8" fill="#120621" stroke="#FFFFFF" stroke-width="0.8"/>
+<path d="M22.5 29L27.5 34L22.5 39L17.5 34Z" fill="#6C38C5"/>
+<g><circle cx="7.2" cy="27.7" r="1.7" fill="#00D4DF"/><circle cx="38" cy="28.5" r="1.7" fill="#FF35B9"/><circle cx="22.5" cy="18" r="1.7" fill="#FFE45C"/></g>
+<g fill="#FFFFFF" opacity="0.5"><circle cx="9" cy="10" r="0.45"/><circle cx="35" cy="13" r="0.45"/><circle cx="12" cy="57" r="0.45"/><circle cx="38" cy="52" r="0.45"/></g>
+  </g>
+  <rect x="0.5" y="0.5" width="44" height="67" rx="6.5" fill="none" stroke="#4A68A7"/>
+  
+  </g>
+</svg>

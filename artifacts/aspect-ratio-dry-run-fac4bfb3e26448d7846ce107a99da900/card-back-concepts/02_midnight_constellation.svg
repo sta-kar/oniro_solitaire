@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="45" height="67.5" viewBox="0 0 45 67.5" preserveAspectRatio="xMidYMid meet" data-card-aspect="2:3">
+  <title>Midnight Constellation</title>
+  <g transform="scale(1 0.9926470588235294)" data-source-viewBox="0 0 45 68">
+  <defs>
+    <linearGradient id="night" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#061326"/><stop offset="1" stop-color="#1B315D"/></linearGradient>
+    <clipPath id="clip"><rect x="0.5" y="0.5" width="44" height="67" rx="6.5"/></clipPath>
+  </defs>
+  <g clip-path="url(#clip)">
+    <rect width="45" height="68" fill="url(#night)"/>
+    <g fill="#DDE9FF"><circle cx="7" cy="9" r="0.55"/><circle cx="16" cy="7" r="0.35"/><circle cx="34" cy="9" r="0.5"/><circle cx="39" cy="19" r="0.35"/><circle cx="6" cy="25" r="0.4"/><circle cx="10" cy="45" r="0.35"/><circle cx="36" cy="47" r="0.5"/><circle cx="29" cy="59" r="0.35"/><circle cx="14" cy="58" r="0.5"/></g>
+    <g fill="none" stroke="#9BB9E8" stroke-width="0.65" opacity="0.8"><path d="M9 18L17 25L22.5 19L29 27L36 20"/><path d="M12 49L19 42L26 48L34 40"/></g>
+    <g fill="#F7D46A"><circle cx="9" cy="18" r="1.1"/><circle cx="17" cy="25" r="0.9"/><circle cx="22.5" cy="19" r="1.2"/><circle cx="29" cy="27" r="0.8"/><circle cx="36" cy="20" r="1"/><circle cx="12" cy="49" r="0.8"/><circle cx="19" cy="42" r="1"/><circle cx="26" cy="48" r="0.9"/><circle cx="34" cy="40" r="1.1"/></g>
+    <path d="M22.5 25C20 29 15 31 15 36C15 41 20 43 22.5 39C22.5 43 21 45 18.5 47H26.5C24 45 22.5 43 22.5 39C25 43 30 41 30 36C30 31 25 29 22.5 25Z" fill="none" stroke="#FFFFFF" stroke-width="1.1"/>
+  </g>
+  <rect x="0.5" y="0.5" width="44" height="67" rx="6.5" fill="none" stroke="#7896C5"/>
+  <rect x="2.5" y="2.5" width="40" height="63" rx="5" fill="none" stroke="#DDE9FF" stroke-opacity="0.28"/>
+  </g>
+</svg>

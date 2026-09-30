@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="45" height="67.5" viewBox="0 0 45 67.5" preserveAspectRatio="xMidYMid meet" data-card-aspect="2:3">
+  <title>Solar Eclipse</title>
+  <g transform="scale(1 0.9926470588235294)" data-source-viewBox="0 0 45 68">
+  <defs>
+    <radialGradient id="space" cx="50%" cy="50%" r="65%"><stop stop-color="#343139"/><stop offset="1" stop-color="#111014"/></radialGradient>
+    <radialGradient id="sun"><stop stop-color="#FFF4A0"/><stop offset="0.65" stop-color="#F5B942"/><stop offset="1" stop-color="#E66B2E"/></radialGradient>
+    <clipPath id="clip"><rect x="0.5" y="0.5" width="44" height="67" rx="6.5"/></clipPath>
+  </defs>
+  <g clip-path="url(#clip)">
+    <rect width="45" height="68" fill="url(#space)"/>
+    <g stroke="#E8B84A" stroke-width="0.8" opacity="0.7"><path d="M22.5 7V15"/><path d="M22.5 53V61"/><path d="M5 34H13"/><path d="M32 34H40"/><path d="M10 16L15.5 21.5"/><path d="M29.5 46.5L35 52"/><path d="M35 16L29.5 21.5"/><path d="M15.5 46.5L10 52"/></g>
+    <circle cx="22.5" cy="34" r="13.5" fill="none" stroke="#E8B84A" stroke-opacity="0.4" stroke-width="0.7" stroke-dasharray="2 2"/>
+    <circle cx="22.5" cy="34" r="10.5" fill="url(#sun)"/>
+    <circle cx="25.5" cy="31" r="9.2" fill="#111014"/>
+    <path d="M17.5 40.5Q22.5 44 28 39.5" fill="none" stroke="#FFF4A0" stroke-width="1.1" stroke-linecap="round"/>
+  </g>
+  <rect x="0.5" y="0.5" width="44" height="67" rx="6.5" fill="none" stroke="#B98631"/>
+  </g>
+</svg>

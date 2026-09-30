@@ -1,0 +1,257 @@
+param(
+  [Parameter(Mandatory = $true)]
+  [string]$OutputDirectory
+)
+
+Set-StrictMode -Version Latest
+$ErrorActionPreference = 'Stop'
+$utf8 = [System.Text.UTF8Encoding]::new($false)
+
+function Convert-ToTwoThreeCardSvg([string]$Svg) {
+  if ($Svg.Contains('data-card-aspect="2:3"')) { return $Svg }
+
+  $sourceRoot = '<svg xmlns="http://www.w3.org/2000/svg" width="45" height="68" viewBox="0 0 45 68" preserveAspectRatio="xMidYMid meet">'
+  $targetRoot = '<svg xmlns="http://www.w3.org/2000/svg" width="45" height="67.5" viewBox="0 0 45 67.5" preserveAspectRatio="xMidYMid meet" data-card-aspect="2:3">'
+  if (-not $Svg.Contains($sourceRoot)) { throw 'Card SVG does not use the expected 45-by-68 source viewport.' }
+
+  $result = $Svg.Replace($sourceRoot, $targetRoot)
+  $result = $result.Replace('</title>', "</title>`n  <g transform=`"scale(1 0.9926470588235294)`" data-source-viewBox=`"0 0 45 68`">")
+  $closingIndex = $result.LastIndexOf('</svg>')
+  if ($closingIndex -lt 0) { throw 'Card SVG is missing its closing element.' }
+  return $result.Substring(0, $closingIndex) + "  </g>`n" + $result.Substring($closingIndex)
+}
+
+function Write-Asset([string]$Name, [string]$Content) {
+  [System.IO.File]::WriteAllText((Join-Path $OutputDirectory $Name), $Content, $utf8)
+}
+
+function Get-InnerSvg([string]$Svg) {
+  $match = [regex]::Match($Svg, '<svg[^>]*>([\s\S]*)</svg>')
+  if (-not $match.Success) { throw 'Could not extract SVG contents.' }
+  return $match.Groups[1].Value
+}
+
+[System.IO.Directory]::CreateDirectory($OutputDirectory) | Out-Null
+
+$concepts = [ordered]@{}
+
+$concepts['01_oniro_orbit.svg'] = @'
+<svg xmlns="http://www.w3.org/2000/svg" width="45" height="68" viewBox="0 0 45 68" preserveAspectRatio="xMidYMid meet">
+  <title>Oniro Orbit</title>
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="45%" r="70%"><stop offset="0" stop-color="#2B1454"/><stop offset="1" stop-color="#10051F"/></radialGradient>
+    <clipPath id="clip"><rect x="0.5" y="0.5" width="44" height="67" rx="6.5"/></clipPath>
+  </defs>
+  <g clip-path="url(#clip)">
+    <rect width="45" height="68" fill="url(#bg)"/>
+    <circle cx="22.5" cy="34" r="15.5" fill="none" stroke="#FFFFFF" stroke-opacity="0.12" stroke-width="0.8"/>
+    <circle cx="22.5" cy="34" r="12" fill="none" stroke="#00C9E5" stroke-width="4" stroke-dasharray="18 7 9 8" transform="rotate(-28 22.5 34)"/>
+    <circle cx="22.5" cy="34" r="12" fill="none" stroke="#FF2CB8" stroke-width="4" stroke-dasharray="8 26 12 29" transform="rotate(42 22.5 34)"/>
+    <circle cx="22.5" cy="34" r="12" fill="none" stroke="#FFEE52" stroke-width="4" stroke-dasharray="7 31 10 27" transform="rotate(103 22.5 34)"/>
+    <circle cx="22.5" cy="34" r="6.7" fill="#07020D" stroke="#7133C7" stroke-width="1"/>
+    <circle cx="22.5" cy="34" r="2" fill="#FFFFFF"/>
+    <g fill="#FFFFFF" opacity="0.5"><circle cx="7" cy="11" r="0.7"/><circle cx="38" cy="14" r="0.7"/><circle cx="8" cy="56" r="0.7"/><circle cx="37" cy="53" r="0.7"/></g>
+  </g>
+  <rect x="0.5" y="0.5" width="44" height="67" rx="6.5" fill="none" stroke="#5B2A8B"/>
+  <rect x="2.5" y="2.5" width="40" height="63" rx="5" fill="none" stroke="#FFFFFF" stroke-opacity="0.2"/>
+</svg>
+'@
+
+$concepts['02_midnight_constellation.svg'] = @'
+<svg xmlns="http://www.w3.org/2000/svg" width="45" height="68" viewBox="0 0 45 68" preserveAspectRatio="xMidYMid meet">
+  <title>Midnight Constellation</title>
+  <defs>
+    <linearGradient id="night" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#061326"/><stop offset="1" stop-color="#1B315D"/></linearGradient>
+    <clipPath id="clip"><rect x="0.5" y="0.5" width="44" height="67" rx="6.5"/></clipPath>
+  </defs>
+  <g clip-path="url(#clip)">
+    <rect width="45" height="68" fill="url(#night)"/>
+    <g fill="#DDE9FF"><circle cx="7" cy="9" r="0.55"/><circle cx="16" cy="7" r="0.35"/><circle cx="34" cy="9" r="0.5"/><circle cx="39" cy="19" r="0.35"/><circle cx="6" cy="25" r="0.4"/><circle cx="10" cy="45" r="0.35"/><circle cx="36" cy="47" r="0.5"/><circle cx="29" cy="59" r="0.35"/><circle cx="14" cy="58" r="0.5"/></g>
+    <g fill="none" stroke="#9BB9E8" stroke-width="0.65" opacity="0.8"><path d="M9 18L17 25L22.5 19L29 27L36 20"/><path d="M12 49L19 42L26 48L34 40"/></g>
+    <g fill="#F7D46A"><circle cx="9" cy="18" r="1.1"/><circle cx="17" cy="25" r="0.9"/><circle cx="22.5" cy="19" r="1.2"/><circle cx="29" cy="27" r="0.8"/><circle cx="36" cy="20" r="1"/><circle cx="12" cy="49" r="0.8"/><circle cx="19" cy="42" r="1"/><circle cx="26" cy="48" r="0.9"/><circle cx="34" cy="40" r="1.1"/></g>
+    <path d="M22.5 25C20 29 15 31 15 36C15 41 20 43 22.5 39C22.5 43 21 45 18.5 47H26.5C24 45 22.5 43 22.5 39C25 43 30 41 30 36C30 31 25 29 22.5 25Z" fill="none" stroke="#FFFFFF" stroke-width="1.1"/>
+  </g>
+  <rect x="0.5" y="0.5" width="44" height="67" rx="6.5" fill="none" stroke="#7896C5"/>
+  <rect x="2.5" y="2.5" width="40" height="63" rx="5" fill="none" stroke="#DDE9FF" stroke-opacity="0.28"/>
+</svg>
+'@
+
+$concepts['03_emerald_art_deco.svg'] = @'
+<svg xmlns="http://www.w3.org/2000/svg" width="45" height="68" viewBox="0 0 45 68" preserveAspectRatio="xMidYMid meet">
+  <title>Emerald Art Deco</title>
+  <defs>
+    <linearGradient id="emerald" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#073A31"/><stop offset="0.5" stop-color="#0A5B48"/><stop offset="1" stop-color="#052A25"/></linearGradient>
+    <clipPath id="clip"><rect x="0.5" y="0.5" width="44" height="67" rx="6.5"/></clipPath>
+  </defs>
+  <g clip-path="url(#clip)">
+    <rect width="45" height="68" fill="url(#emerald)"/>
+    <g fill="none" stroke="#D9B85B" stroke-width="0.8"><path d="M3 26Q22.5 3 42 26"/><path d="M7 27Q22.5 9 38 27"/><path d="M11 28Q22.5 15 34 28"/><path d="M3 42Q22.5 65 42 42"/><path d="M7 41Q22.5 59 38 41"/><path d="M11 40Q22.5 53 34 40"/><path d="M22.5 4V64"/><path d="M4 34H41"/></g>
+    <path d="M22.5 25L31 34L22.5 43L14 34Z" fill="#062C25" stroke="#F1D47A" stroke-width="1.3"/>
+    <path d="M22.5 29L27 34L22.5 39L18 34Z" fill="#D9B85B"/>
+    <circle cx="22.5" cy="34" r="1.3" fill="#FFF4C6"/>
+  </g>
+  <rect x="0.5" y="0.5" width="44" height="67" rx="6.5" fill="none" stroke="#C7A74F"/>
+  <rect x="2.5" y="2.5" width="40" height="63" rx="5" fill="none" stroke="#D9B85B" stroke-width="0.8"/>
+</svg>
+'@
+
+$concepts['04_aurora_weave.svg'] = @'
+<svg xmlns="http://www.w3.org/2000/svg" width="45" height="68" viewBox="0 0 45 68" preserveAspectRatio="xMidYMid meet">
+  <title>Aurora Weave</title>
+  <defs>
+    <linearGradient id="aurora" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#071B38"/><stop offset="1" stop-color="#28104C"/></linearGradient>
+    <clipPath id="clip"><rect x="0.5" y="0.5" width="44" height="67" rx="6.5"/></clipPath>
+  </defs>
+  <g clip-path="url(#clip)">
+    <rect width="45" height="68" fill="url(#aurora)"/>
+    <g fill="none" stroke-linecap="round" opacity="0.86"><path d="M-9 8L54 55" stroke="#00D5DE" stroke-width="7"/><path d="M-8 31L48 72" stroke="#6B35C8" stroke-width="7"/><path d="M-5 63L50 18" stroke="#FF2CB8" stroke-width="6"/><path d="M-5 42L48 1" stroke="#FFE65A" stroke-width="4" opacity="0.9"/></g>
+    <g fill="none" stroke="#FFFFFF" stroke-width="0.7" opacity="0.5"><path d="M-9 8L54 55"/><path d="M-8 31L48 72"/><path d="M-5 63L50 18"/><path d="M-5 42L48 1"/></g>
+    <path d="M22.5 24L32.5 34L22.5 44L12.5 34Z" fill="#0B1024" stroke="#FFFFFF" stroke-width="1.1"/>
+    <path d="M22.5 29L27.5 34L22.5 39L17.5 34Z" fill="#00D5DE"/>
+  </g>
+  <rect x="0.5" y="0.5" width="44" height="67" rx="6.5" fill="none" stroke="#523795"/>
+</svg>
+'@
+
+$concepts['05_porcelain_lattice.svg'] = @'
+<svg xmlns="http://www.w3.org/2000/svg" width="45" height="68" viewBox="0 0 45 68" preserveAspectRatio="xMidYMid meet">
+  <title>Porcelain Lattice</title>
+  <defs>
+    <pattern id="lattice" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M0 5L5 0L10 5L5 10Z" fill="none" stroke="#2D5EA8" stroke-width="0.55"/><circle cx="5" cy="5" r="0.8" fill="#2D5EA8"/></pattern>
+    <clipPath id="clip"><rect x="0.5" y="0.5" width="44" height="67" rx="6.5"/></clipPath>
+  </defs>
+  <g clip-path="url(#clip)">
+    <rect width="45" height="68" fill="#FFFDF6"/>
+    <rect width="45" height="68" fill="url(#lattice)" opacity="0.75"/>
+    <ellipse cx="22.5" cy="34" rx="12" ry="15" fill="#FFFDF6" stroke="#2D5EA8" stroke-width="1.1"/>
+    <path d="M22.5 22C24 27 29 28 33 28C29 31 29 37 33 40C28 40 24 42 22.5 46C21 42 17 40 12 40C16 37 16 31 12 28C16 28 21 27 22.5 22Z" fill="#DCE9FF" stroke="#2D5EA8" stroke-width="0.9"/>
+    <circle cx="22.5" cy="34" r="3" fill="#2D5EA8"/><circle cx="22.5" cy="34" r="1.1" fill="#FFFFFF"/>
+  </g>
+  <rect x="0.5" y="0.5" width="44" height="67" rx="6.5" fill="none" stroke="#244E8D"/>
+  <rect x="2.5" y="2.5" width="40" height="63" rx="5" fill="none" stroke="#2D5EA8" stroke-width="1"/>
+</svg>
+'@
+
+$concepts['06_solar_eclipse.svg'] = @'
+<svg xmlns="http://www.w3.org/2000/svg" width="45" height="68" viewBox="0 0 45 68" preserveAspectRatio="xMidYMid meet">
+  <title>Solar Eclipse</title>
+  <defs>
+    <radialGradient id="space" cx="50%" cy="50%" r="65%"><stop stop-color="#343139"/><stop offset="1" stop-color="#111014"/></radialGradient>
+    <radialGradient id="sun"><stop stop-color="#FFF4A0"/><stop offset="0.65" stop-color="#F5B942"/><stop offset="1" stop-color="#E66B2E"/></radialGradient>
+    <clipPath id="clip"><rect x="0.5" y="0.5" width="44" height="67" rx="6.5"/></clipPath>
+  </defs>
+  <g clip-path="url(#clip)">
+    <rect width="45" height="68" fill="url(#space)"/>
+    <g stroke="#E8B84A" stroke-width="0.8" opacity="0.7"><path d="M22.5 7V15"/><path d="M22.5 53V61"/><path d="M5 34H13"/><path d="M32 34H40"/><path d="M10 16L15.5 21.5"/><path d="M29.5 46.5L35 52"/><path d="M35 16L29.5 21.5"/><path d="M15.5 46.5L10 52"/></g>
+    <circle cx="22.5" cy="34" r="13.5" fill="none" stroke="#E8B84A" stroke-opacity="0.4" stroke-width="0.7" stroke-dasharray="2 2"/>
+    <circle cx="22.5" cy="34" r="10.5" fill="url(#sun)"/>
+    <circle cx="25.5" cy="31" r="9.2" fill="#111014"/>
+    <path d="M17.5 40.5Q22.5 44 28 39.5" fill="none" stroke="#FFF4A0" stroke-width="1.1" stroke-linecap="round"/>
+  </g>
+  <rect x="0.5" y="0.5" width="44" height="67" rx="6.5" fill="none" stroke="#B98631"/>
+</svg>
+'@
+
+$concepts['07_neon_circuit.svg'] = @'
+<svg xmlns="http://www.w3.org/2000/svg" width="45" height="68" viewBox="0 0 45 68" preserveAspectRatio="xMidYMid meet">
+  <title>Neon Circuit</title>
+  <defs><clipPath id="clip"><rect x="0.5" y="0.5" width="44" height="67" rx="6.5"/></clipPath></defs>
+  <g clip-path="url(#clip)">
+    <rect width="45" height="68" fill="#06080E"/>
+    <g fill="none" stroke-width="1.15" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12H11L15 16V25L19 29" stroke="#00E6ED"/><path d="M42 12H34L30 16V25L26 29" stroke="#FF2CB8"/><path d="M3 56H11L15 52V43L19 39" stroke="#FF2CB8"/><path d="M42 56H34L30 52V43L26 39" stroke="#00E6ED"/><path d="M8 4V9L12 13" stroke="#7B4DFF"/><path d="M37 64V59L33 55" stroke="#7B4DFF"/></g>
+    <g fill="#07131B" stroke-width="1"><circle cx="3" cy="12" r="1.5" stroke="#00E6ED"/><circle cx="42" cy="12" r="1.5" stroke="#FF2CB8"/><circle cx="3" cy="56" r="1.5" stroke="#FF2CB8"/><circle cx="42" cy="56" r="1.5" stroke="#00E6ED"/><circle cx="8" cy="4" r="1.3" stroke="#7B4DFF"/><circle cx="37" cy="64" r="1.3" stroke="#7B4DFF"/></g>
+    <rect x="14" y="25.5" width="17" height="17" rx="3" fill="#0D1421" stroke="#7B4DFF"/>
+    <path d="M22.5 28L28.5 34L22.5 40L16.5 34Z" fill="none" stroke="#FFFFFF" stroke-width="1"/>
+    <circle cx="22.5" cy="34" r="2.1" fill="#00E6ED"/>
+  </g>
+  <rect x="0.5" y="0.5" width="44" height="67" rx="6.5" fill="none" stroke="#283047"/>
+</svg>
+'@
+
+$concepts['08_prism_mosaic.svg'] = @'
+<svg xmlns="http://www.w3.org/2000/svg" width="45" height="68" viewBox="0 0 45 68" preserveAspectRatio="xMidYMid meet">
+  <title>Prism Mosaic</title>
+  <defs>
+    <linearGradient id="prism" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#1B0D3C"/><stop offset="1" stop-color="#3F176B"/></linearGradient>
+    <clipPath id="clip"><rect x="0.5" y="0.5" width="44" height="67" rx="6.5"/></clipPath>
+  </defs>
+  <g clip-path="url(#clip)">
+    <rect width="45" height="68" fill="url(#prism)"/>
+    <g stroke="#FFFFFF" stroke-opacity="0.12" stroke-width="0.5"><path d="M0 0L15 12L0 24Z" fill="#4C29A5"/><path d="M0 0L15 12L26 0Z" fill="#6A2BC1"/><path d="M26 0L15 12L34 18L45 4L45 0Z" fill="#223C9D"/><path d="M0 24L15 12L20 31L6 39Z" fill="#184C8A"/><path d="M15 12L34 18L20 31Z" fill="#A022A2"/><path d="M34 18L45 4L45 30L20 31Z" fill="#6B2CC7"/><path d="M0 24L6 39L0 54Z" fill="#6B2CC7"/><path d="M6 39L20 31L27 49L13 57Z" fill="#263FA7"/><path d="M20 31L45 30L36 45L27 49Z" fill="#B3258E"/><path d="M45 30L45 55L36 45Z" fill="#174C8D"/><path d="M0 54L13 57L20 68H0Z" fill="#233D91"/><path d="M13 57L27 49L36 68H20Z" fill="#6B2CC7"/><path d="M27 49L36 45L45 55L45 68H36Z" fill="#4C29A5"/></g>
+    <path d="M22.5 23L32 34L22.5 45L13 34Z" fill="#130823" stroke="#F3D6FF" stroke-width="1.2"/>
+    <path d="M22.5 27L28.5 34L22.5 41L16.5 34Z" fill="#7B4DFF" stroke="#00D7EA" stroke-width="0.8"/>
+  </g>
+  <rect x="0.5" y="0.5" width="44" height="67" rx="6.5" fill="none" stroke="#B477E3"/>
+</svg>
+'@
+
+$concepts['09_crimson_heraldry.svg'] = @'
+<svg xmlns="http://www.w3.org/2000/svg" width="45" height="68" viewBox="0 0 45 68" preserveAspectRatio="xMidYMid meet">
+  <title>Crimson Heraldry</title>
+  <defs>
+    <linearGradient id="crimson" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#6E0F24"/><stop offset="0.5" stop-color="#991E32"/><stop offset="1" stop-color="#4D0A1A"/></linearGradient>
+    <clipPath id="clip"><rect x="0.5" y="0.5" width="44" height="67" rx="6.5"/></clipPath>
+  </defs>
+  <g clip-path="url(#clip)">
+    <rect width="45" height="68" fill="url(#crimson)"/>
+    <g fill="none" stroke="#E1BE62" stroke-width="0.8"><path d="M6 12Q14 18 14 29Q8 25 5 20"/><path d="M39 12Q31 18 31 29Q37 25 40 20"/><path d="M6 56Q14 50 14 39Q8 43 5 48"/><path d="M39 56Q31 50 31 39Q37 43 40 48"/></g>
+    <g fill="#E1BE62"><path d="M15 19L17 13L21 17L22.5 11L24 17L28 13L30 19Z"/><path d="M15 49L17 55L21 51L22.5 57L24 51L28 55L30 49Z"/></g>
+    <path d="M22.5 21L32 25V35C32 42 27 47 22.5 50C18 47 13 42 13 35V25Z" fill="#4A0918" stroke="#F0D17B" stroke-width="1.2"/>
+    <path d="M22.5 26C20.8 29 17 31 17 35C17 38.5 20.5 40 22.5 37C22.5 40 21.5 42 20 43H25C23.5 42 22.5 40 22.5 37C24.5 40 28 38.5 28 35C28 31 24.2 29 22.5 26Z" fill="#E1BE62"/>
+  </g>
+  <rect x="0.5" y="0.5" width="44" height="67" rx="6.5" fill="none" stroke="#B38E3F"/>
+  <rect x="2.5" y="2.5" width="40" height="63" rx="5" fill="none" stroke="#E1BE62" stroke-width="0.7"/>
+</svg>
+'@
+
+$concepts['10_ocean_waves.svg'] = @'
+<svg xmlns="http://www.w3.org/2000/svg" width="45" height="68" viewBox="0 0 45 68" preserveAspectRatio="xMidYMid meet">
+  <title>Ocean Waves</title>
+  <defs>
+    <linearGradient id="ocean" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#123E78"/><stop offset="1" stop-color="#062A54"/></linearGradient>
+    <clipPath id="clip"><rect x="0.5" y="0.5" width="44" height="67" rx="6.5"/></clipPath>
+  </defs>
+  <g clip-path="url(#clip)">
+    <rect width="45" height="68" fill="url(#ocean)"/>
+    <g fill="none" stroke="#7ED7E8" stroke-width="1" opacity="0.72"><path d="M-4 12Q3 7 10 12T24 12T38 12T52 12"/><path d="M-4 20Q3 15 10 20T24 20T38 20T52 20"/><path d="M-4 28Q3 23 10 28T24 28T38 28T52 28"/><path d="M-4 40Q3 35 10 40T24 40T38 40T52 40"/><path d="M-4 48Q3 43 10 48T24 48T38 48T52 48"/><path d="M-4 56Q3 51 10 56T24 56T38 56T52 56"/></g>
+    <path d="M22.5 24L32.5 34L22.5 44L12.5 34Z" fill="#F8FCFF"/>
+    <path d="M22.5 29L27.5 34L22.5 39L17.5 34Z" fill="#17A9CB"/>
+    <circle cx="22.5" cy="34" r="1.2" fill="#FFFFFF"/>
+  </g>
+  <rect x="0.5" y="0.5" width="44" height="67" rx="6.5" fill="none" stroke="#5FB8D4"/>
+</svg>
+'@
+
+foreach ($name in @($concepts.Keys)) {
+  $concepts[$name] = Convert-ToTwoThreeCardSvg $concepts[$name]
+}
+
+foreach ($entry in $concepts.GetEnumerator()) {
+  Write-Asset $entry.Key $entry.Value
+}
+
+$labels = @(
+  'Oniro Orbit', 'Midnight Constellation', 'Emerald Art Deco', 'Aurora Weave', 'Porcelain Lattice',
+  'Solar Eclipse', 'Neon Circuit', 'Prism Mosaic', 'Crimson Heraldry', 'Ocean Waves'
+)
+$names = @($concepts.Keys)
+$scale = 4
+$sheet = [System.Collections.Generic.List[string]]::new()
+$sheet.Add('<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">')
+$sheet.Add('<title>Ten solitaire card-back concepts</title>')
+$sheet.Add('<rect width="1200" height="800" fill="#0B6E3F"/>')
+$sheet.Add('<text x="60" y="42" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="24" font-weight="700">Solitaire — card-back concepts</text>')
+
+for ($index = 0; $index -lt $names.Count; $index++) {
+  $column = $index % 5
+  $row = [Math]::Floor($index / 5)
+  $x = 60 + ($column * 225)
+  $y = 72 + ($row * 350)
+  $inner = Get-InnerSvg $concepts[$names[$index]]
+  $sheet.Add(('<g transform="translate({0} {1}) scale({2})">{3}</g>' -f $x, $y, $scale, $inner))
+  $sheet.Add(('<text x="{0}" y="{1}" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="16" text-anchor="middle">{2}</text>' -f ($x + 90), ($y + 298), $labels[$index]))
+}
+$sheet.Add('</svg>')
+Write-Asset 'all-card-backs.svg' ($sheet -join "`n")
+
+Write-Output ('Generated ' + $concepts.Count + ' card-back concepts and one SVG showcase.')

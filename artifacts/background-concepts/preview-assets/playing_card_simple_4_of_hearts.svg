@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="45" height="67.5" viewBox="0 0 45 67.5" data-card-aspect="2:3">
+  <title>Modern Banner 4 of hearts</title>
+  <defs>
+    <clipPath id="card-face-clip">
+      <rect x="0.5" y="0.5" width="44" height="66.5" rx="6.5"/>
+    </clipPath>
+  </defs>
+  <rect x="0.5" y="0.5" width="44" height="66.5" rx="6.5" fill="#FFFDF8" stroke="#C9C7C2"/>
+  <g clip-path="url(#card-face-clip)">
+    <rect width="45" height="17" fill="#C62828"/>
+  </g>
+  <path d="M11.734 11.28 L10.188 11.28 L10.188 14.014 L8.391 14.014 L8.391 11.28 L3.5 11.28 L3.5 9.778 L8.785 2.1 L10.188 2.1 L10.188 9.67 L11.734 9.67 Z M8.391 9.67 L8.391 4.733 L5.195 9.67 Z" fill="#FFFDF8"/>
+  <path d="M0 9C-2 6-9 1-9-4C-9-9-3-11 0-6C3-11 9-9 9-4C9 1 2 6 0 9Z" fill="#FFFDF8" transform="translate(36.5 8.96) scale(0.46)"/>
+  <path d="M13.896 15.491 L11.285 15.491 L11.285 20.105 L8.253 20.105 L8.253 15.491 L0 15.491 L0 12.956 L8.918 0 L11.285 0 L11.285 12.775 L13.896 12.775 Z M8.253 12.775 L8.253 4.443 L2.861 12.775 Z" fill="#C62828" opacity="0.5" transform="translate(5.052 32.448)"/>
+  <path d="M0 9C-2 6-9 1-9-4C-9-9-3-11 0-6C3-11 9-9 9-4C9 1 2 6 0 9Z" fill="#C62828" opacity="0.5" transform="translate(33 43.5) scale(1)"/>
+  <rect x="0.5" y="0.5" width="44" height="66.5" rx="6.5" fill="none" stroke="#C9C7C2"/>
+</svg>

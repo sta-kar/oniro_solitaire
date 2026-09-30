@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="45" height="67.5" viewBox="0 0 45 67.5" data-card-aspect="2:3">
+  <title>Modern Banner K of diamonds</title>
+  <defs>
+    <clipPath id="card-face-clip">
+      <rect x="0.5" y="0.5" width="44" height="66.5" rx="6.5"/>
+    </clipPath>
+  </defs>
+  <rect x="0.5" y="0.5" width="44" height="66.5" rx="6.5" fill="#FFFDF8" stroke="#C9C7C2"/>
+  <g clip-path="url(#card-face-clip)">
+    <rect width="45" height="17" fill="#C62828"/>
+  </g>
+  <path d="M13.18 13.866 L10.931 13.866 L6.931 8.155 L5.336 9.803 L5.336 13.866 L3.5 13.866 L3.5 2.1 L5.336 2.1 L5.336 7.78 L10.693 2.1 L12.969 2.1 L8.172 6.975 Z" fill="#FFFDF8"/>
+  <path d="M0-10L8 0L0 10L-8 0Z" fill="#FFFDF8" transform="translate(36.5 8.5) scale(0.46)"/>
+  <path d="M16.334 19.854 L12.54 19.854 L5.79 10.217 L3.098 12.998 L3.098 19.854 L0 19.854 L0 0 L3.098 0 L3.098 9.584 L12.139 0 L15.979 0 L7.884 8.227 Z" fill="#C62828" opacity="0.5" transform="translate(3.833 32.573)"/>
+  <path d="M0-10L8 0L0 10L-8 0Z" fill="#C62828" opacity="0.5" transform="translate(33 42.5) scale(1)"/>
+  <rect x="0.5" y="0.5" width="44" height="66.5" rx="6.5" fill="none" stroke="#C9C7C2"/>
+</svg>

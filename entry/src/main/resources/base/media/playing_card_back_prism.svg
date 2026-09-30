@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="45" height="67.5" viewBox="0 0 45 67.5" preserveAspectRatio="xMidYMid meet" data-card-aspect="2:3">
+  <title>Prism Mosaic 02 — Ocean</title>
+  <g transform="scale(1 0.9926470588235294)" data-source-viewBox="0 0 45 68">
+  <defs><clipPath id="clip"><rect x="0.5" y="0.5" width="44" height="67" rx="6.5"/></clipPath></defs>
+  <g clip-path="url(#clip)">
+    <rect width="45" height="68" fill="#082D4D"/>
+    <g stroke="#C8FAFF" stroke-opacity="0.16" stroke-width="0.5"><path d="M0 0L11 18L24 0Z" fill="#0D6C86"/><path d="M24 0L11 18L31 24L45 10V0Z" fill="#1C9BA8"/><path d="M0 0L11 18L0 35Z" fill="#164D79"/><path d="M11 18L31 24L18 38L0 35Z" fill="#16B5B5"/><path d="M31 24L45 10L45 38L18 38Z" fill="#2470A6"/><path d="M0 35L18 38L9 58L0 51Z" fill="#146783"/><path d="M18 38L45 38L34 54L9 58Z" fill="#1AA7B8"/><path d="M45 38V68L34 54Z" fill="#164D79"/><path d="M0 51L9 58L15 68H0Z" fill="#1C92A0"/><path d="M9 58L34 54L28 68H15Z" fill="#2072A4"/><path d="M34 54L45 68H28Z" fill="#19B2B2"/></g>
+    <path d="M22.5 21L34 34L22.5 47L11 34Z" fill="#06243A" stroke="#B9FAFF" stroke-width="1.2"/><path d="M22.5 27L28.5 34L22.5 41L16.5 34Z" fill="#23D7CF"/>
+  </g>
+  <rect x="0.5" y="0.5" width="44" height="67" rx="6.5" fill="none" stroke="#54D9DF"/>
+  </g>
+</svg>

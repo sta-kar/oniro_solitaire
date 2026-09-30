@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="45" height="67.5" viewBox="0 0 45 67.5" preserveAspectRatio="xMidYMid meet" data-card-aspect="2:3">
+  <title>Oniro Orbit 05 — Minimal</title>
+  <g transform="scale(1 0.9926470588235294)" data-source-viewBox="0 0 45 68">
+  <defs>
+    <clipPath id="clip"><rect x="0.5" y="0.5" width="44" height="67" rx="6.5"/></clipPath>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0B0A12"/><stop offset="1" stop-color="#191126"/></linearGradient>
+  </defs>
+  <g clip-path="url(#clip)">
+    <rect width="45" height="68" fill="url(#bg)"/>
+<circle cx="22.5" cy="34" r="16" fill="none" stroke="#FFFFFF" stroke-opacity="0.16" stroke-width="0.7"/>
+<circle cx="22.5" cy="34" r="11" fill="none" stroke="#FFFFFF" stroke-opacity="0.32" stroke-width="0.7"/>
+<circle cx="22.5" cy="18" r="2.3" fill="#FFEE52"/><circle cx="38.5" cy="34" r="2.3" fill="#6832BD"/><circle cx="22.5" cy="50" r="2.3" fill="#00C9E5"/><circle cx="6.5" cy="34" r="2.3" fill="#FF2CB8"/>
+<circle cx="22.5" cy="34" r="6" fill="#020204" stroke="#FFFFFF" stroke-width="0.8"/><circle cx="22.5" cy="34" r="1.5" fill="#FFFFFF"/>
+  </g>
+  <rect x="0.5" y="0.5" width="44" height="67" rx="6.5" fill="none" stroke="#3B3248"/>
+  <rect x="2.5" y="2.5" width="40" height="63" rx="5" fill="none" stroke="#FFFFFF" stroke-opacity="0.12"/>
+  </g>
+</svg>

@@ -1,0 +1,445 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1120" viewBox="0 0 1200 1120">
+<title>Four originals and twenty card-back variations</title>
+<rect width="1200" height="1120" fill="#0B6E3F"/>
+<text x="55" y="36" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="24" font-weight="700">Solitaire — selected card-back variations</text>
+<g transform="translate(55 70) scale(3.2)">
+  <title>Oniro Orbit</title>
+  <g transform="scale(1 0.9926470588235294)" data-source-viewBox="0 0 45 68">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="45%" r="70%"><stop offset="0" stop-color="#2B1454"/><stop offset="1" stop-color="#10051F"/></radialGradient>
+    <clipPath id="clip"><rect x="0.5" y="0.5" width="44" height="67" rx="6.5"/></clipPath>
+  </defs>
+  <g clip-path="url(#clip)">
+    <rect width="45" height="68" fill="url(#bg)"/>
+    <circle cx="22.5" cy="34" r="15.5" fill="none" stroke="#FFFFFF" stroke-opacity="0.12" stroke-width="0.8"/>
+    <circle cx="22.5" cy="34" r="12" fill="none" stroke="#00C9E5" stroke-width="4" stroke-dasharray="18 7 9 8" transform="rotate(-28 22.5 34)"/>
+    <circle cx="22.5" cy="34" r="12" fill="none" stroke="#FF2CB8" stroke-width="4" stroke-dasharray="8 26 12 29" transform="rotate(42 22.5 34)"/>
+    <circle cx="22.5" cy="34" r="12" fill="none" stroke="#FFEE52" stroke-width="4" stroke-dasharray="7 31 10 27" transform="rotate(103 22.5 34)"/>
+    <circle cx="22.5" cy="34" r="6.7" fill="#07020D" stroke="#7133C7" stroke-width="1"/>
+    <circle cx="22.5" cy="34" r="2" fill="#FFFFFF"/>
+    <g fill="#FFFFFF" opacity="0.5"><circle cx="7" cy="11" r="0.7"/><circle cx="38" cy="14" r="0.7"/><circle cx="8" cy="56" r="0.7"/><circle cx="37" cy="53" r="0.7"/></g>
+  </g>
+  <rect x="0.5" y="0.5" width="44" height="67" rx="6.5" fill="none" stroke="#5B2A8B"/>
+  <rect x="2.5" y="2.5" width="40" height="63" rx="5" fill="none" stroke="#FFFFFF" stroke-opacity="0.2"/>
+  </g>
+</g>
+<text x="127" y="308" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="14" text-anchor="middle">Orbit 00 · Original</text>
+<text x="55" y="62" fill="#FFFFFF" fill-opacity="0.72" font-family="Arial, sans-serif" font-size="13">Oniro Orbit</text>
+<g transform="translate(240 70) scale(3.2)">
+  <title>Oniro Orbit 01 — Classic</title>
+  <g transform="scale(1 0.9926470588235294)" data-source-viewBox="0 0 45 68">
+  <defs>
+    <clipPath id="clip"><rect x="0.5" y="0.5" width="44" height="67" rx="6.5"/></clipPath>
+    <radialGradient id="bg" cx="50%" cy="45%" r="70%"><stop stop-color="#30155E"/><stop offset="1" stop-color="#0E041A"/></radialGradient>
+  </defs>
+  <g clip-path="url(#clip)">
+    <rect width="45" height="68" fill="url(#bg)"/>
+<circle cx="22.5" cy="34" r="15.5" fill="none" stroke="#FFFFFF" stroke-opacity="0.12"/>
+<circle cx="22.5" cy="34" r="12" fill="none" stroke="#00C9E5" stroke-width="4" stroke-dasharray="17 9 11 8" transform="rotate(-25 22.5 34)"/>
+<circle cx="22.5" cy="34" r="12" fill="none" stroke="#FF2CB8" stroke-width="4" stroke-dasharray="8 27 13 27" transform="rotate(42 22.5 34)"/>
+<circle cx="22.5" cy="34" r="12" fill="none" stroke="#FFEE52" stroke-width="4" stroke-dasharray="7 32 10 26" transform="rotate(104 22.5 34)"/>
+<circle cx="22.5" cy="34" r="6.8" fill="#08020E" stroke="#7133C7"/>
+<circle cx="22.5" cy="34" r="2" fill="#FFFFFF"/>
+<g fill="#FFFFFF" opacity="0.48"><circle cx="7" cy="11" r="0.6"/><circle cx="38" cy="15" r="0.6"/><circle cx="8" cy="56" r="0.6"/><circle cx="37" cy="53" r="0.6"/></g>
+  </g>
+  <rect x="0.5" y="0.5" width="44" height="67" rx="6.5" fill="none" stroke="#633092"/>
+  <rect x="2.5" y="2.5" width="40" height="63" rx="5" fill="none" stroke="#FFFFFF" stroke-opacity="0.18"/>
+  </g>
+</g>
+<text x="312" y="308" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="14" text-anchor="middle">Orbit 01 · Classic</text>
+<g transform="translate(425 70) scale(3.2)">
+  <title>Oniro Orbit 02 — Gyroscope</title>
+  <g transform="scale(1 0.9926470588235294)" data-source-viewBox="0 0 45 68">
+  <defs>
+    <clipPath id="clip"><rect x="0.5" y="0.5" width="44" height="67" rx="6.5"/></clipPath>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#071832"/><stop offset="1" stop-color="#28104B"/></linearGradient>
+  </defs>
+  <g clip-path="url(#clip)">
+    <rect width="45" height="68" fill="url(#bg)"/>
+<g fill="none" stroke-width="1.7"><ellipse cx="22.5" cy="34" rx="17" ry="7" stroke="#00D4DF" transform="rotate(22 22.5 34)"/><ellipse cx="22.5" cy="34" rx="17" ry="7" stroke="#FF35B9" transform="rotate(-22 22.5 34)"/><ellipse cx="22.5" cy="34" rx="16" ry="6.5" stroke="#FFE45C" transform="rotate(90 22.5 34)"/></g>
+<circle cx="22.5" cy="34" r="5.8" fill="#120621" stroke="#FFFFFF" stroke-width="0.8"/>
+<path d="M22.5 29L27.5 34L22.5 39L17.5 34Z" fill="#6C38C5"/>
+<g><circle cx="7.2" cy="27.7" r="1.7" fill="#00D4DF"/><circle cx="38" cy="28.5" r="1.7" fill="#FF35B9"/><circle cx="22.5" cy="18" r="1.7" fill="#FFE45C"/></g>
+<g fill="#FFFFFF" opacity="0.5"><circle cx="9" cy="10" r="0.45"/><circle cx="35" cy="13" r="0.45"/><circle cx="12" cy="57" r="0.45"/><circle cx="38" cy="52" r="0.45"/></g>
+  </g>
+  <rect x="0.5" y="0.5" width="44" height="67" rx="6.5" fill="none" stroke="#4A68A7"/>
+  
+  </g>
+</g>
+<text x="497" y="308" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="14" text-anchor="middle">Orbit 02 · Gyroscope</text>
+<g transform="translate(610 70) scale(3.2)">
+  <title>Oniro Orbit 03 — Satellite</title>
+  <g transform="scale(1 0.9926470588235294)" data-source-viewBox="0 0 45 68">
+  <defs>
+    <clipPath id="clip"><rect x="0.5" y="0.5" width="44" height="67" rx="6.5"/></clipPath>
+    <radialGradient id="bg" cx="42%" cy="48%" r="80%"><stop stop-color="#4A123F"/><stop offset="0.55" stop-color="#231139"/><stop offset="1" stop-color="#090511"/></radialGradient>
+  </defs>
+  <g clip-path="url(#clip)">
+    <rect width="45" height="68" fill="url(#bg)"/>
+<circle cx="19.5" cy="36" r="10" fill="#07030A" stroke="#6A35BA"/>
+<circle cx="19.5" cy="36" r="15.5" fill="none" stroke="#FF2CB8" stroke-width="1.4" stroke-dasharray="30 12 8 48" transform="rotate(20 19.5 36)"/>
+<circle cx="19.5" cy="36" r="18.5" fill="none" stroke="#00C9E5" stroke-width="1" stroke-dasharray="14 18 27 58" transform="rotate(-35 19.5 36)"/>
+<circle cx="28" cy="23.5" r="3.4" fill="#FFEE52"/><circle cx="33.7" cy="44.5" r="2.6" fill="#00C9E5"/><circle cx="7.5" cy="43" r="2.2" fill="#FF2CB8"/>
+<circle cx="19.5" cy="36" r="2.3" fill="#FFFFFF"/>
+<path d="M7 15Q19 7 35 13" fill="none" stroke="#FFFFFF" stroke-opacity="0.18"/><path d="M9 57Q24 64 38 55" fill="none" stroke="#FFFFFF" stroke-opacity="0.18"/>
+  </g>
+  <rect x="0.5" y="0.5" width="44" height="67" rx="6.5" fill="none" stroke="#74265E"/>
+  
+  </g>
+</g>
+<text x="682" y="308" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="14" text-anchor="middle">Orbit 03 · Satellite</text>
+<g transform="translate(795 70) scale(3.2)">
+  <title>Oniro Orbit 04 — Bloom</title>
+  <g transform="scale(1 0.9926470588235294)" data-source-viewBox="0 0 45 68">
+  <defs>
+    <clipPath id="clip"><rect x="0.5" y="0.5" width="44" height="67" rx="6.5"/></clipPath>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#24104C"/><stop offset="1" stop-color="#0B061A"/></linearGradient>
+  </defs>
+  <g clip-path="url(#clip)">
+    <rect width="45" height="68" fill="url(#bg)"/>
+<g fill="none" stroke-width="4" opacity="0.95"><ellipse cx="22.5" cy="24" rx="5" ry="11" stroke="#00C9E5"/><ellipse cx="22.5" cy="44" rx="5" ry="11" stroke="#FF2CB8"/><ellipse cx="12.5" cy="34" rx="11" ry="5" stroke="#FFE952"/><ellipse cx="32.5" cy="34" rx="11" ry="5" stroke="#6832BD"/></g>
+<circle cx="22.5" cy="34" r="8" fill="#0A0310" stroke="#FFFFFF" stroke-opacity="0.5"/>
+<circle cx="22.5" cy="34" r="3.2" fill="#FFFFFF"/>
+<g fill="#FFFFFF" opacity="0.35"><circle cx="6" cy="9" r="0.5"/><circle cx="39" cy="11" r="0.5"/><circle cx="6" cy="59" r="0.5"/><circle cx="39" cy="57" r="0.5"/></g>
+  </g>
+  <rect x="0.5" y="0.5" width="44" height="67" rx="6.5" fill="none" stroke="#6330A0"/>
+  <rect x="2.5" y="2.5" width="40" height="63" rx="5" fill="none" stroke="#FFFFFF" stroke-opacity="0.16"/>
+  </g>
+</g>
+<text x="867" y="308" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="14" text-anchor="middle">Orbit 04 · Bloom</text>
+<g transform="translate(980 70) scale(3.2)">
+  <title>Oniro Orbit 05 — Minimal</title>
+  <g transform="scale(1 0.9926470588235294)" data-source-viewBox="0 0 45 68">
+  <defs>
+    <clipPath id="clip"><rect x="0.5" y="0.5" width="44" height="67" rx="6.5"/></clipPath>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0B0A12"/><stop offset="1" stop-color="#191126"/></linearGradient>
+  </defs>
+  <g clip-path="url(#clip)">
+    <rect width="45" height="68" fill="url(#bg)"/>
+<circle cx="22.5" cy="34" r="16" fill="none" stroke="#FFFFFF" stroke-opacity="0.16" stroke-width="0.7"/>
+<circle cx="22.5" cy="34" r="11" fill="none" stroke="#FFFFFF" stroke-opacity="0.32" stroke-width="0.7"/>
+<circle cx="22.5" cy="18" r="2.3" fill="#FFEE52"/><circle cx="38.5" cy="34" r="2.3" fill="#6832BD"/><circle cx="22.5" cy="50" r="2.3" fill="#00C9E5"/><circle cx="6.5" cy="34" r="2.3" fill="#FF2CB8"/>
+<circle cx="22.5" cy="34" r="6" fill="#020204" stroke="#FFFFFF" stroke-width="0.8"/><circle cx="22.5" cy="34" r="1.5" fill="#FFFFFF"/>
+  </g>
+  <rect x="0.5" y="0.5" width="44" height="67" rx="6.5" fill="none" stroke="#3B3248"/>
+  <rect x="2.5" y="2.5" width="40" height="63" rx="5" fill="none" stroke="#FFFFFF" stroke-opacity="0.12"/>
+  </g>
+</g>
+<text x="1052" y="308" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="14" text-anchor="middle">Orbit 05 · Minimal</text>
+<g transform="translate(55 330) scale(3.2)">
+  <title>Emerald Art Deco</title>
+  <g transform="scale(1 0.9926470588235294)" data-source-viewBox="0 0 45 68">
+  <defs>
+    <linearGradient id="emerald" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#073A31"/><stop offset="0.5" stop-color="#0A5B48"/><stop offset="1" stop-color="#052A25"/></linearGradient>
+    <clipPath id="clip"><rect x="0.5" y="0.5" width="44" height="67" rx="6.5"/></clipPath>
+  </defs>
+  <g clip-path="url(#clip)">
+    <rect width="45" height="68" fill="url(#emerald)"/>
+    <g fill="none" stroke="#D9B85B" stroke-width="0.8"><path d="M3 26Q22.5 3 42 26"/><path d="M7 27Q22.5 9 38 27"/><path d="M11 28Q22.5 15 34 28"/><path d="M3 42Q22.5 65 42 42"/><path d="M7 41Q22.5 59 38 41"/><path d="M11 40Q22.5 53 34 40"/><path d="M22.5 4V64"/><path d="M4 34H41"/></g>
+    <path d="M22.5 25L31 34L22.5 43L14 34Z" fill="#062C25" stroke="#F1D47A" stroke-width="1.3"/>
+    <path d="M22.5 29L27 34L22.5 39L18 34Z" fill="#D9B85B"/>
+    <circle cx="22.5" cy="34" r="1.3" fill="#FFF4C6"/>
+  </g>
+  <rect x="0.5" y="0.5" width="44" height="67" rx="6.5" fill="none" stroke="#C7A74F"/>
+  <rect x="2.5" y="2.5" width="40" height="63" rx="5" fill="none" stroke="#D9B85B" stroke-width="0.8"/>
+  </g>
+</g>
+<text x="127" y="568" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="14" text-anchor="middle">Deco 00 · Original</text>
+<text x="55" y="322" fill="#FFFFFF" fill-opacity="0.72" font-family="Arial, sans-serif" font-size="13">Emerald Art Deco</text>
+<g transform="translate(240 330) scale(3.2)">
+  <title>Emerald Art Deco 01 — Fan</title>
+  <g transform="scale(1 0.9926470588235294)" data-source-viewBox="0 0 45 68">
+  <defs>
+    <clipPath id="clip"><rect x="0.5" y="0.5" width="44" height="67" rx="6.5"/></clipPath>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#073A31"/><stop offset="0.5" stop-color="#0A5B48"/><stop offset="1" stop-color="#052A25"/></linearGradient>
+  </defs>
+  <g clip-path="url(#clip)">
+    <rect width="45" height="68" fill="url(#bg)"/>
+<g fill="none" stroke="#D9B85B" stroke-width="0.8"><path d="M3 26Q22.5 3 42 26"/><path d="M7 27Q22.5 9 38 27"/><path d="M11 28Q22.5 15 34 28"/><path d="M3 42Q22.5 65 42 42"/><path d="M7 41Q22.5 59 38 41"/><path d="M11 40Q22.5 53 34 40"/><path d="M22.5 4V64"/><path d="M4 34H41"/></g>
+<path d="M22.5 25L31 34L22.5 43L14 34Z" fill="#062C25" stroke="#F1D47A" stroke-width="1.3"/><path d="M22.5 29L27 34L22.5 39L18 34Z" fill="#D9B85B"/><circle cx="22.5" cy="34" r="1.3" fill="#FFF4C6"/>
+  </g>
+  <rect x="0.5" y="0.5" width="44" height="67" rx="6.5" fill="none" stroke="#C7A74F"/>
+  <rect x="2.5" y="2.5" width="40" height="63" rx="5" fill="none" stroke="#D9B85B" stroke-width="0.8"/>
+  </g>
+</g>
+<text x="312" y="568" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="14" text-anchor="middle">Deco 01 · Fan</text>
+<g transform="translate(425 330) scale(3.2)">
+  <title>Emerald Art Deco 02 — Steps</title>
+  <g transform="scale(1 0.9926470588235294)" data-source-viewBox="0 0 45 68">
+  <defs>
+    <clipPath id="clip"><rect x="0.5" y="0.5" width="44" height="67" rx="6.5"/></clipPath>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#022D25"/><stop offset="1" stop-color="#0C6A52"/></linearGradient>
+  </defs>
+  <g clip-path="url(#clip)">
+    <rect width="45" height="68" fill="url(#bg)"/>
+<g fill="none" stroke="#E3C46E"><path d="M5 10H14V6H31V10H40V22H35V29H30"/><path d="M5 58H14V62H31V58H40V46H35V39H30"/><path d="M15 18L22.5 10L30 18L22.5 26Z"/><path d="M15 50L22.5 58L30 50L22.5 42Z"/></g>
+<path d="M22.5 23L33 34L22.5 45L12 34Z" fill="#04362C" stroke="#E3C46E" stroke-width="1.2"/><path d="M22.5 27L29 34L22.5 41L16 34Z" fill="#0D8B68"/><path d="M22.5 30L26 34L22.5 38L19 34Z" fill="#FFE798"/>
+  </g>
+  <rect x="0.5" y="0.5" width="44" height="67" rx="6.5" fill="none" stroke="#C9A94D"/>
+  <rect x="2" y="2" width="41" height="64" rx="5" fill="none" stroke="#E3C46E" stroke-width="0.7"/>
+  </g>
+</g>
+<text x="497" y="568" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="14" text-anchor="middle">Deco 02 · Steps</text>
+<g transform="translate(610 330) scale(3.2)">
+  <title>Emerald Art Deco 03 — Sunburst</title>
+  <g transform="scale(1 0.9926470588235294)" data-source-viewBox="0 0 45 68">
+  <defs>
+    <clipPath id="clip"><rect x="0.5" y="0.5" width="44" height="67" rx="6.5"/></clipPath>
+    <radialGradient id="bg" cx="50%" cy="50%" r="75%"><stop stop-color="#0E7459"/><stop offset="1" stop-color="#022A23"/></radialGradient>
+  </defs>
+  <g clip-path="url(#clip)">
+    <rect width="45" height="68" fill="url(#bg)"/>
+<g stroke="#E6C968" stroke-width="0.8"><path d="M22.5 34L22.5 5"/><path d="M22.5 34L35 8"/><path d="M22.5 34L42 18"/><path d="M22.5 34L43 34"/><path d="M22.5 34L42 50"/><path d="M22.5 34L35 60"/><path d="M22.5 34L22.5 63"/><path d="M22.5 34L10 60"/><path d="M22.5 34L3 50"/><path d="M22.5 34L2 34"/><path d="M22.5 34L3 18"/><path d="M22.5 34L10 8"/></g>
+<circle cx="22.5" cy="34" r="13" fill="#063A2F" stroke="#E6C968"/><circle cx="22.5" cy="34" r="9" fill="#0B604B" stroke="#E6C968"/><path d="M22.5 25L31 34L22.5 43L14 34Z" fill="#E6C968"/><path d="M22.5 29L27 34L22.5 39L18 34Z" fill="#073E33"/>
+  </g>
+  <rect x="0.5" y="0.5" width="44" height="67" rx="6.5" fill="none" stroke="#D2B455"/>
+  
+  </g>
+</g>
+<text x="682" y="568" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="14" text-anchor="middle">Deco 03 · Sunburst</text>
+<g transform="translate(795 330) scale(3.2)">
+  <title>Emerald Art Deco 04 — Ivory</title>
+  <g transform="scale(1 0.9926470588235294)" data-source-viewBox="0 0 45 68">
+  <defs>
+    <clipPath id="clip"><rect x="0.5" y="0.5" width="44" height="67" rx="6.5"/></clipPath>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#FFF8DD"/><stop offset="1" stop-color="#E8D89E"/></linearGradient>
+  </defs>
+  <g clip-path="url(#clip)">
+    <rect width="45" height="68" fill="url(#bg)"/>
+<g fill="none" stroke="#0A5C46" stroke-width="1"><path d="M4 24Q22.5 2 41 24"/><path d="M8 26Q22.5 9 37 26"/><path d="M12 28Q22.5 16 33 28"/><path d="M4 44Q22.5 66 41 44"/><path d="M8 42Q22.5 59 37 42"/><path d="M12 40Q22.5 52 33 40"/></g>
+<path d="M22.5 20L36 34L22.5 48L9 34Z" fill="#0A5C46" stroke="#B58E28" stroke-width="1.2"/><path d="M22.5 25L31 34L22.5 43L14 34Z" fill="#FFF8DD"/><path d="M22.5 29L27 34L22.5 39L18 34Z" fill="#B58E28"/>
+  </g>
+  <rect x="0.5" y="0.5" width="44" height="67" rx="6.5" fill="none" stroke="#0A5C46"/>
+  <rect x="2.5" y="2.5" width="40" height="63" rx="5" fill="none" stroke="#B58E28" stroke-width="0.8"/>
+  </g>
+</g>
+<text x="867" y="568" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="14" text-anchor="middle">Deco 04 · Ivory</text>
+<g transform="translate(980 330) scale(3.2)">
+  <title>Emerald Art Deco 05 — Nocturne</title>
+  <g transform="scale(1 0.9926470588235294)" data-source-viewBox="0 0 45 68">
+  <defs>
+    <clipPath id="clip"><rect x="0.5" y="0.5" width="44" height="67" rx="6.5"/></clipPath>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#021713"/><stop offset="1" stop-color="#073D31"/></linearGradient>
+  </defs>
+  <g clip-path="url(#clip)">
+    <rect width="45" height="68" fill="url(#bg)"/>
+<g fill="#B9963B"><rect x="5" y="7" width="2" height="54"/><rect x="38" y="7" width="2" height="54"/><path d="M4 7H12L8 12Z"/><path d="M33 7H41L37 12Z"/><path d="M4 61H12L8 56Z"/><path d="M33 61H41L37 56Z"/></g>
+<g fill="none" stroke="#E8CF7A" stroke-width="0.8"><path d="M8 17H15L22.5 9L30 17H37"/><path d="M8 51H15L22.5 59L30 51H37"/><path d="M10 24L22.5 34L35 24"/><path d="M10 44L22.5 34L35 44"/></g>
+<circle cx="22.5" cy="34" r="10" fill="#06281F" stroke="#B9963B"/><path d="M22.5 27L29 34L22.5 41L16 34Z" fill="#E8CF7A"/><circle cx="22.5" cy="34" r="2" fill="#0A5C46"/>
+  </g>
+  <rect x="0.5" y="0.5" width="44" height="67" rx="6.5" fill="none" stroke="#9E7B2C"/>
+  <rect x="2.5" y="2.5" width="40" height="63" rx="5" fill="none" stroke="#B9963B" stroke-width="0.8"/>
+  </g>
+</g>
+<text x="1052" y="568" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="14" text-anchor="middle">Deco 05 · Nocturne</text>
+<g transform="translate(55 590) scale(3.2)">
+  <title>Prism Mosaic</title>
+  <g transform="scale(1 0.9926470588235294)" data-source-viewBox="0 0 45 68">
+  <defs>
+    <linearGradient id="prism" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#1B0D3C"/><stop offset="1" stop-color="#3F176B"/></linearGradient>
+    <clipPath id="clip"><rect x="0.5" y="0.5" width="44" height="67" rx="6.5"/></clipPath>
+  </defs>
+  <g clip-path="url(#clip)">
+    <rect width="45" height="68" fill="url(#prism)"/>
+    <g stroke="#FFFFFF" stroke-opacity="0.12" stroke-width="0.5"><path d="M0 0L15 12L0 24Z" fill="#4C29A5"/><path d="M0 0L15 12L26 0Z" fill="#6A2BC1"/><path d="M26 0L15 12L34 18L45 4L45 0Z" fill="#223C9D"/><path d="M0 24L15 12L20 31L6 39Z" fill="#184C8A"/><path d="M15 12L34 18L20 31Z" fill="#A022A2"/><path d="M34 18L45 4L45 30L20 31Z" fill="#6B2CC7"/><path d="M0 24L6 39L0 54Z" fill="#6B2CC7"/><path d="M6 39L20 31L27 49L13 57Z" fill="#263FA7"/><path d="M20 31L45 30L36 45L27 49Z" fill="#B3258E"/><path d="M45 30L45 55L36 45Z" fill="#174C8D"/><path d="M0 54L13 57L20 68H0Z" fill="#233D91"/><path d="M13 57L27 49L36 68H20Z" fill="#6B2CC7"/><path d="M27 49L36 45L45 55L45 68H36Z" fill="#4C29A5"/></g>
+    <path d="M22.5 23L32 34L22.5 45L13 34Z" fill="#130823" stroke="#F3D6FF" stroke-width="1.2"/>
+    <path d="M22.5 27L28.5 34L22.5 41L16.5 34Z" fill="#7B4DFF" stroke="#00D7EA" stroke-width="0.8"/>
+  </g>
+  <rect x="0.5" y="0.5" width="44" height="67" rx="6.5" fill="none" stroke="#B477E3"/>
+  </g>
+</g>
+<text x="127" y="828" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="14" text-anchor="middle">Prism 00 · Original</text>
+<text x="55" y="582" fill="#FFFFFF" fill-opacity="0.72" font-family="Arial, sans-serif" font-size="13">Prism Mosaic</text>
+<g transform="translate(240 590) scale(3.2)">
+  <title>Prism Mosaic 01 — Violet</title>
+  <g transform="scale(1 0.9926470588235294)" data-source-viewBox="0 0 45 68">
+  <defs>
+    <clipPath id="clip"><rect x="0.5" y="0.5" width="44" height="67" rx="6.5"/></clipPath>
+    
+  </defs>
+  <g clip-path="url(#clip)">
+    <rect width="45" height="68" fill="#211044"/>
+<g stroke="#FFFFFF" stroke-opacity="0.14" stroke-width="0.5"><path d="M0 0L17 13L0 28Z" fill="#562FA8"/><path d="M0 0L17 13L29 0Z" fill="#7834C9"/><path d="M29 0L17 13L35 20L45 5L45 0Z" fill="#2843A8"/><path d="M0 28L17 13L20 33L5 41Z" fill="#17608F"/><path d="M17 13L35 20L20 33Z" fill="#A4259F"/><path d="M35 20L45 5L45 34L20 33Z" fill="#6C32CC"/><path d="M0 28L5 41L0 56Z" fill="#6D34CA"/><path d="M5 41L20 33L28 51L13 58Z" fill="#2944AC"/><path d="M20 33L45 34L37 47L28 51Z" fill="#C12B96"/><path d="M45 34L45 58L37 47Z" fill="#17608F"/><path d="M0 56L13 58L21 68H0Z" fill="#29419D"/><path d="M13 58L28 51L36 68H21Z" fill="#6D34CA"/><path d="M28 51L37 47L45 58L45 68H36Z" fill="#5630A8"/></g>
+<path d="M22.5 23L32 34L22.5 45L13 34Z" fill="#130823" stroke="#F3D6FF" stroke-width="1.2"/><path d="M22.5 27L28.5 34L22.5 41L16.5 34Z" fill="#7B4DFF" stroke="#00D7EA" stroke-width="0.8"/>
+  </g>
+  <rect x="0.5" y="0.5" width="44" height="67" rx="6.5" fill="none" stroke="#B477E3"/>
+  
+  </g>
+</g>
+<text x="312" y="828" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="14" text-anchor="middle">Prism 01 · Violet</text>
+<g transform="translate(425 590) scale(3.2)">
+  <title>Prism Mosaic 02 — Ocean</title>
+  <g transform="scale(1 0.9926470588235294)" data-source-viewBox="0 0 45 68">
+  <defs>
+    <clipPath id="clip"><rect x="0.5" y="0.5" width="44" height="67" rx="6.5"/></clipPath>
+    
+  </defs>
+  <g clip-path="url(#clip)">
+    <rect width="45" height="68" fill="#082D4D"/>
+<g stroke="#C8FAFF" stroke-opacity="0.16" stroke-width="0.5"><path d="M0 0L11 18L24 0Z" fill="#0D6C86"/><path d="M24 0L11 18L31 24L45 10V0Z" fill="#1C9BA8"/><path d="M0 0L11 18L0 35Z" fill="#164D79"/><path d="M11 18L31 24L18 38L0 35Z" fill="#16B5B5"/><path d="M31 24L45 10L45 38L18 38Z" fill="#2470A6"/><path d="M0 35L18 38L9 58L0 51Z" fill="#146783"/><path d="M18 38L45 38L34 54L9 58Z" fill="#1AA7B8"/><path d="M45 38V68L34 54Z" fill="#164D79"/><path d="M0 51L9 58L15 68H0Z" fill="#1C92A0"/><path d="M9 58L34 54L28 68H15Z" fill="#2072A4"/><path d="M34 54L45 68H28Z" fill="#19B2B2"/></g>
+<path d="M22.5 21L34 34L22.5 47L11 34Z" fill="#06243A" stroke="#B9FAFF" stroke-width="1.2"/><path d="M22.5 27L28.5 34L22.5 41L16.5 34Z" fill="#23D7CF"/>
+  </g>
+  <rect x="0.5" y="0.5" width="44" height="67" rx="6.5" fill="none" stroke="#54D9DF"/>
+  
+  </g>
+</g>
+<text x="497" y="828" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="14" text-anchor="middle">Prism 02 · Ocean</text>
+<g transform="translate(610 590) scale(3.2)">
+  <title>Prism Mosaic 03 — Sunset</title>
+  <g transform="scale(1 0.9926470588235294)" data-source-viewBox="0 0 45 68">
+  <defs>
+    <clipPath id="clip"><rect x="0.5" y="0.5" width="44" height="67" rx="6.5"/></clipPath>
+    
+  </defs>
+  <g clip-path="url(#clip)">
+    <rect width="45" height="68" fill="#3D102F"/>
+<g stroke="#FFF3D2" stroke-opacity="0.15" stroke-width="0.5"><path d="M0 0L16 9L8 26L0 22Z" fill="#D83B73"/><path d="M16 9L29 0H45L35 20L8 26Z" fill="#F06B4E"/><path d="M0 22L8 26L17 41L0 49Z" fill="#8B2C6A"/><path d="M8 26L35 20L28 40L17 41Z" fill="#EF9B46"/><path d="M35 20L45 12V42L28 40Z" fill="#C43D77"/><path d="M0 49L17 41L24 57L12 68H0Z" fill="#D44C5D"/><path d="M17 41L28 40L39 56L24 57Z" fill="#8F2A72"/><path d="M28 40L45 42V68L39 56Z" fill="#F07A4C"/><path d="M12 68L24 57L39 56L45 68Z" fill="#E8A04A"/></g>
+<path d="M22.5 22L33 34L22.5 46L12 34Z" fill="#351026" stroke="#FFE4A6" stroke-width="1.2"/><path d="M22.5 27L29 34L22.5 41L16 34Z" fill="#FFBE55" stroke="#FF4B9A"/>
+  </g>
+  <rect x="0.5" y="0.5" width="44" height="67" rx="6.5" fill="none" stroke="#E47765"/>
+  
+  </g>
+</g>
+<text x="682" y="828" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="14" text-anchor="middle">Prism 03 · Sunset</text>
+<g transform="translate(795 590) scale(3.2)">
+  <title>Prism Mosaic 04 — Dark Crystal</title>
+  <g transform="scale(1 0.9926470588235294)" data-source-viewBox="0 0 45 68">
+  <defs>
+    <clipPath id="clip"><rect x="0.5" y="0.5" width="44" height="67" rx="6.5"/></clipPath>
+    
+  </defs>
+  <g clip-path="url(#clip)">
+    <rect width="45" height="68" fill="#070812"/>
+<g stroke="#5FE8F2" stroke-opacity="0.2" stroke-width="0.5"><path d="M0 0L20 15L0 31Z" fill="#151A38"/><path d="M0 0L20 15L35 0Z" fill="#2C1F58"/><path d="M35 0L20 15L45 28V0Z" fill="#0C3E54"/><path d="M0 31L20 15L22 36L0 52Z" fill="#20245A"/><path d="M20 15L45 28L22 36Z" fill="#5D1E75"/><path d="M45 28V53L22 36Z" fill="#123B59"/><path d="M0 52L22 36L17 68H0Z" fill="#421D64"/><path d="M22 36L45 53L45 68H17Z" fill="#182A55"/></g>
+<path d="M22.5 18L35 34L22.5 50L10 34Z" fill="#04060B" stroke="#7B4DFF" stroke-width="1.4"/><path d="M22.5 24L30.5 34L22.5 44L14.5 34Z" fill="#24154A" stroke="#00E8F0"/><path d="M22.5 29L26.5 34L22.5 39L18.5 34Z" fill="#FF2CB8"/>
+  </g>
+  <rect x="0.5" y="0.5" width="44" height="67" rx="6.5" fill="none" stroke="#4B3A82"/>
+  
+  </g>
+</g>
+<text x="867" y="828" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="14" text-anchor="middle">Prism 04 · Dark Crystal</text>
+<g transform="translate(980 590) scale(3.2)">
+  <title>Prism Mosaic 05 — Frost</title>
+  <g transform="scale(1 0.9926470588235294)" data-source-viewBox="0 0 45 68">
+  <defs>
+    <clipPath id="clip"><rect x="0.5" y="0.5" width="44" height="67" rx="6.5"/></clipPath>
+    
+  </defs>
+  <g clip-path="url(#clip)">
+    <rect width="45" height="68" fill="#E9F7FF"/>
+<g stroke="#FFFFFF" stroke-opacity="0.75" stroke-width="0.7"><path d="M0 0L13 16L0 31Z" fill="#A9D9E8"/><path d="M0 0L13 16L29 0Z" fill="#C7B8E8"/><path d="M29 0L13 16L34 25L45 8V0Z" fill="#8FC9E4"/><path d="M0 31L13 16L20 36L5 47Z" fill="#B9B4E6"/><path d="M13 16L34 25L20 36Z" fill="#D9A7D7"/><path d="M34 25L45 8V40L20 36Z" fill="#9BCFE4"/><path d="M0 31L5 47L0 61Z" fill="#A2D8E2"/><path d="M5 47L20 36L31 52L16 68H0V61Z" fill="#C6B7E7"/><path d="M20 36L45 40V68H16L31 52Z" fill="#A9D9E8"/></g>
+<path d="M22.5 21L34 34L22.5 47L11 34Z" fill="#F9FDFF" stroke="#5C83B8" stroke-width="1.2"/><path d="M22.5 27L28.5 34L22.5 41L16.5 34Z" fill="#B59ADF" stroke="#69C5D8"/>
+  </g>
+  <rect x="0.5" y="0.5" width="44" height="67" rx="6.5" fill="none" stroke="#6D94C0"/>
+  
+  </g>
+</g>
+<text x="1052" y="828" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="14" text-anchor="middle">Prism 05 · Frost</text>
+<g transform="translate(55 850) scale(3.2)">
+  <title>Solar Eclipse</title>
+  <g transform="scale(1 0.9926470588235294)" data-source-viewBox="0 0 45 68">
+  <defs>
+    <radialGradient id="space" cx="50%" cy="50%" r="65%"><stop stop-color="#343139"/><stop offset="1" stop-color="#111014"/></radialGradient>
+    <radialGradient id="sun"><stop stop-color="#FFF4A0"/><stop offset="0.65" stop-color="#F5B942"/><stop offset="1" stop-color="#E66B2E"/></radialGradient>
+    <clipPath id="clip"><rect x="0.5" y="0.5" width="44" height="67" rx="6.5"/></clipPath>
+  </defs>
+  <g clip-path="url(#clip)">
+    <rect width="45" height="68" fill="url(#space)"/>
+    <g stroke="#E8B84A" stroke-width="0.8" opacity="0.7"><path d="M22.5 7V15"/><path d="M22.5 53V61"/><path d="M5 34H13"/><path d="M32 34H40"/><path d="M10 16L15.5 21.5"/><path d="M29.5 46.5L35 52"/><path d="M35 16L29.5 21.5"/><path d="M15.5 46.5L10 52"/></g>
+    <circle cx="22.5" cy="34" r="13.5" fill="none" stroke="#E8B84A" stroke-opacity="0.4" stroke-width="0.7" stroke-dasharray="2 2"/>
+    <circle cx="22.5" cy="34" r="10.5" fill="url(#sun)"/>
+    <circle cx="25.5" cy="37" r="9.2" fill="#111014"/>
+    <path d="M17.5 40.5Q22.5 44 28 39.5" fill="none" stroke="#FFF4A0" stroke-width="1.1" stroke-linecap="round"/>
+  </g>
+  <rect x="0.5" y="0.5" width="44" height="67" rx="6.5" fill="none" stroke="#B98631"/>
+  </g>
+</g>
+<text x="127" y="1088" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="14" text-anchor="middle">Eclipse 00 · Original</text>
+<text x="55" y="842" fill="#FFFFFF" fill-opacity="0.72" font-family="Arial, sans-serif" font-size="13">Solar Eclipse · moon lower-right</text>
+<g transform="translate(240 850) scale(3.2)">
+  <title>Solar Eclipse 01 — Gold</title>
+  <g transform="scale(1 0.9926470588235294)" data-source-viewBox="0 0 45 68">
+  <defs>
+    <clipPath id="clip"><rect x="0.5" y="0.5" width="44" height="67" rx="6.5"/></clipPath>
+    <radialGradient id="bg" cx="50%" cy="50%" r="70%"><stop stop-color="#343139"/><stop offset="1" stop-color="#111014"/></radialGradient><radialGradient id="sun"><stop stop-color="#FFF4A0"/><stop offset="0.65" stop-color="#F5B942"/><stop offset="1" stop-color="#E66B2E"/></radialGradient>
+  </defs>
+  <g clip-path="url(#clip)">
+    <rect width="45" height="68" fill="url(#bg)"/>
+<g stroke="#E8B84A" stroke-width="0.8" opacity="0.7"><path d="M20.5 6V14"/><path d="M20.5 52V62"/><path d="M2 32H10"/><path d="M31 32H41"/><path d="M7 15L13 21"/><path d="M29 43L36 50"/><path d="M34 14L28 20"/><path d="M12 44L6 50"/></g>
+<circle cx="20.5" cy="32" r="13.5" fill="none" stroke="#E8B84A" stroke-opacity="0.38" stroke-dasharray="2 2"/><circle cx="20.5" cy="32" r="10.5" fill="url(#sun)"/><circle cx="25.5" cy="37" r="9.2" fill="#111014"/><path d="M12 35Q18 43 25 43" fill="none" stroke="#FFF4A0" stroke-width="1.1" stroke-linecap="round"/>
+  </g>
+  <rect x="0.5" y="0.5" width="44" height="67" rx="6.5" fill="none" stroke="#B98631"/>
+  
+  </g>
+</g>
+<text x="312" y="1088" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="14" text-anchor="middle">Eclipse 01 · Gold</text>
+<g transform="translate(425 850) scale(3.2)">
+  <title>Solar Eclipse 02 — Copper</title>
+  <g transform="scale(1 0.9926470588235294)" data-source-viewBox="0 0 45 68">
+  <defs>
+    <clipPath id="clip"><rect x="0.5" y="0.5" width="44" height="67" rx="6.5"/></clipPath>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#24100D"/><stop offset="1" stop-color="#080607"/></linearGradient><radialGradient id="sun"><stop stop-color="#FFD08A"/><stop offset="0.6" stop-color="#D86A32"/><stop offset="1" stop-color="#8D2C20"/></radialGradient>
+  </defs>
+  <g clip-path="url(#clip)">
+    <rect width="45" height="68" fill="url(#bg)"/>
+<circle cx="20" cy="32" r="15" fill="none" stroke="#C46C38" stroke-width="1" stroke-dasharray="1 2"/><circle cx="20" cy="32" r="12" fill="none" stroke="#F0A357" stroke-opacity="0.5"/><circle cx="20" cy="32" r="9.5" fill="url(#sun)"/><circle cx="25" cy="37" r="8.5" fill="#080607"/>
+<g fill="#F0A357"><circle cx="20" cy="12" r="1"/><circle cx="40" cy="32" r="1"/><circle cx="20" cy="52" r="1"/><circle cx="3" cy="32" r="1"/></g><path d="M9 45Q20 57 34 49" fill="none" stroke="#C46C38" stroke-width="0.8"/>
+  </g>
+  <rect x="0.5" y="0.5" width="44" height="67" rx="6.5" fill="none" stroke="#8D4C2A"/>
+  <rect x="2.5" y="2.5" width="40" height="63" rx="5" fill="none" stroke="#C46C38" stroke-opacity="0.45"/>
+  </g>
+</g>
+<text x="497" y="1088" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="14" text-anchor="middle">Eclipse 02 · Copper</text>
+<g transform="translate(610 850) scale(3.2)">
+  <title>Solar Eclipse 03 — Blue</title>
+  <g transform="scale(1 0.9926470588235294)" data-source-viewBox="0 0 45 68">
+  <defs>
+    <clipPath id="clip"><rect x="0.5" y="0.5" width="44" height="67" rx="6.5"/></clipPath>
+    <radialGradient id="bg" cx="50%" cy="45%" r="75%"><stop stop-color="#102C53"/><stop offset="1" stop-color="#040A17"/></radialGradient><radialGradient id="sun"><stop stop-color="#FFFFFF"/><stop offset="0.55" stop-color="#B7EAFF"/><stop offset="1" stop-color="#5FC2EE"/></radialGradient>
+  </defs>
+  <g clip-path="url(#clip)">
+    <rect width="45" height="68" fill="url(#bg)"/>
+<g fill="#B7EAFF" opacity="0.65"><circle cx="7" cy="9" r="0.6"/><circle cx="37" cy="13" r="0.5"/><circle cx="8" cy="56" r="0.5"/><circle cx="37" cy="54" r="0.6"/><circle cx="12" cy="19" r="0.35"/></g>
+<circle cx="20.5" cy="32" r="14.5" fill="none" stroke="#7DD8F5" stroke-width="0.8" stroke-dasharray="5 3"/><circle cx="20.5" cy="32" r="10.5" fill="url(#sun)"/><circle cx="25.5" cy="37" r="9" fill="#050B18"/>
+<path d="M9 31Q14 42 24 44" fill="none" stroke="#FFFFFF" stroke-width="1.3" stroke-linecap="round"/><path d="M12 49Q22 56 34 48" fill="none" stroke="#5FC2EE" stroke-opacity="0.6"/>
+  </g>
+  <rect x="0.5" y="0.5" width="44" height="67" rx="6.5" fill="none" stroke="#4E9AC4"/>
+  
+  </g>
+</g>
+<text x="682" y="1088" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="14" text-anchor="middle">Eclipse 03 · Blue</text>
+<g transform="translate(795 850) scale(3.2)">
+  <title>Solar Eclipse 04 — Red Giant</title>
+  <g transform="scale(1 0.9926470588235294)" data-source-viewBox="0 0 45 68">
+  <defs>
+    <clipPath id="clip"><rect x="0.5" y="0.5" width="44" height="67" rx="6.5"/></clipPath>
+    <radialGradient id="bg" cx="50%" cy="50%" r="70%"><stop stop-color="#42101A"/><stop offset="1" stop-color="#0C0508"/></radialGradient><radialGradient id="sun"><stop stop-color="#FFE38A"/><stop offset="0.45" stop-color="#FF7A37"/><stop offset="1" stop-color="#C91F35"/></radialGradient>
+  </defs>
+  <g clip-path="url(#clip)">
+    <rect width="45" height="68" fill="url(#bg)"/>
+<g stroke="#FF6A38" stroke-linecap="round"><path d="M20 6V14"/><path d="M20 50V61"/><path d="M2 31H11"/><path d="M31 31H43"/><path d="M5 15L12 22"/><path d="M28 43L37 52"/><path d="M35 13L28 20"/><path d="M12 42L4 50"/></g>
+<circle cx="20" cy="31" r="12" fill="none" stroke="#FF8D45" stroke-width="2" stroke-opacity="0.35"/><circle cx="20" cy="31" r="9.7" fill="url(#sun)"/><circle cx="25" cy="36.5" r="8.7" fill="#0C0508"/><path d="M11 33Q17 42 25 42" fill="none" stroke="#FFE38A" stroke-width="1.1"/>
+  </g>
+  <rect x="0.5" y="0.5" width="44" height="67" rx="6.5" fill="none" stroke="#A32632"/>
+  
+  </g>
+</g>
+<text x="867" y="1088" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="14" text-anchor="middle">Eclipse 04 · Red Giant</text>
+<g transform="translate(980 850) scale(3.2)">
+  <title>Solar Eclipse 05 — Minimal</title>
+  <g transform="scale(1 0.9926470588235294)" data-source-viewBox="0 0 45 68">
+  <defs>
+    <clipPath id="clip"><rect x="0.5" y="0.5" width="44" height="67" rx="6.5"/></clipPath>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#111216"/><stop offset="1" stop-color="#050608"/></linearGradient>
+  </defs>
+  <g clip-path="url(#clip)">
+    <rect width="45" height="68" fill="url(#bg)"/>
+<circle cx="20.5" cy="32" r="16" fill="none" stroke="#FFFFFF" stroke-opacity="0.12"/><circle cx="20.5" cy="32" r="12.5" fill="none" stroke="#D9B85B" stroke-opacity="0.35" stroke-dasharray="2 4"/><circle cx="20.5" cy="32" r="9.5" fill="#F1D98A"/><circle cx="25" cy="36.5" r="8.2" fill="#07080A"/>
+<path d="M11.5 33Q15 39.5 21.5 41" fill="none" stroke="#FFF7D2" stroke-width="0.9"/><circle cx="7" cy="12" r="0.7" fill="#F1D98A"/><circle cx="37" cy="55" r="0.7" fill="#F1D98A"/>
+  </g>
+  <rect x="0.5" y="0.5" width="44" height="67" rx="6.5" fill="none" stroke="#4A4230"/>
+  <rect x="2.5" y="2.5" width="40" height="63" rx="5" fill="none" stroke="#D9B85B" stroke-opacity="0.35"/>
+  </g>
+</g>
+<text x="1052" y="1088" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="14" text-anchor="middle">Eclipse 05 · Minimal</text>
+</svg>

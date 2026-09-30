@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="45" height="67.5" viewBox="0 0 45 67.5" preserveAspectRatio="xMidYMid meet" data-card-aspect="2:3">
+  <title>Ocean Waves</title>
+  <g transform="scale(1 0.9926470588235294)" data-source-viewBox="0 0 45 68">
+  <defs>
+    <linearGradient id="ocean" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#123E78"/><stop offset="1" stop-color="#062A54"/></linearGradient>
+    <clipPath id="clip"><rect x="0.5" y="0.5" width="44" height="67" rx="6.5"/></clipPath>
+  </defs>
+  <g clip-path="url(#clip)">
+    <rect width="45" height="68" fill="url(#ocean)"/>
+    <g fill="none" stroke="#7ED7E8" stroke-width="1" opacity="0.72"><path d="M-4 12Q3 7 10 12T24 12T38 12T52 12"/><path d="M-4 20Q3 15 10 20T24 20T38 20T52 20"/><path d="M-4 28Q3 23 10 28T24 28T38 28T52 28"/><path d="M-4 40Q3 35 10 40T24 40T38 40T52 40"/><path d="M-4 48Q3 43 10 48T24 48T38 48T52 48"/><path d="M-4 56Q3 51 10 56T24 56T38 56T52 56"/></g>
+    <path d="M22.5 24L32.5 34L22.5 44L12.5 34Z" fill="#F8FCFF"/>
+    <path d="M22.5 29L27.5 34L22.5 39L17.5 34Z" fill="#17A9CB"/>
+    <circle cx="22.5" cy="34" r="1.2" fill="#FFFFFF"/>
+  </g>
+  <rect x="0.5" y="0.5" width="44" height="67" rx="6.5" fill="none" stroke="#5FB8D4"/>
+  </g>
+</svg>

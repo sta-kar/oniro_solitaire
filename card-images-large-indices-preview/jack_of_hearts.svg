@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="45" height="67.5" viewBox="0 0 45 67.5" preserveAspectRatio="xMidYMid meet" data-card-aspect="2:3">
+  <title>J of hearts</title>
+  <g transform="scale(1 0.992647058823529)" data-source-viewBox="0 0 45 68">
+  <rect x="0.5" y="0.5" width="44" height="67" rx="6.5" fill="#FFFDF8" stroke="#C9C7C2"/>
+  <rect x="11.3" y="5.5" width="22.4" height="57" rx="1.8" fill="#FFFDF8"/>
+<g>
+  <path d="M16 31L17 24L28 24L29 31L25 34H20Z" fill="#2F64B3" stroke="#171717" stroke-width="0.45"/>
+  <path d="M18 27L27 31" stroke="#F2C94C" stroke-width="2.1"/>
+  <circle cx="22.5" cy="19" r="4.2" fill="#F1C7A5" stroke="#171717" stroke-width="0.45"/>
+  <path d="M18.2 18C18.3 13.5 26.7 13.5 26.8 18L25.5 16L23 14.8L19.5 16Z" fill="#4B2E20"/>
+  <path d="M17.5 15L22 10.5L27.5 14L25.5 16.5L20 15.5Z" fill="#2F64B3" stroke="#171717" stroke-width="0.45"/>
+  <circle cx="26.7" cy="13.8" r="1.2" fill="#C62828"/>
+  <path d="M27.5 23L31 12" stroke="#C9A227" stroke-width="1.2"/>
+  <path d="M29.5 12L32.2 10.5L31 14Z" fill="#D9E3F0" stroke="#171717" stroke-width="0.35"/>
+  <path d="M20.5 20.2Q22.5 21.5 24.5 20.2" fill="none" stroke="#8B4A3A" stroke-width="0.45"/>
+</g>
+<g transform="rotate(180 22.5 34)"><g>
+  <path d="M16 31L17 24L28 24L29 31L25 34H20Z" fill="#2F64B3" stroke="#171717" stroke-width="0.45"/>
+  <path d="M18 27L27 31" stroke="#F2C94C" stroke-width="2.1"/>
+  <circle cx="22.5" cy="19" r="4.2" fill="#F1C7A5" stroke="#171717" stroke-width="0.45"/>
+  <path d="M18.2 18C18.3 13.5 26.7 13.5 26.8 18L25.5 16L23 14.8L19.5 16Z" fill="#4B2E20"/>
+  <path d="M17.5 15L22 10.5L27.5 14L25.5 16.5L20 15.5Z" fill="#2F64B3" stroke="#171717" stroke-width="0.45"/>
+  <circle cx="26.7" cy="13.8" r="1.2" fill="#C62828"/>
+  <path d="M27.5 23L31 12" stroke="#C9A227" stroke-width="1.2"/>
+  <path d="M29.5 12L32.2 10.5L31 14Z" fill="#D9E3F0" stroke="#171717" stroke-width="0.35"/>
+  <path d="M20.5 20.2Q22.5 21.5 24.5 20.2" fill="none" stroke="#8B4A3A" stroke-width="0.45"/>
+</g></g>
+<path d="M0 9C-2 6-9 1-9-4C-9-9-3-11 0-6C3-11 9-9 9-4C9 1 2 6 0 9Z" fill="#C62828" transform="translate(22.5 34) scale(0.22)"/>
+  <g><path d="M9.279 9.159 C9.279 10.239 9.064 11.01 8.635 11.474 C8.206 11.939 7.577 12.171 6.747 12.171 C6.001 12.171 5.41 11.943 4.975 11.487 C4.539 11.03 4.321 10.43 4.321 9.686 L4.321 9.341 L5.704 9.341 C5.704 10.387 6.052 10.911 6.747 10.911 C7.123 10.911 7.41 10.807 7.606 10.6 C7.803 10.393 7.902 9.932 7.902 9.218 L7.902 3.2 L9.279 3.2 Z" fill="#C62828"/><path d="M0 9C-2 6-9 1-9-4C-9-9-3-11 0-6C3-11 9-9 9-4C9 1 2 6 0 9Z" fill="#C62828" transform="translate(6.8 17.4) scale(0.36)"/></g><g transform="rotate(180 22.5 34)"><path d="M9.279 9.159 C9.279 10.239 9.064 11.01 8.635 11.474 C8.206 11.939 7.577 12.171 6.747 12.171 C6.001 12.171 5.41 11.943 4.975 11.487 C4.539 11.03 4.321 10.43 4.321 9.686 L4.321 9.341 L5.704 9.341 C5.704 10.387 6.052 10.911 6.747 10.911 C7.123 10.911 7.41 10.807 7.606 10.6 C7.803 10.393 7.902 9.932 7.902 9.218 L7.902 3.2 L9.279 3.2 Z" fill="#C62828"/><path d="M0 9C-2 6-9 1-9-4C-9-9-3-11 0-6C3-11 9-9 9-4C9 1 2 6 0 9Z" fill="#C62828" transform="translate(6.8 17.4) scale(0.36)"/></g>
+  </g>
+</svg>

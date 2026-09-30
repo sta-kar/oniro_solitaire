@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="45" height="67.5" viewBox="0 0 45 67.5" preserveAspectRatio="xMidYMid meet" data-card-aspect="2:3">
+  <title>Emerald Art Deco 03 — Sunburst</title>
+  <g transform="scale(1 0.9926470588235294)" data-source-viewBox="0 0 45 68">
+  <defs>
+    <clipPath id="clip"><rect x="0.5" y="0.5" width="44" height="67" rx="6.5"/></clipPath>
+    <radialGradient id="bg" cx="50%" cy="50%" r="75%"><stop stop-color="#0E7459"/><stop offset="1" stop-color="#022A23"/></radialGradient>
+  </defs>
+  <g clip-path="url(#clip)">
+    <rect width="45" height="68" fill="url(#bg)"/>
+<g stroke="#E6C968" stroke-width="0.8"><path d="M22.5 34L22.5 5"/><path d="M22.5 34L35 8"/><path d="M22.5 34L42 18"/><path d="M22.5 34L43 34"/><path d="M22.5 34L42 50"/><path d="M22.5 34L35 60"/><path d="M22.5 34L22.5 63"/><path d="M22.5 34L10 60"/><path d="M22.5 34L3 50"/><path d="M22.5 34L2 34"/><path d="M22.5 34L3 18"/><path d="M22.5 34L10 8"/></g>
+<circle cx="22.5" cy="34" r="13" fill="#063A2F" stroke="#E6C968"/><circle cx="22.5" cy="34" r="9" fill="#0B604B" stroke="#E6C968"/><path d="M22.5 25L31 34L22.5 43L14 34Z" fill="#E6C968"/><path d="M22.5 29L27 34L22.5 39L18 34Z" fill="#073E33"/>
+  </g>
+  <rect x="0.5" y="0.5" width="44" height="67" rx="6.5" fill="none" stroke="#D2B455"/>
+  
+  </g>
+</svg>

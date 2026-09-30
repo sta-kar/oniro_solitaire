@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="45" height="67.5" viewBox="0 0 45 67.5" preserveAspectRatio="xMidYMid meet" data-card-aspect="2:3">
+  <title>Prism Mosaic 03 — Sunset</title>
+  <g transform="scale(1 0.9926470588235294)" data-source-viewBox="0 0 45 68">
+  <defs>
+    <clipPath id="clip"><rect x="0.5" y="0.5" width="44" height="67" rx="6.5"/></clipPath>
+    
+  </defs>
+  <g clip-path="url(#clip)">
+    <rect width="45" height="68" fill="#3D102F"/>
+<g stroke="#FFF3D2" stroke-opacity="0.15" stroke-width="0.5"><path d="M0 0L16 9L8 26L0 22Z" fill="#D83B73"/><path d="M16 9L29 0H45L35 20L8 26Z" fill="#F06B4E"/><path d="M0 22L8 26L17 41L0 49Z" fill="#8B2C6A"/><path d="M8 26L35 20L28 40L17 41Z" fill="#EF9B46"/><path d="M35 20L45 12V42L28 40Z" fill="#C43D77"/><path d="M0 49L17 41L24 57L12 68H0Z" fill="#D44C5D"/><path d="M17 41L28 40L39 56L24 57Z" fill="#8F2A72"/><path d="M28 40L45 42V68L39 56Z" fill="#F07A4C"/><path d="M12 68L24 57L39 56L45 68Z" fill="#E8A04A"/></g>
+<path d="M22.5 22L33 34L22.5 46L12 34Z" fill="#351026" stroke="#FFE4A6" stroke-width="1.2"/><path d="M22.5 27L29 34L22.5 41L16 34Z" fill="#FFBE55" stroke="#FF4B9A"/>
+  </g>
+  <rect x="0.5" y="0.5" width="44" height="67" rx="6.5" fill="none" stroke="#E47765"/>
+  
+  </g>
+</svg>

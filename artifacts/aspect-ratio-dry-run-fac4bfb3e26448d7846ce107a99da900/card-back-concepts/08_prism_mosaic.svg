@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="45" height="67.5" viewBox="0 0 45 67.5" preserveAspectRatio="xMidYMid meet" data-card-aspect="2:3">
+  <title>Prism Mosaic</title>
+  <g transform="scale(1 0.9926470588235294)" data-source-viewBox="0 0 45 68">
+  <defs>
+    <linearGradient id="prism" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#1B0D3C"/><stop offset="1" stop-color="#3F176B"/></linearGradient>
+    <clipPath id="clip"><rect x="0.5" y="0.5" width="44" height="67" rx="6.5"/></clipPath>
+  </defs>
+  <g clip-path="url(#clip)">
+    <rect width="45" height="68" fill="url(#prism)"/>
+    <g stroke="#FFFFFF" stroke-opacity="0.12" stroke-width="0.5"><path d="M0 0L15 12L0 24Z" fill="#4C29A5"/><path d="M0 0L15 12L26 0Z" fill="#6A2BC1"/><path d="M26 0L15 12L34 18L45 4L45 0Z" fill="#223C9D"/><path d="M0 24L15 12L20 31L6 39Z" fill="#184C8A"/><path d="M15 12L34 18L20 31Z" fill="#A022A2"/><path d="M34 18L45 4L45 30L20 31Z" fill="#6B2CC7"/><path d="M0 24L6 39L0 54Z" fill="#6B2CC7"/><path d="M6 39L20 31L27 49L13 57Z" fill="#263FA7"/><path d="M20 31L45 30L36 45L27 49Z" fill="#B3258E"/><path d="M45 30L45 55L36 45Z" fill="#174C8D"/><path d="M0 54L13 57L20 68H0Z" fill="#233D91"/><path d="M13 57L27 49L36 68H20Z" fill="#6B2CC7"/><path d="M27 49L36 45L45 55L45 68H36Z" fill="#4C29A5"/></g>
+    <path d="M22.5 23L32 34L22.5 45L13 34Z" fill="#130823" stroke="#F3D6FF" stroke-width="1.2"/>
+    <path d="M22.5 27L28.5 34L22.5 41L16.5 34Z" fill="#7B4DFF" stroke="#00D7EA" stroke-width="0.8"/>
+  </g>
+  <rect x="0.5" y="0.5" width="44" height="67" rx="6.5" fill="none" stroke="#B477E3"/>
+  </g>
+</svg>

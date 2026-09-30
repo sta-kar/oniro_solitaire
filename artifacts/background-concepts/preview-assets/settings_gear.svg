@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+  <title>Settings</title>
+  <g transform="translate(1.14 1.14) scale(.9286)">
+    <g fill="#0B5B36">
+      <rect x="13.5" y="2" width="5" height="7" rx="1.7"/>
+      <rect x="13.5" y="23" width="5" height="7" rx="1.7"/>
+      <rect x="23" y="13.5" width="7" height="5" rx="1.7"/>
+      <rect x="2" y="13.5" width="7" height="5" rx="1.7"/>
+      <rect x="22.08" y="4.35" width="5" height="7" rx="1.7" transform="rotate(45 24.58 7.85)"/>
+      <rect x="4.92" y="20.65" width="5" height="7" rx="1.7" transform="rotate(45 7.42 24.15)"/>
+      <rect x="20.65" y="22.08" width="7" height="5" rx="1.7" transform="rotate(45 24.15 24.58)"/>
+      <rect x="4.35" y="4.92" width="7" height="5" rx="1.7" transform="rotate(45 7.85 7.42)"/>
+    </g>
+    <circle cx="16" cy="16" r="8.7" fill="#0B5B36"/>
+    <circle cx="16" cy="16" r="3.6" fill="none" stroke="#FFFDF8" stroke-width="2.4"/>
+  </g>
+</svg>

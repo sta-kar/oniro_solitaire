@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="45" height="67.5" viewBox="0 0 45 67.5" data-card-aspect="2:3">
+  <title>Clean Corner 7 of hearts</title>
+  <rect x="0.5" y="0.5" width="44" height="66.5" rx="6.5" fill="#FFFDF8" stroke="#C9C7C2"/>
+  <path d="M5.801 0.916 L2.639 8.824 L1.201 8.824 L4.406 1.254 L-0 1.254 L-0 -0 L5.801 -0 Z" fill="#C62828" transform="translate(3.6 2.4)"/>
+  <path d="M0 9C-2 6-9 1-9-4C-9-9-3-11 0-6C3-11 9-9 9-4C9 1 2 6 0 9Z" fill="#C62828" transform="translate(6.5 17.57) scale(0.47)"/>
+  <path d="M15.469 2.444 L7.037 23.531 L3.203 23.531 L11.75 3.344 L-0 3.344 L-0 -0 L15.469 -0 Z" fill="#C62828" opacity="0.25" transform="translate(14.766 32.234)"/>
+  <rect x="0.5" y="0.5" width="44" height="66.5" rx="6.5" fill="none" stroke="#C9C7C2"/>
+</svg>

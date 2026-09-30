@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="45" height="67.5" viewBox="0 0 45 67.5" data-card-aspect="2:3">
+  <title>Modern Banner J of hearts</title>
+  <defs>
+    <clipPath id="card-face-clip">
+      <rect x="0.5" y="0.5" width="44" height="66.5" rx="6.5"/>
+    </clipPath>
+  </defs>
+  <rect x="0.5" y="0.5" width="44" height="66.5" rx="6.5" fill="#FFFDF8" stroke="#C9C7C2"/>
+  <g clip-path="url(#card-face-clip)">
+    <rect width="45" height="17" fill="#C62828"/>
+  </g>
+  <path d="M10.109 10.045 C10.109 11.485 9.823 12.514 9.251 13.133 C8.679 13.752 7.84 14.061 6.734 14.061 C5.74 14.061 4.952 13.757 4.371 13.149 C3.79 12.541 3.5 11.741 3.5 10.748 L3.5 10.287 L5.344 10.287 C5.344 11.683 5.807 12.381 6.734 12.381 C7.236 12.381 7.618 12.243 7.88 11.967 C8.142 11.69 8.273 11.076 8.273 10.123 L8.273 2.1 L10.109 2.1 Z" fill="#FFFDF8"/>
+  <path d="M0 9C-2 6-9 1-9-4C-9-9-3-11 0-6C3-11 9-9 9-4C9 1 2 6 0 9Z" fill="#FFFDF8" transform="translate(36.5 8.96) scale(0.46)"/>
+  <path d="M11.153 13.408 C11.153 15.837 10.671 17.573 9.705 18.618 C8.74 19.662 7.324 20.184 5.458 20.184 C3.779 20.184 2.45 19.671 1.47 18.645 C0.49 17.619 0 16.268 0 14.594 L0 13.816 L3.111 13.816 C3.111 16.172 3.894 17.35 5.458 17.35 C6.304 17.35 6.948 17.116 7.391 16.65 C7.834 16.183 8.055 15.147 8.055 13.54 L8.055 0 L11.153 0 Z" fill="#C62828" opacity="0.5" transform="translate(6.423 32.408)"/>
+  <path d="M0 9C-2 6-9 1-9-4C-9-9-3-11 0-6C3-11 9-9 9-4C9 1 2 6 0 9Z" fill="#C62828" opacity="0.5" transform="translate(33 43.5) scale(1)"/>
+  <rect x="0.5" y="0.5" width="44" height="66.5" rx="6.5" fill="none" stroke="#C9C7C2"/>
+</svg>

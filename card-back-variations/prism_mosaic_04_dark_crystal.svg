@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="45" height="67.5" viewBox="0 0 45 67.5" preserveAspectRatio="xMidYMid meet" data-card-aspect="2:3">
+  <title>Prism Mosaic 04 — Dark Crystal</title>
+  <g transform="scale(1 0.9926470588235294)" data-source-viewBox="0 0 45 68">
+  <defs>
+    <clipPath id="clip"><rect x="0.5" y="0.5" width="44" height="67" rx="6.5"/></clipPath>
+    
+  </defs>
+  <g clip-path="url(#clip)">
+    <rect width="45" height="68" fill="#070812"/>
+<g stroke="#5FE8F2" stroke-opacity="0.2" stroke-width="0.5"><path d="M0 0L20 15L0 31Z" fill="#151A38"/><path d="M0 0L20 15L35 0Z" fill="#2C1F58"/><path d="M35 0L20 15L45 28V0Z" fill="#0C3E54"/><path d="M0 31L20 15L22 36L0 52Z" fill="#20245A"/><path d="M20 15L45 28L22 36Z" fill="#5D1E75"/><path d="M45 28V53L22 36Z" fill="#123B59"/><path d="M0 52L22 36L17 68H0Z" fill="#421D64"/><path d="M22 36L45 53L45 68H17Z" fill="#182A55"/></g>
+<path d="M22.5 18L35 34L22.5 50L10 34Z" fill="#04060B" stroke="#7B4DFF" stroke-width="1.4"/><path d="M22.5 24L30.5 34L22.5 44L14.5 34Z" fill="#24154A" stroke="#00E8F0"/><path d="M22.5 29L26.5 34L22.5 39L18.5 34Z" fill="#FF2CB8"/>
+  </g>
+  <rect x="0.5" y="0.5" width="44" height="67" rx="6.5" fill="none" stroke="#4B3A82"/>
+  
+  </g>
+</svg>

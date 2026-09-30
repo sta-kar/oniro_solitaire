@@ -1,0 +1,9 @@
+.hvigor/
+.artifacts/
+entry/build/
+entry/.test/
+oh_modules/
+NUL
+local.properties
+signatures/
+.idea/

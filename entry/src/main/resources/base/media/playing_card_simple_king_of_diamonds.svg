@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="45" height="67.5" viewBox="0 0 45 67.5" data-card-aspect="2:3">
+  <title>Clean Corner K of diamonds</title>
+  <rect x="0.5" y="0.5" width="44" height="66.5" rx="6.5" fill="#FFFDF8" stroke="#C9C7C2"/>
+  <path d="M7.26 8.824 L5.574 8.824 L2.573 4.541 L1.377 5.777 L1.377 8.824 L-0 8.824 L-0 -0 L1.377 -0 L1.377 4.26 L5.395 -0 L7.102 -0 L3.504 3.656 Z" fill="#C62828" transform="translate(2.87 2.4)"/>
+  <path d="M0-10L8 0L0 10L-8 0Z" fill="#C62828" transform="translate(6.5 17.1) scale(0.47)"/>
+  <path d="M19.359 23.531 L14.863 23.531 L6.863 12.109 L3.672 15.406 L3.672 23.531 L-0 23.531 L-0 -0 L3.672 -0 L3.672 11.359 L14.387 -0 L18.938 -0 L9.344 9.75 Z" fill="#C62828" opacity="0.25" transform="translate(12.82 32.234)"/>
+  <rect x="0.5" y="0.5" width="44" height="66.5" rx="6.5" fill="none" stroke="#C9C7C2"/>
+</svg>

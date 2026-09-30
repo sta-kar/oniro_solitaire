@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="45" height="67.5" viewBox="0 0 45 67.5" preserveAspectRatio="xMidYMid meet" data-card-aspect="2:3">
+  <title>Oniro Orbit</title>
+  <g transform="scale(1 0.9926470588235294)" data-source-viewBox="0 0 45 68">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="45%" r="70%"><stop offset="0" stop-color="#2B1454"/><stop offset="1" stop-color="#10051F"/></radialGradient>
+    <clipPath id="clip"><rect x="0.5" y="0.5" width="44" height="67" rx="6.5"/></clipPath>
+  </defs>
+  <g clip-path="url(#clip)">
+    <rect width="45" height="68" fill="url(#bg)"/>
+    <circle cx="22.5" cy="34" r="15.5" fill="none" stroke="#FFFFFF" stroke-opacity="0.12" stroke-width="0.8"/>
+    <circle cx="22.5" cy="34" r="12" fill="none" stroke="#00C9E5" stroke-width="4" stroke-dasharray="18 7 9 8" transform="rotate(-28 22.5 34)"/>
+    <circle cx="22.5" cy="34" r="12" fill="none" stroke="#FF2CB8" stroke-width="4" stroke-dasharray="8 26 12 29" transform="rotate(42 22.5 34)"/>
+    <circle cx="22.5" cy="34" r="12" fill="none" stroke="#FFEE52" stroke-width="4" stroke-dasharray="7 31 10 27" transform="rotate(103 22.5 34)"/>
+    <circle cx="22.5" cy="34" r="6.7" fill="#07020D" stroke="#7133C7" stroke-width="1"/>
+    <circle cx="22.5" cy="34" r="2" fill="#FFFFFF"/>
+    <g fill="#FFFFFF" opacity="0.5"><circle cx="7" cy="11" r="0.7"/><circle cx="38" cy="14" r="0.7"/><circle cx="8" cy="56" r="0.7"/><circle cx="37" cy="53" r="0.7"/></g>
+  </g>
+  <rect x="0.5" y="0.5" width="44" height="67" rx="6.5" fill="none" stroke="#5B2A8B"/>
+  <rect x="2.5" y="2.5" width="40" height="63" rx="5" fill="none" stroke="#FFFFFF" stroke-opacity="0.2"/>
+  </g>
+</svg>

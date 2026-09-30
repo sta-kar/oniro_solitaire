@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="45" height="67.5" viewBox="0 0 45 67.5" data-card-aspect="2:3">
+  <title>Clean Corner A of clubs</title>
+  <rect x="0.5" y="0.5" width="44" height="66.5" rx="6.5" fill="#FFFDF8" stroke="#C9C7C2"/>
+  <path d="M5.414 5.074 L4.025 1.324 L2.701 5.074 Z M8.268 8.824 L6.78 8.824 L5.784 6.211 L2.355 6.211 L1.406 8.824 L-0 8.824 L3.336 -0 L4.724 -0 Z" fill="#171717" transform="translate(2.366 2.4)"/>
+  <path d="M0-10A5 5 0 1 1 0 0A5 5 0 1 1 0-10Z M-5-3A5 5 0 1 1-5 7A5 5 0 1 1-5-3Z M5-3A5 5 0 1 1 5 7A5 5 0 1 1 5-3Z M-2.5-3.5H2.5V4H2C2 8 3 10 5 12H-5C-3 10-2 8-2 4H-2.5Z" fill="#171717" transform="translate(6.5 16.673) scale(0.427)"/>
+  <path d="M14.438 13.531 L10.732 3.531 L7.203 13.531 Z M22.047 23.531 L18.08 23.531 L15.424 16.563 L6.28 16.563 L3.749 23.531 L-0 23.531 L8.895 -0 L12.598 -0 Z" fill="#171717" opacity="0.25" transform="translate(11.477 32.234)"/>
+  <rect x="0.5" y="0.5" width="44" height="66.5" rx="6.5" fill="none" stroke="#C9C7C2"/>
+</svg>

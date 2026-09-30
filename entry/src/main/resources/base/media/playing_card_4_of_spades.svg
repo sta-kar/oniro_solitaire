@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="45" height="67.5" viewBox="0 0 45 67.5" preserveAspectRatio="xMidYMid meet" data-card-aspect="2:3">
+  <title>4 of spades</title>
+  <g transform="scale(1 0.992647058823529)" data-source-viewBox="0 0 45 68">
+  <rect x="0.5" y="0.5" width="44" height="67" rx="6.5" fill="#FFFDF8" stroke="#C9C7C2"/>
+  <path d="M0-11C-2-7-9-3-9 3C-9 8-3 10-0.5 6C-0.4 9-2 12-4 13H4C2 12 0.4 9 0.5 6C3 10 9 8 9 3C9-3 2-7 0-11Z" fill="#171717" transform="translate(16.3 18) scale(0.408)"/>
+  <path d="M0-11C-2-7-9-3-9 3C-9 8-3 10-0.5 6C-0.4 9-2 12-4 13H4C2 12 0.4 9 0.5 6C3 10 9 8 9 3C9-3 2-7 0-11Z" fill="#171717" transform="translate(28.7 18) scale(0.408)"/>
+  <path d="M0-11C-2-7-9-3-9 3C-9 8-3 10-0.5 6C-0.4 9-2 12-4 13H4C2 12 0.4 9 0.5 6C3 10 9 8 9 3C9-3 2-7 0-11Z" fill="#171717" transform="translate(16.3 50) rotate(180) scale(0.408)"/>
+  <path d="M0-11C-2-7-9-3-9 3C-9 8-3 10-0.5 6C-0.4 9-2 12-4 13H4C2 12 0.4 9 0.5 6C3 10 9 8 9 3C9-3 2-7 0-11Z" fill="#171717" transform="translate(28.7 50) rotate(180) scale(0.408)"/>
+  <g><path d="M9.888 10.085 L8.728 10.085 L8.728 12.136 L7.38 12.136 L7.38 10.085 L3.712 10.085 L3.712 8.958 L7.676 3.2 L8.728 3.2 L8.728 8.878 L9.888 8.878 Z M7.38 8.878 L7.38 5.175 L4.984 8.878 Z" fill="#171717"/><path d="M0-11C-2-7-9-3-9 3C-9 8-3 10-0.5 6C-0.4 9-2 12-4 13H4C2 12 0.4 9 0.5 6C3 10 9 8 9 3C9-3 2-7 0-11Z" fill="#171717" transform="translate(6.8 17.4) scale(0.36)"/></g><g transform="rotate(180 22.5 34)"><path d="M9.888 10.085 L8.728 10.085 L8.728 12.136 L7.38 12.136 L7.38 10.085 L3.712 10.085 L3.712 8.958 L7.676 3.2 L8.728 3.2 L8.728 8.878 L9.888 8.878 Z M7.38 8.878 L7.38 5.175 L4.984 8.878 Z" fill="#171717"/><path d="M0-11C-2-7-9-3-9 3C-9 8-3 10-0.5 6C-0.4 9-2 12-4 13H4C2 12 0.4 9 0.5 6C3 10 9 8 9 3C9-3 2-7 0-11Z" fill="#171717" transform="translate(6.8 17.4) scale(0.36)"/></g>
+  </g>
+</svg>

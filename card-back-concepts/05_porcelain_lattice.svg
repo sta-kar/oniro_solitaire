@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="45" height="67.5" viewBox="0 0 45 67.5" preserveAspectRatio="xMidYMid meet" data-card-aspect="2:3">
+  <title>Porcelain Lattice</title>
+  <g transform="scale(1 0.9926470588235294)" data-source-viewBox="0 0 45 68">
+  <defs>
+    <pattern id="lattice" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M0 5L5 0L10 5L5 10Z" fill="none" stroke="#2D5EA8" stroke-width="0.55"/><circle cx="5" cy="5" r="0.8" fill="#2D5EA8"/></pattern>
+    <clipPath id="clip"><rect x="0.5" y="0.5" width="44" height="67" rx="6.5"/></clipPath>
+  </defs>
+  <g clip-path="url(#clip)">
+    <rect width="45" height="68" fill="#FFFDF6"/>
+    <rect width="45" height="68" fill="url(#lattice)" opacity="0.75"/>
+    <ellipse cx="22.5" cy="34" rx="12" ry="15" fill="#FFFDF6" stroke="#2D5EA8" stroke-width="1.1"/>
+    <path d="M22.5 22C24 27 29 28 33 28C29 31 29 37 33 40C28 40 24 42 22.5 46C21 42 17 40 12 40C16 37 16 31 12 28C16 28 21 27 22.5 22Z" fill="#DCE9FF" stroke="#2D5EA8" stroke-width="0.9"/>
+    <circle cx="22.5" cy="34" r="3" fill="#2D5EA8"/><circle cx="22.5" cy="34" r="1.1" fill="#FFFFFF"/>
+  </g>
+  <rect x="0.5" y="0.5" width="44" height="67" rx="6.5" fill="none" stroke="#244E8D"/>
+  <rect x="2.5" y="2.5" width="40" height="63" rx="5" fill="none" stroke="#2D5EA8" stroke-width="1"/>
+  </g>
+</svg>

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="45" height="67.5" viewBox="0 0 45 67.5" preserveAspectRatio="xMidYMid meet" data-card-aspect="2:3">
+  <title>Prism Mosaic 01 — Violet</title>
+  <g transform="scale(1 0.9926470588235294)" data-source-viewBox="0 0 45 68">
+  <defs>
+    <clipPath id="clip"><rect x="0.5" y="0.5" width="44" height="67" rx="6.5"/></clipPath>
+    
+  </defs>
+  <g clip-path="url(#clip)">
+    <rect width="45" height="68" fill="#211044"/>
+<g stroke="#FFFFFF" stroke-opacity="0.14" stroke-width="0.5"><path d="M0 0L17 13L0 28Z" fill="#562FA8"/><path d="M0 0L17 13L29 0Z" fill="#7834C9"/><path d="M29 0L17 13L35 20L45 5L45 0Z" fill="#2843A8"/><path d="M0 28L17 13L20 33L5 41Z" fill="#17608F"/><path d="M17 13L35 20L20 33Z" fill="#A4259F"/><path d="M35 20L45 5L45 34L20 33Z" fill="#6C32CC"/><path d="M0 28L5 41L0 56Z" fill="#6D34CA"/><path d="M5 41L20 33L28 51L13 58Z" fill="#2944AC"/><path d="M20 33L45 34L37 47L28 51Z" fill="#C12B96"/><path d="M45 34L45 58L37 47Z" fill="#17608F"/><path d="M0 56L13 58L21 68H0Z" fill="#29419D"/><path d="M13 58L28 51L36 68H21Z" fill="#6D34CA"/><path d="M28 51L37 47L45 58L45 68H36Z" fill="#5630A8"/></g>
+<path d="M22.5 23L32 34L22.5 45L13 34Z" fill="#130823" stroke="#F3D6FF" stroke-width="1.2"/><path d="M22.5 27L28.5 34L22.5 41L16.5 34Z" fill="#7B4DFF" stroke="#00D7EA" stroke-width="0.8"/>
+  </g>
+  <rect x="0.5" y="0.5" width="44" height="67" rx="6.5" fill="none" stroke="#B477E3"/>
+  
+  </g>
+</svg>

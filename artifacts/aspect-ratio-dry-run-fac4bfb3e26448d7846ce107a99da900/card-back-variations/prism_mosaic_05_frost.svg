@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="45" height="67.5" viewBox="0 0 45 67.5" preserveAspectRatio="xMidYMid meet" data-card-aspect="2:3">
+  <title>Prism Mosaic 05 — Frost</title>
+  <g transform="scale(1 0.9926470588235294)" data-source-viewBox="0 0 45 68">
+  <defs>
+    <clipPath id="clip"><rect x="0.5" y="0.5" width="44" height="67" rx="6.5"/></clipPath>
+    
+  </defs>
+  <g clip-path="url(#clip)">
+    <rect width="45" height="68" fill="#E9F7FF"/>
+<g stroke="#FFFFFF" stroke-opacity="0.75" stroke-width="0.7"><path d="M0 0L13 16L0 31Z" fill="#A9D9E8"/><path d="M0 0L13 16L29 0Z" fill="#C7B8E8"/><path d="M29 0L13 16L34 25L45 8V0Z" fill="#8FC9E4"/><path d="M0 31L13 16L20 36L5 47Z" fill="#B9B4E6"/><path d="M13 16L34 25L20 36Z" fill="#D9A7D7"/><path d="M34 25L45 8V40L20 36Z" fill="#9BCFE4"/><path d="M0 31L5 47L0 61Z" fill="#A2D8E2"/><path d="M5 47L20 36L31 52L16 68H0V61Z" fill="#C6B7E7"/><path d="M20 36L45 40V68H16L31 52Z" fill="#A9D9E8"/></g>
+<path d="M22.5 21L34 34L22.5 47L11 34Z" fill="#F9FDFF" stroke="#5C83B8" stroke-width="1.2"/><path d="M22.5 27L28.5 34L22.5 41L16.5 34Z" fill="#B59ADF" stroke="#69C5D8"/>
+  </g>
+  <rect x="0.5" y="0.5" width="44" height="67" rx="6.5" fill="none" stroke="#6D94C0"/>
+  
+  </g>
+</svg>

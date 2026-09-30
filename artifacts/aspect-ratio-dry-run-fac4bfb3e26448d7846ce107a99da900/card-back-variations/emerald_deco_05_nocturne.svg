@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="45" height="67.5" viewBox="0 0 45 67.5" preserveAspectRatio="xMidYMid meet" data-card-aspect="2:3">
+  <title>Emerald Art Deco 05 — Nocturne</title>
+  <g transform="scale(1 0.9926470588235294)" data-source-viewBox="0 0 45 68">
+  <defs>
+    <clipPath id="clip"><rect x="0.5" y="0.5" width="44" height="67" rx="6.5"/></clipPath>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#021713"/><stop offset="1" stop-color="#073D31"/></linearGradient>
+  </defs>
+  <g clip-path="url(#clip)">
+    <rect width="45" height="68" fill="url(#bg)"/>
+<g fill="#B9963B"><rect x="5" y="7" width="2" height="54"/><rect x="38" y="7" width="2" height="54"/><path d="M4 7H12L8 12Z"/><path d="M33 7H41L37 12Z"/><path d="M4 61H12L8 56Z"/><path d="M33 61H41L37 56Z"/></g>
+<g fill="none" stroke="#E8CF7A" stroke-width="0.8"><path d="M8 17H15L22.5 9L30 17H37"/><path d="M8 51H15L22.5 59L30 51H37"/><path d="M10 24L22.5 34L35 24"/><path d="M10 44L22.5 34L35 44"/></g>
+<circle cx="22.5" cy="34" r="10" fill="#06281F" stroke="#B9963B"/><path d="M22.5 27L29 34L22.5 41L16 34Z" fill="#E8CF7A"/><circle cx="22.5" cy="34" r="2" fill="#0A5C46"/>
+  </g>
+  <rect x="0.5" y="0.5" width="44" height="67" rx="6.5" fill="none" stroke="#9E7B2C"/>
+  <rect x="2.5" y="2.5" width="40" height="63" rx="5" fill="none" stroke="#B9963B" stroke-width="0.8"/>
+  </g>
+</svg>

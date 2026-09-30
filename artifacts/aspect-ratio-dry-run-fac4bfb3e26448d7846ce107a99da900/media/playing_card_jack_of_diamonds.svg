@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="45" height="67.5" viewBox="0 0 45 67.5" preserveAspectRatio="xMidYMid meet" data-card-aspect="2:3">
+  <title>J of diamonds</title>
+  <g transform="scale(1 0.992647058823529)" data-source-viewBox="0 0 45 68">
+  <rect x="0.5" y="0.5" width="44" height="67" rx="6.5" fill="#FFFDF8" stroke="#C9C7C2"/>
+  <rect x="11.3" y="5.5" width="22.4" height="57" rx="1.8" fill="#F8E8B8" stroke="#C9A227" stroke-width="0.65"/>
+<g>
+  <path d="M16 31L17 24L28 24L29 31L25 34H20Z" fill="#2F64B3" stroke="#171717" stroke-width="0.45"/>
+  <path d="M18 27L27 31" stroke="#F2C94C" stroke-width="2.1"/>
+  <circle cx="22.5" cy="19" r="4.2" fill="#F1C7A5" stroke="#171717" stroke-width="0.45"/>
+  <path d="M18.2 18C18.3 13.5 26.7 13.5 26.8 18L25.5 16L23 14.8L19.5 16Z" fill="#4B2E20"/>
+  <path d="M17.5 15L22 10.5L27.5 14L25.5 16.5L20 15.5Z" fill="#2F64B3" stroke="#171717" stroke-width="0.45"/>
+  <circle cx="26.7" cy="13.8" r="1.2" fill="#C62828"/>
+  <path d="M27.5 23L31 12" stroke="#C9A227" stroke-width="1.2"/>
+  <path d="M29.5 12L32.2 10.5L31 14Z" fill="#D9E3F0" stroke="#171717" stroke-width="0.35"/>
+  <path d="M20.5 20.2Q22.5 21.5 24.5 20.2" fill="none" stroke="#8B4A3A" stroke-width="0.45"/>
+</g>
+<g transform="rotate(180 22.5 34)"><g>
+  <path d="M16 31L17 24L28 24L29 31L25 34H20Z" fill="#2F64B3" stroke="#171717" stroke-width="0.45"/>
+  <path d="M18 27L27 31" stroke="#F2C94C" stroke-width="2.1"/>
+  <circle cx="22.5" cy="19" r="4.2" fill="#F1C7A5" stroke="#171717" stroke-width="0.45"/>
+  <path d="M18.2 18C18.3 13.5 26.7 13.5 26.8 18L25.5 16L23 14.8L19.5 16Z" fill="#4B2E20"/>
+  <path d="M17.5 15L22 10.5L27.5 14L25.5 16.5L20 15.5Z" fill="#2F64B3" stroke="#171717" stroke-width="0.45"/>
+  <circle cx="26.7" cy="13.8" r="1.2" fill="#C62828"/>
+  <path d="M27.5 23L31 12" stroke="#C9A227" stroke-width="1.2"/>
+  <path d="M29.5 12L32.2 10.5L31 14Z" fill="#D9E3F0" stroke="#171717" stroke-width="0.35"/>
+  <path d="M20.5 20.2Q22.5 21.5 24.5 20.2" fill="none" stroke="#8B4A3A" stroke-width="0.45"/>
+</g></g>
+<path d="M0-10L8 0L0 10L-8 0Z" fill="#C62828" transform="translate(22.5 34) scale(0.22)"/>
+  <g><path d="M8.762 7.918 C8.762 8.772 8.592 9.383 8.253 9.751 C7.913 10.118 7.415 10.302 6.758 10.302 C6.168 10.302 5.7 10.121 5.355 9.76 C5.01 9.399 4.838 8.924 4.838 8.335 L4.838 8.061 L5.933 8.061 C5.933 8.89 6.208 9.304 6.758 9.304 C7.056 9.304 7.283 9.222 7.438 9.058 C7.594 8.894 7.672 8.529 7.672 7.964 L7.672 3.2 L8.762 3.2 Z" fill="#C62828"/><path d="M0-10L8 0L0 10L-8 0Z" fill="#C62828" transform="translate(6.8 17.4) scale(0.27)"/></g><g transform="rotate(180 22.5 34)"><path d="M8.762 7.918 C8.762 8.772 8.592 9.383 8.253 9.751 C7.913 10.118 7.415 10.302 6.758 10.302 C6.168 10.302 5.7 10.121 5.355 9.76 C5.01 9.399 4.838 8.924 4.838 8.335 L4.838 8.061 L5.933 8.061 C5.933 8.89 6.208 9.304 6.758 9.304 C7.056 9.304 7.283 9.222 7.438 9.058 C7.594 8.894 7.672 8.529 7.672 7.964 L7.672 3.2 L8.762 3.2 Z" fill="#C62828"/><path d="M0-10L8 0L0 10L-8 0Z" fill="#C62828" transform="translate(6.8 17.4) scale(0.27)"/></g>
+  </g>
+</svg>

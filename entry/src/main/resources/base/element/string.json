@@ -1,0 +1,16 @@
+{
+  "string": [
+    {
+      "name": "module_desc",
+      "value": "Classic Klondike solitaire"
+    },
+    {
+      "name": "EntryAbility_desc",
+      "value": "Play classic Klondike solitaire"
+    },
+    {
+      "name": "EntryAbility_label",
+      "value": "Solitaire"
+    }
+  ]
+}

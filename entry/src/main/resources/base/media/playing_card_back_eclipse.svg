@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="45" height="67.5" viewBox="0 0 45 67.5" preserveAspectRatio="xMidYMid meet" data-card-aspect="2:3">
+  <title>Solar Eclipse 04 — Red Giant</title>
+  <g transform="scale(1 0.9926470588235294)" data-source-viewBox="0 0 45 68">
+  <defs>
+    <clipPath id="clip"><rect x="0.5" y="0.5" width="44" height="67" rx="6.5"/></clipPath>
+    <radialGradient id="bg" cx="50%" cy="50%" r="70%"><stop stop-color="#42101A"/><stop offset="1" stop-color="#0C0508"/></radialGradient><radialGradient id="sun"><stop stop-color="#FFE38A"/><stop offset="0.45" stop-color="#FF7A37"/><stop offset="1" stop-color="#C91F35"/></radialGradient>
+  </defs>
+  <g clip-path="url(#clip)">
+    <rect width="45" height="68" fill="url(#bg)"/>
+    <g stroke="#FF6A38" stroke-linecap="round"><path d="M20 6V14"/><path d="M20 50V61"/><path d="M2 31H11"/><path d="M31 31H43"/><path d="M5 15L12 22"/><path d="M28 43L37 52"/><path d="M35 13L28 20"/><path d="M12 42L4 50"/></g>
+    <circle cx="20" cy="31" r="12" fill="none" stroke="#FF8D45" stroke-width="2" stroke-opacity="0.35"/><circle cx="20" cy="31" r="9.7" fill="url(#sun)"/><circle cx="25" cy="36.5" r="8.7" fill="#0C0508"/><path d="M11 33Q17 42 25 42" fill="none" stroke="#FFE38A" stroke-width="1.1"/>
+  </g>
+  <rect x="0.5" y="0.5" width="44" height="67" rx="6.5" fill="none" stroke="#A32632"/>
+  </g>
+</svg>

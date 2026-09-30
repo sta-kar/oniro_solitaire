@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="45" height="67.5" viewBox="0 0 45 67.5" preserveAspectRatio="xMidYMid meet" data-card-aspect="2:3">
+  <title>Aurora Weave</title>
+  <g transform="scale(1 0.9926470588235294)" data-source-viewBox="0 0 45 68">
+  <defs>
+    <linearGradient id="aurora" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#071B38"/><stop offset="1" stop-color="#28104C"/></linearGradient>
+    <clipPath id="clip"><rect x="0.5" y="0.5" width="44" height="67" rx="6.5"/></clipPath>
+  </defs>
+  <g clip-path="url(#clip)">
+    <rect width="45" height="68" fill="url(#aurora)"/>
+    <g fill="none" stroke-linecap="round" opacity="0.86"><path d="M-9 8L54 55" stroke="#00D5DE" stroke-width="7"/><path d="M-8 31L48 72" stroke="#6B35C8" stroke-width="7"/><path d="M-5 63L50 18" stroke="#FF2CB8" stroke-width="6"/><path d="M-5 42L48 1" stroke="#FFE65A" stroke-width="4" opacity="0.9"/></g>
+    <g fill="none" stroke="#FFFFFF" stroke-width="0.7" opacity="0.5"><path d="M-9 8L54 55"/><path d="M-8 31L48 72"/><path d="M-5 63L50 18"/><path d="M-5 42L48 1"/></g>
+    <path d="M22.5 24L32.5 34L22.5 44L12.5 34Z" fill="#0B1024" stroke="#FFFFFF" stroke-width="1.1"/>
+    <path d="M22.5 29L27.5 34L22.5 39L17.5 34Z" fill="#00D5DE"/>
+  </g>
+  <rect x="0.5" y="0.5" width="44" height="67" rx="6.5" fill="none" stroke="#523795"/>
+  </g>
+</svg>

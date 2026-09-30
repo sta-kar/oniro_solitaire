@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="768" height="1536" viewBox="0 0 768 1536">
+  <title>Oversized suits table background concept</title>
+  <desc>A flat deep-green solitaire table with four sparse, low-contrast suit silhouettes.</desc>
+
+  <!-- The base matches the existing Solid table color. -->
+  <rect width="768" height="1536" fill="#0B6E3F"/>
+
+  <!--
+    The silhouettes reuse the simple deck's exact suit paths. Their scale and
+    cropping turn familiar card marks into quiet background geometry.
+  -->
+  <g fill="#147747">
+    <path d="M0-10A5 5 0 1 1 0 0A5 5 0 1 1 0-10Z M-5-3A5 5 0 1 1-5 7A5 5 0 1 1-5-3Z M5-3A5 5 0 1 1 5 7A5 5 0 1 1 5-3Z M-2.5-3.5H2.5V4H2C2 8 3 10 5 12H-5C-3 10-2 8-2 4H-2.5Z"
+      transform="translate(-34 292) rotate(-12) scale(18)"/>
+    <path d="M0-10L8 0L0 10L-8 0Z"
+      transform="translate(733 537) rotate(8) scale(24)"/>
+  </g>
+
+  <g fill="#086138">
+    <path d="M0-11C-2-7-9-3-9 3C-9 8-3 10-.5 6C-.4 9-2 12-4 13H4C2 12 .4 9 .5 6C3 10 9 8 9 3C9-3 2-7 0-11Z"
+      transform="translate(96 1010) rotate(-8) scale(24)"/>
+    <path d="M0 9C-2 6-9 1-9-4C-9-9-3-11 0-6C3-11 9-9 9-4C9 1 2 6 0 9Z"
+      transform="translate(700 1332) rotate(10) scale(29)"/>
+  </g>
+</svg>

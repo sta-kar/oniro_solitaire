@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="45" height="67.5" viewBox="0 0 45 67.5" preserveAspectRatio="xMidYMid meet" data-card-aspect="2:3">
+  <title>Emerald Art Deco 04 — Ivory</title>
+  <g transform="scale(1 0.9926470588235294)" data-source-viewBox="0 0 45 68">
+  <defs>
+    <clipPath id="clip"><rect x="0.5" y="0.5" width="44" height="67" rx="6.5"/></clipPath>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#FFF8DD"/><stop offset="1" stop-color="#E8D89E"/></linearGradient>
+  </defs>
+  <g clip-path="url(#clip)">
+    <rect width="45" height="68" fill="url(#bg)"/>
+<g fill="none" stroke="#0A5C46" stroke-width="1"><path d="M4 24Q22.5 2 41 24"/><path d="M8 26Q22.5 9 37 26"/><path d="M12 28Q22.5 16 33 28"/><path d="M4 44Q22.5 66 41 44"/><path d="M8 42Q22.5 59 37 42"/><path d="M12 40Q22.5 52 33 40"/></g>
+<path d="M22.5 20L36 34L22.5 48L9 34Z" fill="#0A5C46" stroke="#B58E28" stroke-width="1.2"/><path d="M22.5 25L31 34L22.5 43L14 34Z" fill="#FFF8DD"/><path d="M22.5 29L27 34L22.5 39L18 34Z" fill="#B58E28"/>
+  </g>
+  <rect x="0.5" y="0.5" width="44" height="67" rx="6.5" fill="none" stroke="#0A5C46"/>
+  <rect x="2.5" y="2.5" width="40" height="63" rx="5" fill="none" stroke="#B58E28" stroke-width="0.8"/>
+  </g>
+</svg>

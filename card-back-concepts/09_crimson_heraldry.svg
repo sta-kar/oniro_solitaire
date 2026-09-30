@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="45" height="67.5" viewBox="0 0 45 67.5" preserveAspectRatio="xMidYMid meet" data-card-aspect="2:3">
+  <title>Crimson Heraldry</title>
+  <g transform="scale(1 0.9926470588235294)" data-source-viewBox="0 0 45 68">
+  <defs>
+    <linearGradient id="crimson" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#6E0F24"/><stop offset="0.5" stop-color="#991E32"/><stop offset="1" stop-color="#4D0A1A"/></linearGradient>
+    <clipPath id="clip"><rect x="0.5" y="0.5" width="44" height="67" rx="6.5"/></clipPath>
+  </defs>
+  <g clip-path="url(#clip)">
+    <rect width="45" height="68" fill="url(#crimson)"/>
+    <g fill="none" stroke="#E1BE62" stroke-width="0.8"><path d="M6 12Q14 18 14 29Q8 25 5 20"/><path d="M39 12Q31 18 31 29Q37 25 40 20"/><path d="M6 56Q14 50 14 39Q8 43 5 48"/><path d="M39 56Q31 50 31 39Q37 43 40 48"/></g>
+    <g fill="#E1BE62"><path d="M15 19L17 13L21 17L22.5 11L24 17L28 13L30 19Z"/><path d="M15 49L17 55L21 51L22.5 57L24 51L28 55L30 49Z"/></g>
+    <path d="M22.5 21L32 25V35C32 42 27 47 22.5 50C18 47 13 42 13 35V25Z" fill="#4A0918" stroke="#F0D17B" stroke-width="1.2"/>
+    <path d="M22.5 26C20.8 29 17 31 17 35C17 38.5 20.5 40 22.5 37C22.5 40 21.5 42 20 43H25C23.5 42 22.5 40 22.5 37C24.5 40 28 38.5 28 35C28 31 24.2 29 22.5 26Z" fill="#E1BE62"/>
+  </g>
+  <rect x="0.5" y="0.5" width="44" height="67" rx="6.5" fill="none" stroke="#B38E3F"/>
+  <rect x="2.5" y="2.5" width="40" height="63" rx="5" fill="none" stroke="#E1BE62" stroke-width="0.7"/>
+  </g>
+</svg>
