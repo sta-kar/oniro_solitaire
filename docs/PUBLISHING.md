@@ -34,3 +34,28 @@ repository.
 
 For updates, keep the bundle name and signing identity stable, increase the app
 version, build a new signed release HAP, and update the catalog record and HAP.
+
+## Oniro App Store release
+
+Releases to the [Oniro App Store](https://store.iparo.app) are built and
+published by GitHub Actions, through
+[`.github/workflows/oniro-store.yml`](../.github/workflows/oniro-store.yml).
+It calls the shared
+[`oniro-app-store-actions`](https://github.com/eclipse-oniro4openharmony/oniro-app-store-actions)
+workflow, which builds the HAP from the tagged commit, attaches it to a GitHub
+release, and registers it with the store. Versions published this way carry
+the store's *Built from source* badge. No secrets are stored in this
+repository: the store checks GitHub's OIDC token instead.
+
+To release:
+
+1. Increase `versionCode` (and `versionName`) in `AppScope/app.json5`. The
+   store accepts only a `versionCode` higher than the last published one.
+2. Commit and push to `main`.
+3. Tag the commit and push the tag, for example
+   `git tag v1.0.1 && git push origin v1.0.1`.
+
+The CI build signs with the OpenHarmony SDK's development key, the same key
+that signed version 1.0.0, so installed copies update in place. Version 1.0.0
+was uploaded by hand. The first release from this repository links the store
+listing to it, and from then on the app can be published by CI only from here.
