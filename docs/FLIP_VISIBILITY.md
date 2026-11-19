@@ -62,5 +62,4 @@ projects are local development artifacts.
 The deal and sweep were visually checked in a temporary 10x inspection build.
 The current build uses normal speed. The 11 host tests passed, and the signed
 build launched successfully on the test device. A bounded phone log capture
-showed no matching image-load failures or handoff timeouts. In-motion visual
-confirmation of the latest gameplay handoffs is pending.
+showed no matching image-load failures or handoff timeouts.
