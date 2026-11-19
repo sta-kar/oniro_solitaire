@@ -28,3 +28,21 @@ export function triangularSweepSpeed(firstByte: number, secondByte: number): num
   const secondUnit: number = Math.max(0, Math.min(255, secondByte)) / 255;
   return 1000 + (firstUnit + secondUnit) * 900;
 }
+
+/** Raw travel fraction on one uninterrupted flight-then-squeeze timeline. */
+export function dealFlightFraction(progress: number, flightDuration: number, squeezeDuration: number): number {
+  if (flightDuration <= 0) {
+    return 1;
+  }
+  const elapsed: number = Math.max(0, progress) * (flightDuration + squeezeDuration);
+  return Math.min(1, elapsed / flightDuration);
+}
+
+/** Keeps full card width throughout travel, then advances only the squeeze. */
+export function dealSqueezeFraction(progress: number, flightDuration: number, squeezeDuration: number): number {
+  if (squeezeDuration <= 0) {
+    return 0;
+  }
+  const elapsed: number = Math.max(0, progress) * (flightDuration + squeezeDuration);
+  return Math.max(0, Math.min(1, (elapsed - flightDuration) / squeezeDuration));
+}

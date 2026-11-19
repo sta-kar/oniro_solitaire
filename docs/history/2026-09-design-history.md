@@ -808,3 +808,21 @@ rules, undo, autocomplete, and visual themes"; vendor "@sta-kar"; tags
 release date 2026-09-30. The catalog entry uses type `game`, bundle
 `com.stakar.solitaire`, and the Apache-licensed source repository at
 `https://github.com/sta-kar/oniro_solitaire`.
+
+---
+
+## November 19 animation and visibility changes
+
+An isolated OpenHarmony 6.1.0.38 probe showed that app-side Animator completion
+avoided the repeated one-second waits seen with implicit animations. Solitaire
+adopted that approach while retaining the quintic travel curve, cosine turn
+curves, and sequential draw behavior. The
+[`app-side animation note`](../APP_ANIMATION_WORKAROUND.md) records the timings
+and implementation tradeoffs.
+
+The flip implementation moved from two opacity-switched faces to one view that
+swaps artwork at zero width. A temporary 10x build supported visual checks of
+the New Game deal and outgoing sweep. Both were confirmed at that setting
+before restoring normal speed. The
+[`card visibility note`](../FLIP_VISIBILITY.md) records the readiness checks
+and verification status.

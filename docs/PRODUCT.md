@@ -64,11 +64,13 @@ session has no successful action to reverse.
 
 - Successful transfers use a straight-line 80 ms slide with quintic smoothstep
   progress `6t^5 - 15t^4 + 10t^3`.
-- Card turns use an 80 ms cosine-based horizontal squash: 40 ms to zero width,
-  an artwork swap while hidden, then 40 ms back to full width.
+- Card turns use two 40 ms cosine-based motion phases. At zero width, the
+  artwork changes and the card waits for the new side before expanding.
+- The motion durations exclude the time spent waiting for replacement artwork.
+  Moving overlays stay visible through the handoff to the destination.
 - Stock draws turn and travel concurrently.
 - When a draw advances a full three-card waste window, the two retained cards
-  slide one fan slot left during the same 80 ms interval. The outgoing oldest
+  slide one fan slot left during the draw. The outgoing oldest
   visible card remains underneath until the next card covers it, then leaves
   the render tree without a visible disappearance.
 - Draw-three is presented as up to three consecutive single-card draw
@@ -89,22 +91,20 @@ session has no successful action to reverse.
 ## New Game
 
 Pressing New Game immediately creates and persists a fresh platform-random
-shuffle, then presents a roughly 2.9-second sequence:
+shuffle, then plays this sequence:
 
-1. The current 52 cards leave through the top at independent speeds sampled
+1. The sweep copies load while the current board stays visible. The 52 cards
+   then leave through the top. Their base speeds are sampled independently
    from a bounded triangular distribution between 1000 and 2800 vp/s.
 2. A five-layer card-back stack rises from below to the lower third.
-3. The 28 tableau cards launch in classic deal order every 48 ms using
-   overlapping 120 ms slides, giving each card time to clear the deck before
-   the next launch.
+3. The 28 tableau cards launch in classic deal order. Before the sequence
+   multiplier, launches are spaced 48 ms apart and slides take 120 ms.
 4. Each tableau top turns face-up after landing.
 5. The remaining 24-card stack moves to the stock slot.
 
-This sequence runs only after the New Game button. Cold launch and restored
-sessions display their board without the deal animation.
-
-The current timing scale is 2x, so the complete sequence runs in roughly
-5.8 seconds. Normal card moves retain their 80 ms duration.
+New Game applies a 2x multiplier to motion durations and launch spacing.
+Artwork readiness and sweep distance affect the overall time. Cold launch and
+restored sessions display their board without the deal animation.
 
 When New Game starts from the victory cascade, all board cards, moving cards,
 and stamped trail copies disappear immediately. That path skips the outgoing

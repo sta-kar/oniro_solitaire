@@ -15,8 +15,13 @@ in [`../../docs/history/2026-09-design-history.md`](../../docs/history/2026-09-d
 | `generate-card-back-concepts.ps1` | Generates the ten card-back concepts and `all-card-backs.svg`. |
 | `generate-card-back-variations.ps1` | Generates selected originals, remaining variations, and `all-variations.svg`; `-SelectedOnly` emits only production backs. |
 | `install-approved-app-icon.ps1` | Builds launcher layers and the launch-window icon from the approved source image. |
+| `rasterize-card-images.ps1` | Generates the 109 runtime card PNGs from the packaged SVGs. Requires `rsvg-convert` on PATH. |
 
 ## Source of truth
+
+After updating packaged card SVGs, run
+`.\scripts\card-assets\rasterize-card-images.ps1` from the repository root.
+The script writes 270 x 405 `_raster.png` files beside their SVG sources.
 
 The committed files in `card-images/` are the canonical final Detailed artwork.
 The original creation process was iterative, and several reviewed refinements

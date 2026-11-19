@@ -72,13 +72,24 @@ their former slots.
 `PlayingCardView` resolves a model card through the selected detailed or simple
 resource table. The model therefore remains independent of resources and
 ArkUI. The card container owns geometry, hit testing, shadows, stacking, and
-selection overlays; SVG files own the normal card edge.
+selection overlays. The card artwork loads from PNGs generated from the
+packaged SVGs. The same artwork supplies Settings previews and victory images.
 
 ## Movement and interaction state
 
 ArkUI `onAreaChange` callbacks capture board-relative source and destination
 positions. Successful tap moves, drag settling, drag returns, and autocomplete
 share the page's `MOVE_ANIMATION_DURATION_MS` and quintic smoothstep curve.
+
+Finite card motion uses `entry/src/main/ets/animation/CardAnimator.ets` and
+`UIContext.createAnimator`. Its local `onFrame` applies the existing easing
+functions to active overlay transforms, and its local `onFinish` advances the
+sequence. This bypasses the implicit-animation completion delays observed on
+OpenHarmony 6.1.0.38. Runners commit exact endpoints, reject replaced
+callbacks, and cancel deferred launches and animations on component teardown.
+They detach callbacks before cancellation because Animator can emit a final
+frame when cancelled. See [`APP_ANIMATION_WORKAROUND.md`](APP_ANIMATION_WORKAROUND.md)
+for the implementation, measurements, and UI-thread tradeoff.
 
 Drag release creates distance-sorted drop candidates from measured foundation
 slots and tableau targets. The page asks the model to try each candidate in
@@ -87,6 +98,20 @@ order, so hit testing remains forgiving without reproducing rule logic.
 Card turns are isolated components that animate horizontal scale to zero,
 switch the resource while hidden, and restore scale. Stock travel and recycle
 turns run concurrently; tableau reveals start after the preceding transfer.
+Each turning card uses one visible `AnimatedPlayingCardView`. At the midpoint
+its `card` prop changes from the initial side to the target side. The second
+40 ms cosine half starts after the new side decodes and ArkUI reaches a frame
+boundary. Stock draw and recycle overlays also wait for travel to finish.
+See [`FLIP_VISIBILITY.md`](FLIP_VISIBILITY.md) for investigation and validation.
+
+Stationary cards and gameplay overlays load their local card PNGs synchronously
+when their views change. The sweep loads asynchronously while the board remains
+visible. `CardArtworkHandoff` tracks the card and side of incoming views.
+Transfers, waste shifts, flips, and the final New Game stock handoff keep
+their current visual until the relevant destination images have decoded and
+ArkUI reaches a frame boundary. A 250 ms fallback keeps play moving if an
+image completion signal is missing. A tableau reveal leaves the newly exposed
+card face-down while the preceding transfer settles.
 
 A stock tap commits its complete one-card or three-card model mutation and
 durable snapshot before animation begins. The page then advances its isolated
@@ -136,15 +161,28 @@ immediately and the state machine enters `stack entry`, preserving the deck
 rise, deal, turns, and stock finish without an awkward sweep over stamped cards.
 
 The sweep captures all currently rendered cards and derives independent
-durations from a separate cryptographic random stream. Deal overlays target
-positions computed from the new model. Landing callbacks build temporary
+durations from a separate cryptographic random stream. The old board stays
+visible while the hidden sweep copies decode their artwork. Once the copies
+are ready and ArkUI reaches a frame boundary, the board is cleared and the
+sweep starts. A bounded wait lets the sequence progress if a decode callback
+is missing. Deal overlays target positions computed from the new model.
+Landing callbacks build temporary
 visible tableau arrays. The deck renders below every flight; delayed flights
 remain invisible until launch, and launched cards then layer oldest-to-newest.
 A face-up pile top is added to the temporary tableau only after its overlay
 finishes turning, preventing a duplicate card back from showing beneath the
-turn. Each landing copies only its destination pile. When the remaining stack
-reaches the stock slot, reconciliation preserves all 28 already-correct
-tableau card visuals and adds the model's stock cards.
+turn. Each dealing overlay runs travel and the first squeeze half on one
+continuous Animator timeline, mapping progress with `dealFlightFraction` and
+`dealSqueezeFraction`. At landing it stays full-width in its existing image
+view, then shrinks without an Animator restart. The midpoint side swap and
+expansion follow afterward. Each landing copies only its destination pile.
+The landed overlay stays until its motion is complete and the tableau image
+has decoded and had a frame to paint. This bridges the interval in which a
+newly mounted stationary card could show its background before its artwork.
+The stock finish follows motion completion. When the remaining stack reaches
+the stock slot, reconciliation preserves the 28 tableau card visuals and
+adds the model's stock cards. The staged deck stays until the stock image
+is ready or the handoff reaches its fallback.
 
 `NEW_GAME_TIME_SCALE` is the single sequence-wide timing multiplier and is set
 to `2`. Normal movement, draw, recycle, and reveal timings are unchanged.
@@ -201,7 +239,7 @@ immediately and persist in the same Preferences file. The stock displays a
 small remaining-reset label only while the three-reset limit is active.
 
 The victory presentation likewise sits inside a full-screen input layer. Its
-transparent Canvas decodes the active card-front SVG resources to PixelMaps and
+transparent Canvas decodes the active card-front PNG resources to PixelMaps and
 repeatedly draws them without clearing, so old positions remain as permanent
 trail stamps. Page-local foundation arrays are popped as cards launch while the
 completed model remains unchanged. The model-level undo guard therefore keeps
@@ -232,3 +270,6 @@ step, preserving trail spacing, bounce detection, and trajectory geometry.
 Model behavior is covered by `entry/src/test/SolitaireGame.test.ets`. Build,
 install, launch, layout-dump, and screenshot commands are kept in the root
 [`README.md`](../README.md) so the workflow has one authoritative location.
+The [host suite](../scripts/tests/card-animator.test.cjs) covers animation
+timing, cancellation, completion, and artwork readiness. The test command is
+documented in [`APP_ANIMATION_WORKAROUND.md`](APP_ANIMATION_WORKAROUND.md).

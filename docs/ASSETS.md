@@ -20,8 +20,11 @@ exploration and dated approvals are preserved in
 - `scripts/card-assets/sources/` preserves generator inputs that are not runtime
   resources.
 
-The app never rewrites canonical artwork. Packaged resources are synchronized
-copies or documented compatibility variants.
+The app never rewrites canonical artwork. The packaged card SVGs are
+synchronized copies or documented compatibility variants. Solitaire displays
+270 x 405 transparent PNG derivatives of all 109 SVGs. Generate them with
+[`rasterize-card-images.ps1`](../scripts/card-assets/rasterize-card-images.ps1)
+after updating the packaged SVGs.
 
 ## Card geometry
 
@@ -83,7 +86,7 @@ text reliably. Packaged files use `playing_card_simple_<rank>_of_<suit>.svg`.
 
 ## Card backs
 
-The runtime card-back table contains five resources in this order:
+The card-back table uses the PNG derivatives of these five SVGs in this order:
 
 | Index | Label | Canonical file | Packaged resource |
 | --- | --- | --- | --- |

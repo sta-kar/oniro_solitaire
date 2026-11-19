@@ -1,4 +1,5 @@
-import { curves } from '@kit.ArkUI';
+import { CardAnimator } from '../animation/CardAnimator';
+import { ArtworkHandoffFrame, CardArtworkHandoff } from '../animation/CardArtworkHandoff';
 import { preferences } from '@kit.ArkData';
 import { cryptoFramework } from '@kit.CryptoArchitectureKit';
 import { image } from '@kit.ImageKit';
@@ -9,7 +10,13 @@ import {
   SolitaireGame
 } from '../model/SolitaireGame';
 import { GameStateCodec } from '../model/GameStateCodec';
-import { classicDealTargets, DealTarget, triangularSweepSpeed } from '../model/NewGameAnimation';
+import {
+  classicDealTargets,
+  dealFlightFraction,
+  dealSqueezeFraction,
+  DealTarget,
+  triangularSweepSpeed
+} from '../model/NewGameAnimation';
 import {
   keepVictoryLaunchOnScreen,
   isVictoryStampDue,
@@ -36,17 +43,17 @@ const MOVE_ANIMATION_DURATION_MS: number = 80;
 const TURN_ANIMATION_DURATION_MS: number = MOVE_ANIMATION_DURATION_MS;
 const TURN_HALF_DURATION_MS: number = TURN_ANIMATION_DURATION_MS / 2;
 /** Quintic smoothstep: zero velocity and acceleration at both endpoints. */
-const MOVE_ANIMATION_CURVE: ICurve = curves.customCurve((fraction: number): number => {
+const MOVE_ANIMATION_CURVE: (fraction: number) => number = (fraction: number): number => {
   const fractionSquared: number = fraction * fraction;
   const fractionCubed: number = fractionSquared * fraction;
   return fractionCubed * (fraction * (fraction * 6 - 15) + 10);
-});
+};
 /** Interpolation progress that makes a 1-to-0 scale follow cos(pi * t / 2). */
-const TURN_SQUEEZE_CURVE: ICurve = curves.customCurve((fraction: number): number =>
-  1 - Math.cos(Math.PI * fraction / 2));
+const TURN_SQUEEZE_CURVE: (fraction: number) => number = (fraction: number): number =>
+  1 - Math.cos(Math.PI * fraction / 2);
 /** Interpolation progress that makes a 0-to-1 scale follow cos(pi * (1-t) / 2). */
-const TURN_STRETCH_CURVE: ICurve = curves.customCurve((fraction: number): number =>
-  Math.cos(Math.PI * (1 - fraction) / 2));
+const TURN_STRETCH_CURVE: (fraction: number) => number = (fraction: number): number =>
+  Math.cos(Math.PI * (1 - fraction) / 2);
 /** Exact 2:3 card geometry, anchored to the existing 45 px reference width. */
 const CARD_REFERENCE_WIDTH: number = 45;
 const CARD_REFERENCE_HEIGHT: number = 67.5;
@@ -63,6 +70,8 @@ const NEW_GAME_SWEEP: number = 1;
 const NEW_GAME_STACK_ENTRY: number = 2;
 const NEW_GAME_DEAL: number = 3;
 const NEW_GAME_STOCK_FINISH: number = 4;
+/** Unscaled fallback if ArkUI does not report completion for a packaged image. */
+const SWEEP_IMAGE_TIMEOUT_MS: number = 1000;
 const STACK_ENTRY_DURATION_MS: number = 220;
 const DEAL_CARD_DURATION_MS: number = 120;
 const DEAL_CARD_INTERVAL_MS: number = 48;
@@ -74,136 +83,136 @@ const NEW_GAME_TIME_SCALE: number = 2;
 /** Face artwork indexed by model suit, then by rank minus one. */
 const CARD_FACE_IMAGES: Resource[][] = [
   [
-    $r('app.media.playing_card_ace_of_clubs'),
-    $r('app.media.playing_card_2_of_clubs'),
-    $r('app.media.playing_card_3_of_clubs'),
-    $r('app.media.playing_card_4_of_clubs'),
-    $r('app.media.playing_card_5_of_clubs'),
-    $r('app.media.playing_card_6_of_clubs'),
-    $r('app.media.playing_card_7_of_clubs'),
-    $r('app.media.playing_card_8_of_clubs'),
-    $r('app.media.playing_card_9_of_clubs'),
-    $r('app.media.playing_card_10_of_clubs'),
-    $r('app.media.playing_card_jack_of_clubs'),
-    $r('app.media.playing_card_queen_of_clubs'),
-    $r('app.media.playing_card_king_of_clubs')
+    $r('app.media.playing_card_ace_of_clubs_raster'),
+    $r('app.media.playing_card_2_of_clubs_raster'),
+    $r('app.media.playing_card_3_of_clubs_raster'),
+    $r('app.media.playing_card_4_of_clubs_raster'),
+    $r('app.media.playing_card_5_of_clubs_raster'),
+    $r('app.media.playing_card_6_of_clubs_raster'),
+    $r('app.media.playing_card_7_of_clubs_raster'),
+    $r('app.media.playing_card_8_of_clubs_raster'),
+    $r('app.media.playing_card_9_of_clubs_raster'),
+    $r('app.media.playing_card_10_of_clubs_raster'),
+    $r('app.media.playing_card_jack_of_clubs_raster'),
+    $r('app.media.playing_card_queen_of_clubs_raster'),
+    $r('app.media.playing_card_king_of_clubs_raster')
   ],
   [
-    $r('app.media.playing_card_ace_of_diamonds'),
-    $r('app.media.playing_card_2_of_diamonds'),
-    $r('app.media.playing_card_3_of_diamonds'),
-    $r('app.media.playing_card_4_of_diamonds'),
-    $r('app.media.playing_card_5_of_diamonds'),
-    $r('app.media.playing_card_6_of_diamonds'),
-    $r('app.media.playing_card_7_of_diamonds'),
-    $r('app.media.playing_card_8_of_diamonds'),
-    $r('app.media.playing_card_9_of_diamonds'),
-    $r('app.media.playing_card_10_of_diamonds'),
-    $r('app.media.playing_card_jack_of_diamonds'),
-    $r('app.media.playing_card_queen_of_diamonds'),
-    $r('app.media.playing_card_king_of_diamonds')
+    $r('app.media.playing_card_ace_of_diamonds_raster'),
+    $r('app.media.playing_card_2_of_diamonds_raster'),
+    $r('app.media.playing_card_3_of_diamonds_raster'),
+    $r('app.media.playing_card_4_of_diamonds_raster'),
+    $r('app.media.playing_card_5_of_diamonds_raster'),
+    $r('app.media.playing_card_6_of_diamonds_raster'),
+    $r('app.media.playing_card_7_of_diamonds_raster'),
+    $r('app.media.playing_card_8_of_diamonds_raster'),
+    $r('app.media.playing_card_9_of_diamonds_raster'),
+    $r('app.media.playing_card_10_of_diamonds_raster'),
+    $r('app.media.playing_card_jack_of_diamonds_raster'),
+    $r('app.media.playing_card_queen_of_diamonds_raster'),
+    $r('app.media.playing_card_king_of_diamonds_raster')
   ],
   [
-    $r('app.media.playing_card_ace_of_hearts'),
-    $r('app.media.playing_card_2_of_hearts'),
-    $r('app.media.playing_card_3_of_hearts'),
-    $r('app.media.playing_card_4_of_hearts'),
-    $r('app.media.playing_card_5_of_hearts'),
-    $r('app.media.playing_card_6_of_hearts'),
-    $r('app.media.playing_card_7_of_hearts'),
-    $r('app.media.playing_card_8_of_hearts'),
-    $r('app.media.playing_card_9_of_hearts'),
-    $r('app.media.playing_card_10_of_hearts'),
-    $r('app.media.playing_card_jack_of_hearts'),
-    $r('app.media.playing_card_queen_of_hearts'),
-    $r('app.media.playing_card_king_of_hearts')
+    $r('app.media.playing_card_ace_of_hearts_raster'),
+    $r('app.media.playing_card_2_of_hearts_raster'),
+    $r('app.media.playing_card_3_of_hearts_raster'),
+    $r('app.media.playing_card_4_of_hearts_raster'),
+    $r('app.media.playing_card_5_of_hearts_raster'),
+    $r('app.media.playing_card_6_of_hearts_raster'),
+    $r('app.media.playing_card_7_of_hearts_raster'),
+    $r('app.media.playing_card_8_of_hearts_raster'),
+    $r('app.media.playing_card_9_of_hearts_raster'),
+    $r('app.media.playing_card_10_of_hearts_raster'),
+    $r('app.media.playing_card_jack_of_hearts_raster'),
+    $r('app.media.playing_card_queen_of_hearts_raster'),
+    $r('app.media.playing_card_king_of_hearts_raster')
   ],
   [
-    $r('app.media.playing_card_ace_of_spades'),
-    $r('app.media.playing_card_2_of_spades'),
-    $r('app.media.playing_card_3_of_spades'),
-    $r('app.media.playing_card_4_of_spades'),
-    $r('app.media.playing_card_5_of_spades'),
-    $r('app.media.playing_card_6_of_spades'),
-    $r('app.media.playing_card_7_of_spades'),
-    $r('app.media.playing_card_8_of_spades'),
-    $r('app.media.playing_card_9_of_spades'),
-    $r('app.media.playing_card_10_of_spades'),
-    $r('app.media.playing_card_jack_of_spades'),
-    $r('app.media.playing_card_queen_of_spades'),
-    $r('app.media.playing_card_king_of_spades')
+    $r('app.media.playing_card_ace_of_spades_raster'),
+    $r('app.media.playing_card_2_of_spades_raster'),
+    $r('app.media.playing_card_3_of_spades_raster'),
+    $r('app.media.playing_card_4_of_spades_raster'),
+    $r('app.media.playing_card_5_of_spades_raster'),
+    $r('app.media.playing_card_6_of_spades_raster'),
+    $r('app.media.playing_card_7_of_spades_raster'),
+    $r('app.media.playing_card_8_of_spades_raster'),
+    $r('app.media.playing_card_9_of_spades_raster'),
+    $r('app.media.playing_card_10_of_spades_raster'),
+    $r('app.media.playing_card_jack_of_spades_raster'),
+    $r('app.media.playing_card_queen_of_spades_raster'),
+    $r('app.media.playing_card_king_of_spades_raster')
   ]
 ];
-/** Approved sparse face artwork, indexed by model suit and rank minus one. */
+/** Sparse face artwork, indexed by model suit and rank minus one. */
 const SIMPLE_CARD_FACE_IMAGES: Resource[][] = [
   [
-    $r('app.media.playing_card_simple_ace_of_clubs'),
-    $r('app.media.playing_card_simple_2_of_clubs'),
-    $r('app.media.playing_card_simple_3_of_clubs'),
-    $r('app.media.playing_card_simple_4_of_clubs'),
-    $r('app.media.playing_card_simple_5_of_clubs'),
-    $r('app.media.playing_card_simple_6_of_clubs'),
-    $r('app.media.playing_card_simple_7_of_clubs'),
-    $r('app.media.playing_card_simple_8_of_clubs'),
-    $r('app.media.playing_card_simple_9_of_clubs'),
-    $r('app.media.playing_card_simple_10_of_clubs'),
-    $r('app.media.playing_card_simple_jack_of_clubs'),
-    $r('app.media.playing_card_simple_queen_of_clubs'),
-    $r('app.media.playing_card_simple_king_of_clubs')
+    $r('app.media.playing_card_simple_ace_of_clubs_raster'),
+    $r('app.media.playing_card_simple_2_of_clubs_raster'),
+    $r('app.media.playing_card_simple_3_of_clubs_raster'),
+    $r('app.media.playing_card_simple_4_of_clubs_raster'),
+    $r('app.media.playing_card_simple_5_of_clubs_raster'),
+    $r('app.media.playing_card_simple_6_of_clubs_raster'),
+    $r('app.media.playing_card_simple_7_of_clubs_raster'),
+    $r('app.media.playing_card_simple_8_of_clubs_raster'),
+    $r('app.media.playing_card_simple_9_of_clubs_raster'),
+    $r('app.media.playing_card_simple_10_of_clubs_raster'),
+    $r('app.media.playing_card_simple_jack_of_clubs_raster'),
+    $r('app.media.playing_card_simple_queen_of_clubs_raster'),
+    $r('app.media.playing_card_simple_king_of_clubs_raster')
   ],
   [
-    $r('app.media.playing_card_simple_ace_of_diamonds'),
-    $r('app.media.playing_card_simple_2_of_diamonds'),
-    $r('app.media.playing_card_simple_3_of_diamonds'),
-    $r('app.media.playing_card_simple_4_of_diamonds'),
-    $r('app.media.playing_card_simple_5_of_diamonds'),
-    $r('app.media.playing_card_simple_6_of_diamonds'),
-    $r('app.media.playing_card_simple_7_of_diamonds'),
-    $r('app.media.playing_card_simple_8_of_diamonds'),
-    $r('app.media.playing_card_simple_9_of_diamonds'),
-    $r('app.media.playing_card_simple_10_of_diamonds'),
-    $r('app.media.playing_card_simple_jack_of_diamonds'),
-    $r('app.media.playing_card_simple_queen_of_diamonds'),
-    $r('app.media.playing_card_simple_king_of_diamonds')
+    $r('app.media.playing_card_simple_ace_of_diamonds_raster'),
+    $r('app.media.playing_card_simple_2_of_diamonds_raster'),
+    $r('app.media.playing_card_simple_3_of_diamonds_raster'),
+    $r('app.media.playing_card_simple_4_of_diamonds_raster'),
+    $r('app.media.playing_card_simple_5_of_diamonds_raster'),
+    $r('app.media.playing_card_simple_6_of_diamonds_raster'),
+    $r('app.media.playing_card_simple_7_of_diamonds_raster'),
+    $r('app.media.playing_card_simple_8_of_diamonds_raster'),
+    $r('app.media.playing_card_simple_9_of_diamonds_raster'),
+    $r('app.media.playing_card_simple_10_of_diamonds_raster'),
+    $r('app.media.playing_card_simple_jack_of_diamonds_raster'),
+    $r('app.media.playing_card_simple_queen_of_diamonds_raster'),
+    $r('app.media.playing_card_simple_king_of_diamonds_raster')
   ],
   [
-    $r('app.media.playing_card_simple_ace_of_hearts'),
-    $r('app.media.playing_card_simple_2_of_hearts'),
-    $r('app.media.playing_card_simple_3_of_hearts'),
-    $r('app.media.playing_card_simple_4_of_hearts'),
-    $r('app.media.playing_card_simple_5_of_hearts'),
-    $r('app.media.playing_card_simple_6_of_hearts'),
-    $r('app.media.playing_card_simple_7_of_hearts'),
-    $r('app.media.playing_card_simple_8_of_hearts'),
-    $r('app.media.playing_card_simple_9_of_hearts'),
-    $r('app.media.playing_card_simple_10_of_hearts'),
-    $r('app.media.playing_card_simple_jack_of_hearts'),
-    $r('app.media.playing_card_simple_queen_of_hearts'),
-    $r('app.media.playing_card_simple_king_of_hearts')
+    $r('app.media.playing_card_simple_ace_of_hearts_raster'),
+    $r('app.media.playing_card_simple_2_of_hearts_raster'),
+    $r('app.media.playing_card_simple_3_of_hearts_raster'),
+    $r('app.media.playing_card_simple_4_of_hearts_raster'),
+    $r('app.media.playing_card_simple_5_of_hearts_raster'),
+    $r('app.media.playing_card_simple_6_of_hearts_raster'),
+    $r('app.media.playing_card_simple_7_of_hearts_raster'),
+    $r('app.media.playing_card_simple_8_of_hearts_raster'),
+    $r('app.media.playing_card_simple_9_of_hearts_raster'),
+    $r('app.media.playing_card_simple_10_of_hearts_raster'),
+    $r('app.media.playing_card_simple_jack_of_hearts_raster'),
+    $r('app.media.playing_card_simple_queen_of_hearts_raster'),
+    $r('app.media.playing_card_simple_king_of_hearts_raster')
   ],
   [
-    $r('app.media.playing_card_simple_ace_of_spades'),
-    $r('app.media.playing_card_simple_2_of_spades'),
-    $r('app.media.playing_card_simple_3_of_spades'),
-    $r('app.media.playing_card_simple_4_of_spades'),
-    $r('app.media.playing_card_simple_5_of_spades'),
-    $r('app.media.playing_card_simple_6_of_spades'),
-    $r('app.media.playing_card_simple_7_of_spades'),
-    $r('app.media.playing_card_simple_8_of_spades'),
-    $r('app.media.playing_card_simple_9_of_spades'),
-    $r('app.media.playing_card_simple_10_of_spades'),
-    $r('app.media.playing_card_simple_jack_of_spades'),
-    $r('app.media.playing_card_simple_queen_of_spades'),
-    $r('app.media.playing_card_simple_king_of_spades')
+    $r('app.media.playing_card_simple_ace_of_spades_raster'),
+    $r('app.media.playing_card_simple_2_of_spades_raster'),
+    $r('app.media.playing_card_simple_3_of_spades_raster'),
+    $r('app.media.playing_card_simple_4_of_spades_raster'),
+    $r('app.media.playing_card_simple_5_of_spades_raster'),
+    $r('app.media.playing_card_simple_6_of_spades_raster'),
+    $r('app.media.playing_card_simple_7_of_spades_raster'),
+    $r('app.media.playing_card_simple_8_of_spades_raster'),
+    $r('app.media.playing_card_simple_9_of_spades_raster'),
+    $r('app.media.playing_card_simple_10_of_spades_raster'),
+    $r('app.media.playing_card_simple_jack_of_spades_raster'),
+    $r('app.media.playing_card_simple_queen_of_spades_raster'),
+    $r('app.media.playing_card_simple_king_of_spades_raster')
   ]
 ];
 /** Concrete packaged card backs; Random is a persisted mode, not an image. */
 const CARD_BACK_IMAGES: Resource[] = [
-  $r('app.media.playing_card_card_back'),
-  $r('app.media.playing_card_back_oniro'),
-  $r('app.media.playing_card_back_emerald'),
-  $r('app.media.playing_card_back_prism'),
-  $r('app.media.playing_card_back_eclipse')
+  $r('app.media.playing_card_card_back_raster'),
+  $r('app.media.playing_card_back_oniro_raster'),
+  $r('app.media.playing_card_back_emerald_raster'),
+  $r('app.media.playing_card_back_prism_raster'),
+  $r('app.media.playing_card_back_eclipse_raster')
 ];
 const CARD_BACK_LABELS: string[] = ['Default', 'Oniro', 'Emerald', 'Prism', 'Eclipse', 'Random'];
 const DEFAULT_CARD_BACK_INDEX: number = 0;
@@ -256,10 +265,12 @@ class DropCandidate {
 class CardReveal {
   card: PlayingCard;
   placement: CardPlacement;
+  pileIndex: number;
 
-  constructor(card: PlayingCard, placement: CardPlacement) {
+  constructor(card: PlayingCard, placement: CardPlacement, pileIndex: number) {
     this.card = card;
     this.placement = placement;
+    this.pileIndex = pileIndex;
   }
 }
 
@@ -326,6 +337,7 @@ class DealCardAnimation {
   targetCard: PlayingCard;
   destinationX: number;
   destinationY: number;
+  motionFinished: boolean = false;
 
   constructor(target: DealTarget, card: PlayingCard, destination: CardPlacement) {
     this.order = target.order;
@@ -339,7 +351,7 @@ class DealCardAnimation {
   }
 }
 
-/** Resolves the packaged SVG without coupling the game model to UI resources. */
+/** Resolves the packaged PNG without coupling the game model to UI resources. */
 function cardImage(card: PlayingCard, cardBackIndex: number, cardFront: number): Resource {
   if (!card.faceUp) {
     return CARD_BACK_IMAGES[cardBackIndex];
@@ -348,21 +360,28 @@ function cardImage(card: PlayingCard, cardBackIndex: number, cardFront: number):
   return faceImages[card.suit][card.rank - 1];
 }
 
-/** Reactive visual for one playing card, including approved selection feedback. */
+/** Stationary card appearance and selection feedback. */
 @Component
 struct PlayingCardView {
   @Prop card: PlayingCard;
   @Prop cardBackIndex: number;
   @Prop cardFront: number;
   @Prop selected: boolean;
+  @Prop imageDecoded: AnimationCompletion | undefined = undefined;
 
   build() {
     Stack() {
       Image(cardImage(this.card, this.cardBackIndex, this.cardFront))
+        .syncLoad(true)
         .width('100%')
         .height('100%')
         .objectFit(ImageFit.Fill)
         .borderRadius(7)
+        .onComplete((event) => {
+          if (event?.loadingStatus === 1) {
+            this.imageDecoded?.finish();
+          }
+        })
 
       if (this.selected) {
         Stack()
@@ -386,20 +405,28 @@ struct PlayingCardView {
   }
 }
 
-/** Selection-free card visual used by the isolated turning overlay. */
+/** Draws animated card artwork directly through ArkUI's image pipeline. */
 @Component
 struct AnimatedPlayingCardView {
   @Prop card: PlayingCard;
   @Prop cardBackIndex: number;
   @Prop cardFront: number;
+  @Prop synchronousImage: boolean = true;
+  @Prop imageDecoded: AnimationCompletion | undefined = undefined;
 
   build() {
     Stack() {
       Image(cardImage(this.card, this.cardBackIndex, this.cardFront))
+        .syncLoad(this.synchronousImage)
         .width('100%')
         .height('100%')
         .objectFit(ImageFit.Fill)
         .borderRadius(7)
+        .onComplete((event) => {
+          if (event?.loadingStatus === 1) {
+            this.imageDecoded?.finish();
+          }
+        })
     }
     .width('100%')
     .aspectRatio(CARD_ASPECT_RATIO)
@@ -415,26 +442,34 @@ struct SweepingCardView {
   @Prop item: SweepCardAnimation;
   @Prop cardBackIndex: number;
   @Prop cardFront: number;
+  @Prop @Watch('startSweep') started: boolean;
+  @Prop imageDecoded: AnimationCompletion;
   @Prop completion: AnimationCompletion;
   @State offsetY: number = 0;
+  private cardAnimator: CardAnimator = new CardAnimator();
 
-  aboutToAppear(): void {
-    setTimeout(() => {
-      this.getUIContext().animateTo({
-        duration: this.item.duration,
-        curve: Curve.Linear,
-        onFinish: () => this.completion.finish()
-      }, () => {
-        this.offsetY = this.item.travelY;
-      });
-    }, 0);
+  private startSweep(): void {
+    if (!this.started) {
+      return;
+    }
+    this.cardAnimator.after(0, () => {
+      this.cardAnimator.play(this.getUIContext(), this.item.duration, (fraction: number): number => fraction,
+        (progress: number) => { this.offsetY = this.item.travelY * progress; },
+        () => this.completion.finish());
+    });
+  }
+
+  aboutToDisappear(): void {
+    this.cardAnimator.cancel();
   }
 
   build() {
     AnimatedPlayingCardView({
       card: this.item.card,
       cardBackIndex: this.cardBackIndex,
-      cardFront: this.cardFront
+      cardFront: this.cardFront,
+      synchronousImage: false,
+      imageDecoded: this.imageDecoded
     })
       .width('100%')
       .height('100%')
@@ -450,17 +485,18 @@ struct SlidingWasteCardView {
   @Prop cardFront: number;
   @Prop completion: AnimationCompletion;
   @State offsetX: number = 0;
+  private cardAnimator: CardAnimator = new CardAnimator();
 
   aboutToAppear(): void {
-    setTimeout(() => {
-      this.getUIContext().animateTo({
-        duration: MOVE_ANIMATION_DURATION_MS,
-        curve: MOVE_ANIMATION_CURVE,
-        onFinish: () => this.completion.finish()
-      }, () => {
-        this.offsetX = this.item.travelX;
-      });
-    }, 0);
+    this.cardAnimator.after(0, () => {
+      this.cardAnimator.play(this.getUIContext(), MOVE_ANIMATION_DURATION_MS, MOVE_ANIMATION_CURVE,
+        (progress: number) => { this.offsetX = this.item.travelX * progress; },
+        () => this.completion.finish());
+    });
+  }
+
+  aboutToDisappear(): void {
+    this.cardAnimator.cancel();
   }
 
   build() {
@@ -490,72 +526,75 @@ struct DealingCardView {
   @State scaleX: number = 1;
   @State showTarget: boolean = false;
   @State hasLaunched: boolean = false;
+  private hasLanded: boolean = false;
+  private cardAnimator: CardAnimator = new CardAnimator();
+  private flipArtwork: CardArtworkHandoff = new CardArtworkHandoff();
 
   aboutToAppear(): void {
     const launchDelay: number = this.item.order * DEAL_CARD_INTERVAL_MS * NEW_GAME_TIME_SCALE;
-    setTimeout(() => {
+    this.cardAnimator.after(launchDelay, () => {
       // Delayed cards belong visually to the deck until their actual launch.
       // Commit visibility first so it does not fade as part of the flight.
       this.hasLaunched = true;
-      setTimeout(() => {
-        this.getUIContext().animateTo({
-          duration: DEAL_CARD_DURATION_MS * NEW_GAME_TIME_SCALE,
-          curve: MOVE_ANIMATION_CURVE,
-          onFinish: () => this.finishFlight()
-        }, () => {
-          this.offsetX = this.travelX;
-          this.offsetY = this.travelY;
-        });
-      }, 0);
-    }, launchDelay);
+      this.cardAnimator.after(0, () => {
+        this.beginArrival();
+      });
+    });
   }
 
-  private finishFlight(): void {
-    this.completion.land();
+  aboutToDisappear(): void {
+    this.cardAnimator.cancel();
+    this.flipArtwork.cancel();
+  }
+
+  /** Keep the same animator and image surface alive across landing into the turn. */
+  private beginArrival(): void {
+    const flightDuration: number = DEAL_CARD_DURATION_MS * NEW_GAME_TIME_SCALE;
+    const squeezeDuration: number = this.item.targetCard.faceUp ?
+      TURN_HALF_DURATION_MS * NEW_GAME_TIME_SCALE : 0;
+    this.cardAnimator.play(this.getUIContext(), flightDuration + squeezeDuration,
+      (fraction: number): number => fraction, (progress: number) => {
+        const flight: number = dealFlightFraction(progress, flightDuration, squeezeDuration);
+        const squeeze: number = dealSqueezeFraction(progress, flightDuration, squeezeDuration);
+        const travel: number = MOVE_ANIMATION_CURVE(flight);
+        this.offsetX = this.travelX * travel;
+        this.offsetY = this.travelY * travel;
+        this.scaleX = 1 - TURN_SQUEEZE_CURVE(squeeze);
+        if (flight === 1 && !this.hasLanded) {
+          this.hasLanded = true;
+          this.completion.land();
+        }
+      }, () => this.finishArrival());
+  }
+
+  private finishArrival(): void {
     if (!this.item.targetCard.faceUp) {
       this.completion.finish();
       return;
     }
-    // A new explicit animation must be dispatched after the completed travel
-    // transaction releases this component's animatable properties.
-    setTimeout(() => {
-      this.getUIContext().animateTo({
-        duration: TURN_HALF_DURATION_MS * NEW_GAME_TIME_SCALE,
-        curve: TURN_SQUEEZE_CURVE,
-        onFinish: () => {
-          this.showTarget = true;
-          setTimeout(() => {
-            this.getUIContext().animateTo({
-              duration: TURN_HALF_DURATION_MS * NEW_GAME_TIME_SCALE,
-              curve: TURN_STRETCH_CURVE,
-              onFinish: () => this.completion.finish()
-            }, () => {
-              this.scaleX = 1;
-            });
-          }, 0);
-        }
-      }, () => {
-        this.scaleX = 0;
-      });
-    }, 0);
+    // The uninterrupted arrival ends edge-on. Keep it there until the face can draw.
+    this.flipArtwork.expect([this.item.targetCard]);
+    this.flipArtwork.finish(this.getUIContext(), () => {
+      this.cardAnimator.play(this.getUIContext(), TURN_HALF_DURATION_MS * NEW_GAME_TIME_SCALE,
+        TURN_STRETCH_CURVE, (progress: number) => { this.scaleX = progress; },
+        () => this.completion.finish());
+    });
+    this.showTarget = true;
   }
 
   build() {
-    Stack() {
-      AnimatedPlayingCardView({
-        card: this.item.faceDownCard,
-        cardBackIndex: this.cardBackIndex,
-        cardFront: this.cardFront
+    // One visible surface avoids an opacity-zero face needing its first paint
+    // during the short expansion. Swap the small local image synchronously.
+    AnimatedPlayingCardView({
+      card: this.showTarget ? this.item.targetCard : this.item.faceDownCard,
+      cardBackIndex: this.cardBackIndex,
+      cardFront: this.cardFront,
+      imageDecoded: new AnimationCompletion(() => {
+        if (this.showTarget) {
+          this.flipArtwork.decoded(this.getUIContext(), this.item.targetCard);
+        }
       })
-        .opacity(this.showTarget ? 0 : 1)
-
-      AnimatedPlayingCardView({
-        card: this.item.targetCard,
-        cardBackIndex: this.cardBackIndex,
-        cardFront: this.cardFront
-      })
-        .opacity(this.showTarget ? 1 : 0)
-    }
+    })
     .width('100%')
     .height('100%')
     .scale({ x: this.scaleX, y: 1 })
@@ -574,45 +613,41 @@ struct TurningCardStack {
   @Prop completion: AnimationCompletion;
   @State scaleX: number = 1;
   @State showTarget: boolean = false;
+  private cardAnimator: CardAnimator = new CardAnimator();
+  private flipArtwork: CardArtworkHandoff = new CardArtworkHandoff();
 
   aboutToAppear(): void {
-    setTimeout(() => {
-      this.getUIContext().animateTo({
-        duration: TURN_HALF_DURATION_MS,
-        curve: TURN_SQUEEZE_CURVE,
-        onFinish: () => {
+    this.cardAnimator.after(0, () => {
+      this.cardAnimator.play(this.getUIContext(), TURN_HALF_DURATION_MS, TURN_SQUEEZE_CURVE,
+        (progress: number) => { this.scaleX = 1 - progress; }, () => {
+          this.flipArtwork.expect(this.targetCards);
+          this.flipArtwork.finish(this.getUIContext(), () => {
+            this.cardAnimator.play(this.getUIContext(), TURN_HALF_DURATION_MS, TURN_STRETCH_CURVE,
+              (progress: number) => { this.scaleX = progress; }, () => this.completion.finish());
+          });
           this.showTarget = true;
-          // Commit the new artwork while the stack has zero horizontal width.
-          setTimeout(() => {
-            this.getUIContext().animateTo({
-              duration: TURN_HALF_DURATION_MS,
-              curve: TURN_STRETCH_CURVE,
-              onFinish: () => this.completion.finish()
-            }, () => {
-              this.scaleX = 1;
-            });
-          }, 0);
-        }
-      }, () => {
-        this.scaleX = 0;
-      });
-    }, 0);
+        });
+    });
+  }
+
+  aboutToDisappear(): void {
+    this.cardAnimator.cancel();
+    this.flipArtwork.cancel();
   }
 
   build() {
     Stack({ alignContent: Alignment.TopStart }) {
       ForEach(this.initialCards, (card: PlayingCard, cardIndex: number) => {
-        Stack() {
-          AnimatedPlayingCardView({ card: card, cardBackIndex: this.cardBackIndex, cardFront: this.cardFront })
-            .opacity(this.showTarget ? 0 : 1)
-
-          AnimatedPlayingCardView({
-            card: this.targetCards[cardIndex],
-            cardBackIndex: this.cardBackIndex,
-            cardFront: this.cardFront
+        AnimatedPlayingCardView({
+          card: this.showTarget ? this.targetCards[cardIndex] : card,
+          cardBackIndex: this.cardBackIndex,
+          cardFront: this.cardFront,
+          imageDecoded: new AnimationCompletion(() => {
+            if (this.showTarget) {
+              this.flipArtwork.decoded(this.getUIContext(), this.targetCards[cardIndex]);
+            }
           })
-            .opacity(this.showTarget ? 1 : 0)
-        }
+        })
         .width('100%')
         .position({ x: 0, y: 0 })
         .zIndex(cardIndex)
@@ -637,17 +672,31 @@ struct MovingTurningCardStack {
   @Prop completion: AnimationCompletion;
   @State positionX: number = 0;
   @State positionY: number = 0;
+  private cardAnimator: CardAnimator = new CardAnimator();
+  private travelFinished: boolean = false;
+  private turnFinished: boolean = false;
 
   aboutToAppear(): void {
-    setTimeout(() => {
-      this.getUIContext().animateTo({
-        duration: MOVE_ANIMATION_DURATION_MS,
-        curve: MOVE_ANIMATION_CURVE
-      }, () => {
-        this.positionX = this.travelX;
-        this.positionY = this.travelY;
-      });
-    }, 0);
+    this.cardAnimator.after(0, () => {
+      this.cardAnimator.play(this.getUIContext(), MOVE_ANIMATION_DURATION_MS, MOVE_ANIMATION_CURVE,
+        (progress: number) => {
+          this.positionX = this.travelX * progress;
+          this.positionY = this.travelY * progress;
+        }, () => {
+          this.travelFinished = true;
+          this.finishIfLanded();
+        });
+    });
+  }
+
+  aboutToDisappear(): void {
+    this.cardAnimator.cancel();
+  }
+
+  private finishIfLanded(): void {
+    if (this.travelFinished && this.turnFinished) {
+      this.completion.finish();
+    }
   }
 
   build() {
@@ -656,7 +705,10 @@ struct MovingTurningCardStack {
       targetCards: this.targetCards,
       cardBackIndex: this.cardBackIndex,
       cardFront: this.cardFront,
-      completion: this.completion
+      completion: new AnimationCompletion(() => {
+        this.turnFinished = true;
+        this.finishIfLanded();
+      })
     })
       .width('100%')
       .height('100%')
@@ -669,6 +721,8 @@ struct MovingTurningCardStack {
 @Component
 struct Index {
   private game: SolitaireGame = new SolitaireGame();
+  private cardAnimator: CardAnimator = new CardAnimator();
+  private boardArtwork: CardArtworkHandoff = new CardArtworkHandoff();
 
   @State stock: PlayingCard[] = [];
   @State waste: PlayingCard[] = [];
@@ -703,6 +757,7 @@ struct Index {
   @State settingsOpen: boolean = false;
   @State newGamePhase: number = NEW_GAME_IDLE;
   @State sweepAnimations: SweepCardAnimation[] = [];
+  @State sweepStarted: boolean = false;
   @State dealAnimations: DealCardAnimation[] = [];
   @State stagedDeckX: number = 0;
   @State stagedDeckY: number = 0;
@@ -728,7 +783,10 @@ struct Index {
   private dragPointerOffsetX: number = 0;
   private dragPointerOffsetY: number = 0;
   private sweepCardsRemaining: number = 0;
+  private pendingSweepImages: Set<number> = new Set<number>();
+  private sweepImageTimer: number = -1;
   private dealFlightsRemaining: number = 0;
+  private dealHandoffs: Map<number, DealCardAnimation> = new Map<number, DealCardAnimation>();
   private pendingCardBack: number = -1;
   private animationRandom: cryptoFramework.Random = cryptoFramework.createRandom();
   private cardBackRandom: cryptoFramework.Random = cryptoFramework.createRandom();
@@ -751,6 +809,9 @@ struct Index {
   }
 
   aboutToDisappear(): void {
+    this.cardAnimator.cancel();
+    this.boardArtwork.cancel();
+    this.clearSweepImageWait();
     this.stopVictoryCelebration(false);
   }
 
@@ -790,7 +851,7 @@ struct Index {
     }
   }
 
-  /** Decodes one packaged SVG into the PixelMap accepted by Canvas.drawImage. */
+  /** Decodes one packaged PNG into the PixelMap accepted by Canvas.drawImage. */
   private async loadVictoryImage(card: PlayingCard, generation: number): Promise<void> {
     const hostContext = this.getUIContext().getHostContext();
     if (hostContext === undefined) {
@@ -1266,6 +1327,8 @@ struct Index {
 
   /** Commits a new shuffle, optionally omitting the outgoing sweep after victory. */
   private startAnimatedNewGame(skipOutgoingSweep: boolean = false): void {
+    this.cardAnimator.cancel();
+    this.boardArtwork.cancel();
     const capturedCards: SweepCardAnimation[] = skipOutgoingSweep ? [] : this.captureSweepAnimations();
     this.moveInProgress = true;
     this.dragInProgress = false;
@@ -1285,27 +1348,56 @@ struct Index {
     this.game.newGame();
     this.game.setWasteResetLimit(this.selectedWasteResetLimit);
     this.queueGameSave();
-    this.stock = [];
-    this.waste = [];
-    this.foundations = [[], [], [], []];
-    this.tableau = [[], [], [], [], [], [], []];
     this.canUndo = false;
     this.canAutoComplete = false;
     this.won = false;
-    this.wasteResetsUsed = 0;
 
-    if (skipOutgoingSweep) {
+    if (skipOutgoingSweep || capturedCards.length === 0) {
+      this.clearOutgoingBoard();
       this.applyPendingCardBack();
       this.beginStackEntry();
       return;
     }
 
+    this.sweepStarted = false;
     this.newGamePhase = NEW_GAME_SWEEP;
     this.sweepCardsRemaining = capturedCards.length;
+    this.pendingSweepImages = new Set<number>(capturedCards.map((animation: SweepCardAnimation) => animation.card.id));
+    this.sweepImageTimer = setTimeout(() => {
+      console.warn('[SolitaireSweep] missing image completion for ' + this.pendingSweepImages.size + ' cards');
+      this.startSweepMotion();
+    }, SWEEP_IMAGE_TIMEOUT_MS);
     this.sweepAnimations = capturedCards;
-    if (capturedCards.length === 0) {
-      this.finishSweep();
+  }
+
+  private clearOutgoingBoard(): void {
+    this.stock = [];
+    this.waste = [];
+    this.foundations = [[], [], [], []];
+    this.tableau = [[], [], [], [], [], [], []];
+    this.wasteResetsUsed = 0;
+  }
+
+  private onSweepImageDecoded(cardId: number): void {
+    if (this.pendingSweepImages.delete(cardId) && this.pendingSweepImages.size === 0) {
+      this.getUIContext().postFrameCallback(new ArtworkHandoffFrame(() => this.startSweepMotion()));
     }
+  }
+
+  /** Swaps the stationary board for the ready sweep layer in the same update. */
+  private startSweepMotion(): void {
+    if (this.newGamePhase !== NEW_GAME_SWEEP || this.sweepStarted || this.sweepImageTimer < 0) {
+      return;
+    }
+    this.clearSweepImageWait();
+    this.clearOutgoingBoard();
+    this.sweepStarted = true;
+  }
+
+  private clearSweepImageWait(): void {
+    clearTimeout(this.sweepImageTimer);
+    this.sweepImageTimer = -1;
+    this.pendingSweepImages.clear();
   }
 
   private finishSweepCard(): void {
@@ -1328,15 +1420,14 @@ struct Index {
     this.newGamePhase = NEW_GAME_STACK_ENTRY;
     this.stagedDeckX = Math.max((this.boardWidth - cardWidth) / 2, 0);
     this.stagedDeckY = this.boardHeight + this.scaledCardHeight();
-    setTimeout(() => {
-      this.getUIContext().animateTo({
-        duration: STACK_ENTRY_DURATION_MS * NEW_GAME_TIME_SCALE,
-        curve: MOVE_ANIMATION_CURVE,
-        onFinish: () => this.beginDealing()
-      }, () => {
-        this.stagedDeckY = this.boardHeight * 2 / 3;
-      });
-    }, 0);
+    const startY: number = this.stagedDeckY;
+    const destinationY: number = this.boardHeight * 2 / 3;
+    this.cardAnimator.after(0, () => {
+      this.cardAnimator.play(this.getUIContext(), STACK_ENTRY_DURATION_MS * NEW_GAME_TIME_SCALE,
+        MOVE_ANIMATION_CURVE, (progress: number) => {
+          this.stagedDeckY = startY + (destinationY - startY) * progress;
+        }, () => this.beginDealing());
+    });
   }
 
   /** Builds all 28 flights from the committed model in round-by-round order. */
@@ -1366,17 +1457,47 @@ struct Index {
     if (animation.targetCard.faceUp) {
       return;
     }
-    this.appendRenderedDealCard(animation.pileIndex, animation.faceDownCard);
+    this.placeDealtCard(animation, animation.faceDownCard);
   }
 
-  /** Reveals a top card if needed, removes its overlay, and counts completion. */
+  /** Finishes the flight without removing artwork the tableau still needs. */
   private finishDealCard(animation: DealCardAnimation): void {
+    animation.motionFinished = true;
     if (animation.targetCard.faceUp) {
-      this.appendRenderedDealCard(animation.pileIndex, animation.targetCard);
+      this.placeDealtCard(animation, animation.targetCard);
     }
-    this.dealAnimations = this.dealAnimations.filter((item: DealCardAnimation) => item.order !== animation.order);
+    if (!this.dealHandoffs.has(animation.targetCard.id)) {
+      this.removeDealOverlay(animation);
+    }
     this.dealFlightsRemaining--;
     this.tryFinishDealing();
+  }
+
+  private placeDealtCard(animation: DealCardAnimation, card: PlayingCard): void {
+    this.dealHandoffs.set(card.id, animation);
+    this.appendRenderedDealCard(animation.pileIndex, card);
+  }
+
+  private onTableauCardDecoded(card: PlayingCard): void {
+    this.boardArtwork.decoded(this.getUIContext(), card);
+    const cardId: number = card.id;
+    const animation: DealCardAnimation | undefined = this.dealHandoffs.get(cardId);
+    if (animation === undefined) {
+      return;
+    }
+    // onComplete signals decoding. Give ArkUI a frame to draw the destination.
+    this.getUIContext().postFrameCallback(new ArtworkHandoffFrame(() => {
+      if (this.dealHandoffs.get(cardId) === animation) {
+        this.dealHandoffs.delete(cardId);
+        if (animation.motionFinished) {
+          this.removeDealOverlay(animation);
+        }
+      }
+    }));
+  }
+
+  private removeDealOverlay(animation: DealCardAnimation): void {
+    this.dealAnimations = this.dealAnimations.filter((item: DealCardAnimation) => item.order !== animation.order);
   }
 
   private tryFinishDealing(): void {
@@ -1389,25 +1510,28 @@ struct Index {
   private beginStockFinish(): void {
     this.newGamePhase = NEW_GAME_STOCK_FINISH;
     const stockDestination: CardPlacement = this.boardPlacement(this.stockPlacement);
-    this.getUIContext().animateTo({
-      duration: STOCK_FINISH_DURATION_MS * NEW_GAME_TIME_SCALE,
-      curve: MOVE_ANIMATION_CURVE,
-      onFinish: () => this.finishNewGameAnimation()
-    }, () => {
-      this.stagedDeckX = stockDestination.x;
-      this.stagedDeckY = stockDestination.y;
-    });
+    const startX: number = this.stagedDeckX;
+    const startY: number = this.stagedDeckY;
+    this.cardAnimator.play(this.getUIContext(), STOCK_FINISH_DURATION_MS * NEW_GAME_TIME_SCALE,
+      MOVE_ANIMATION_CURVE, (progress: number) => {
+        this.stagedDeckX = startX + (stockDestination.x - startX) * progress;
+        this.stagedDeckY = startY + (stockDestination.y - startY) * progress;
+      }, () => this.finishNewGameAnimation());
   }
 
   /** Replaces all temporary visuals with the canonical, already-saved model. */
   private finishNewGameAnimation(): void {
-    this.sweepAnimations = [];
-    this.dealAnimations = [];
+    this.boardArtwork.expect(this.game.stock.slice(-1));
+    this.boardArtwork.finish(this.getUIContext(), () => {
+      this.sweepAnimations = [];
+      this.dealHandoffs.clear();
+      this.dealAnimations = [];
+      this.newGamePhase = NEW_GAME_IDLE;
+      this.moveInProgress = false;
+    });
     // Reconciliation preserves every already-correct dealt card and only adds
     // the stock cards that were represented by the temporary layered deck.
     this.refreshPage();
-    this.newGamePhase = NEW_GAME_IDLE;
-    this.moveInProgress = false;
   }
 
   /** Appends one landed deal card without copying unrelated piles or cards. */
@@ -1490,12 +1614,19 @@ struct Index {
   }
 
   /** Reconciles model state into the UI while retaining stable cards and piles. */
-  private refreshPage(): void {
+  private refreshPage(reveal: CardReveal | undefined = undefined): void {
     const pool: Map<number, PlayingCard> = this.renderedCardPool();
     const nextStock: PlayingCard[] = this.reconcilePile(this.stock, this.game.stock, pool);
     const nextWaste: PlayingCard[] = this.reconcilePile(this.waste, this.game.waste, pool);
     const nextFoundations: PlayingCard[][] = this.reconcilePiles(this.foundations, this.game.foundations, pool);
-    const nextTableau: PlayingCard[][] = this.reconcilePiles(this.tableau, this.game.tableau, pool);
+    let nextTableau: PlayingCard[][] = this.reconcilePiles(this.tableau, this.game.tableau, pool);
+    if (reveal !== undefined) {
+      // Keep the exposed back visible until its own overlay takes over.
+      const coveredCard: PlayingCard = reveal.card;
+      nextTableau = nextTableau.slice();
+      nextTableau[reveal.pileIndex] = nextTableau[reveal.pileIndex].map((card: PlayingCard) =>
+        card.id === coveredCard.id ? coveredCard : card);
+    }
 
     if (nextStock !== this.stock) {
       this.stock = nextStock;
@@ -1740,19 +1871,20 @@ struct Index {
   /** Returns a released drag to its source with the shared quintic curve. */
   private animateRejectedDrag(): void {
     this.dragInProgress = false;
-    setTimeout(() => {
-      this.getUIContext().animateTo({
-        duration: MOVE_ANIMATION_DURATION_MS,
-        curve: MOVE_ANIMATION_CURVE,
-        onFinish: () => {
+    const startX: number = this.movingCardX;
+    const startY: number = this.movingCardY;
+    const destinationX: number = this.selectedCardX;
+    const destinationY: number = this.selectedCardY;
+    this.cardAnimator.after(0, () => {
+      this.cardAnimator.play(this.getUIContext(), MOVE_ANIMATION_DURATION_MS, MOVE_ANIMATION_CURVE,
+        (progress: number) => {
+          this.movingCardX = startX + (destinationX - startX) * progress;
+          this.movingCardY = startY + (destinationY - startY) * progress;
+        }, () => {
           this.movingCards = [];
           this.moveInProgress = false;
-        }
-      }, () => {
-        this.movingCardX = this.selectedCardX;
-        this.movingCardY = this.selectedCardY;
-      });
-    }, 0);
+        });
+    });
   }
 
   /** Attempts the drop, then animates to its legal destination or back home. */
@@ -1822,7 +1954,8 @@ struct Index {
     }
     return new CardReveal(
       card.clone(),
-      this.boardPlacement(this.tableauCardPlacements.get(card.id))
+      this.boardPlacement(this.tableauCardPlacements.get(card.id)),
+      this.selectedPile
     );
   }
 
@@ -1912,6 +2045,7 @@ struct Index {
     this.wasteMoveTransitionActive = true;
     this.wasteMoveCompletionsRemaining = shifts.length + 1;
     this.wasteShiftAnimations = shifts;
+    this.boardArtwork.expect(shifts.map((shift: WasteShiftAnimation) => shift.card));
     this.coveredWasteCards = [];
     // The newly revealed third card is already underneath the retained cards.
     // It becomes visible continuously as their overlays slide to the right.
@@ -1949,6 +2083,8 @@ struct Index {
     this.movingCardY = this.boardPlacement(this.stockPlacement).y;
     this.movingCardDestinationX = destination.x;
     this.movingCardDestinationY = destination.y;
+    this.boardArtwork.expect([targetCard]);
+    this.boardArtwork.expect(shifts.map((shift: WasteShiftAnimation) => shift.card));
     this.stock = nextStock;
     this.waste = nextWaste;
   }
@@ -1960,6 +2096,10 @@ struct Index {
       return;
     }
 
+    this.boardArtwork.finish(this.getUIContext(), () => this.advanceStockDrawStep());
+  }
+
+  private advanceStockDrawStep(): void {
     this.movingCards = [];
     this.movingTargetCards = [];
     this.wasteShiftAnimations = [];
@@ -1967,7 +2107,7 @@ struct Index {
     this.movingCardsAligned = false;
     this.stockDrawStepsRemaining--;
     if (this.stockDrawStepsRemaining > 0) {
-      setTimeout(() => this.runNextStockDrawStep(), 0);
+      this.cardAnimator.after(0, () => this.runNextStockDrawStep());
       return;
     }
     this.finishStockDrawSequence();
@@ -1994,13 +2134,15 @@ struct Index {
       return;
     }
 
-    this.wasteMoveTransitionActive = false;
-    this.wasteMoveCompletionsRemaining = 0;
-    this.wasteShiftAnimations = [];
-    this.coveredWasteCards = [];
+    this.boardArtwork.finish(this.getUIContext(), () => {
+      this.wasteMoveTransitionActive = false;
+      this.wasteMoveCompletionsRemaining = 0;
+      this.wasteShiftAnimations = [];
+      this.coveredWasteCards = [];
+      this.movingCards = [];
+      this.moveInProgress = false;
+    });
     this.refreshPage();
-    this.movingCards = [];
-    this.moveInProgress = false;
   }
 
   /** Routes a retained-card landing to the active waste transition. */
@@ -2038,6 +2180,8 @@ struct Index {
     this.movingCardY = source.y;
     this.movingCardDestinationX = destination.x;
     this.movingCardDestinationY = destination.y;
+    const stock: PlayingCard[] = this.game.stock;
+    this.boardArtwork.expect(stock.slice(-1));
     // Render the destination snapshot underneath and hide its moving card by ID.
     this.refreshPage();
   }
@@ -2052,6 +2196,7 @@ struct Index {
     this.movingCardY = reveal.placement.y;
     this.movingCardDestinationX = reveal.placement.x;
     this.movingCardDestinationY = reveal.placement.y;
+    this.boardArtwork.expect(this.movingTargetCards);
     this.refreshPage();
   }
 
@@ -2062,14 +2207,16 @@ struct Index {
       return;
     }
     const continueAutoComplete: boolean = this.continueAfterMovingTurn;
-    this.movingCards = [];
-    this.movingTargetCards = [];
-    this.movingCardsAligned = false;
-    this.continueAfterMovingTurn = false;
-    this.moveInProgress = false;
-    if (continueAutoComplete) {
-      this.runNextAutoCompleteMove();
-    }
+    this.boardArtwork.finish(this.getUIContext(), () => {
+      this.movingCards = [];
+      this.movingTargetCards = [];
+      this.movingCardsAligned = false;
+      this.continueAfterMovingTurn = false;
+      this.moveInProgress = false;
+      if (continueAutoComplete) {
+        this.runNextAutoCompleteMove();
+      }
+    });
   }
 
   /** Runs the approved straight-line ease-out move before revealing final state. */
@@ -2081,6 +2228,7 @@ struct Index {
     source: CardPlacement | undefined = undefined
   ): void {
     this.queueGameSave();
+    this.boardArtwork.expect(cards);
     if (this.selectedSource === SOURCE_WASTE) {
       this.prepareWasteMoveTransition();
     }
@@ -2094,31 +2242,30 @@ struct Index {
     this.movingCardsAligned = false;
     this.clearSelection();
 
-    setTimeout(() => {
-      this.getUIContext().animateTo({
-        duration: MOVE_ANIMATION_DURATION_MS,
-        curve: MOVE_ANIMATION_CURVE,
-        onFinish: () => {
+    this.cardAnimator.after(0, () => {
+      this.cardAnimator.play(this.getUIContext(), MOVE_ANIMATION_DURATION_MS, MOVE_ANIMATION_CURVE,
+        (progress: number) => {
+          this.movingCardX = start.x + (destination.x - start.x) * progress;
+          this.movingCardY = start.y + (destination.y - start.y) * progress;
+        }, () => {
           if (this.wasteMoveTransitionActive) {
             this.finishWasteMoveAnimationPart();
             return;
           }
-          if (reveal !== undefined) {
-            this.animateCardReveal(reveal, continueAutoComplete);
-            return;
-          }
-          this.refreshPage();
-          this.movingCards = [];
-          this.moveInProgress = false;
-          if (continueAutoComplete) {
-            this.runNextAutoCompleteMove();
-          }
-        }
-      }, () => {
-        this.movingCardX = destination.x;
-        this.movingCardY = destination.y;
-      });
-    }, 0);
+          this.boardArtwork.finish(this.getUIContext(), () => {
+            if (reveal !== undefined) {
+              this.animateCardReveal(reveal, continueAutoComplete);
+              return;
+            }
+            this.movingCards = [];
+            this.moveInProgress = false;
+            if (continueAutoComplete) {
+              this.runNextAutoCompleteMove();
+            }
+          });
+          this.refreshPage(reveal);
+        });
+    });
   }
 
   /** Clears selection only when the user taps non-interactive table felt. */
@@ -2405,6 +2552,8 @@ struct Index {
               card: this.stock[this.stock.length - 1],
               cardBackIndex: this.activeCardBack,
               cardFront: this.selectedCardFront,
+              imageDecoded: new AnimationCompletion(() =>
+                this.boardArtwork.decoded(this.getUIContext(), this.stock[this.stock.length - 1])),
               selected: false
             })
             .opacity(this.isMovingCard(this.stock[this.stock.length - 1].id) ? 0 : 1)
@@ -2442,6 +2591,8 @@ struct Index {
                   card: card,
                   cardBackIndex: this.activeCardBack,
                   cardFront: this.selectedCardFront,
+                  imageDecoded: new AnimationCompletion(() =>
+                    this.boardArtwork.decoded(this.getUIContext(), card)),
                   selected: this.selectedSource === SOURCE_WASTE
                 })
                   .width(this.scaledCardHeight() * CARD_ASPECT_RATIO)
@@ -2461,7 +2612,9 @@ struct Index {
                 AnimatedPlayingCardView({
                   card: card,
                   cardBackIndex: this.activeCardBack,
-                  cardFront: this.selectedCardFront
+                  cardFront: this.selectedCardFront,
+                  imageDecoded: new AnimationCompletion(() =>
+                    this.boardArtwork.decoded(this.getUIContext(), card))
                 })
                   .width(this.scaledCardHeight() * CARD_ASPECT_RATIO)
                   .position({ x: visibleIndex * this.wasteFanOffset(), y: 0 })
@@ -2500,6 +2653,8 @@ struct Index {
                 card: this.foundations[index][this.foundations[index].length - 1],
                 cardBackIndex: this.activeCardBack,
                 cardFront: this.selectedCardFront,
+                imageDecoded: new AnimationCompletion(() => this.boardArtwork.decoded(
+                  this.getUIContext(), this.foundations[index][this.foundations[index].length - 1])),
                 selected: this.selectedSource === SOURCE_FOUNDATION && this.selectedPile === index
               })
               .opacity(this.isMovingCard(
@@ -2546,6 +2701,7 @@ struct Index {
                       card: card,
                       cardBackIndex: this.activeCardBack,
                       cardFront: this.selectedCardFront,
+                      imageDecoded: new AnimationCompletion(() => this.onTableauCardDecoded(card)),
                       selected: this.selectedSource === SOURCE_TABLEAU && this.selectedPile === pileIndex &&
                         this.selectedCard === cardIndex
                     })
@@ -2696,6 +2852,7 @@ struct Index {
     Stack({ alignContent: Alignment.TopStart }) {
       ForEach([0, 1, 2, 3, 4], (layerIndex: number) => {
         Image(CARD_BACK_IMAGES[this.activeCardBack])
+          .syncLoad(true)
           .width('100%')
           .height(this.scaledCardHeight())
           .objectFit(ImageFit.Fill)
@@ -2719,6 +2876,8 @@ struct Index {
             item: animation,
             cardBackIndex: this.activeCardBack,
             cardFront: this.selectedCardFront,
+            started: this.sweepStarted,
+            imageDecoded: new AnimationCompletion(() => this.onSweepImageDecoded(animation.card.id)),
             completion: new AnimationCompletion(() => this.finishSweepCard())
           })
         }
@@ -2731,6 +2890,7 @@ struct Index {
     .width('100%')
     .height('100%')
     .zIndex(1100)
+    .opacity(this.sweepStarted ? 1 : 0)
     .hitTestBehavior(HitTestMode.None)
   }
 
@@ -2907,8 +3067,8 @@ struct Index {
     Column({ space: 6 }) {
       Stack({ alignContent: Alignment.Center }) {
         Image(cardFront === CARD_FRONT_SIMPLE ?
-          $r('app.media.playing_card_simple_9_of_spades') :
-          $r('app.media.playing_card_9_of_spades'))
+          $r('app.media.playing_card_simple_9_of_spades_raster') :
+          $r('app.media.playing_card_9_of_spades_raster'))
           .width(54)
           .height(81)
           .objectFit(ImageFit.Fill)

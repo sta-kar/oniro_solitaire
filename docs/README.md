@@ -9,6 +9,12 @@ design history.
   animation, persistence, and appearance behavior.
 - [`ARCHITECTURE.md`](ARCHITECTURE.md) describes implementation boundaries,
   state flow, persistence, and the ArkUI rendering approach.
+- [`ANIMATION_CALLBACK_BUG.md`](ANIMATION_CALLBACK_BUG.md) records the isolated
+  animation tests, RenderService PID mismatch, and remaining repair validation.
+- [`APP_ANIMATION_WORKAROUND.md`](APP_ANIMATION_WORKAROUND.md) records the tested
+  app-side Animator approach, probe timings, and host test command.
+- [`FLIP_VISIBILITY.md`](FLIP_VISIBILITY.md) documents artwork readiness during
+  flips, moves, and New Game, and summarizes visual verification.
 - [`ASSETS.md`](ASSETS.md) documents the canonical visual assets, packaged
   resources, geometry, variants, and attribution.
 - [`PUBLISHING.md`](PUBLISHING.md) records the public repository snapshot,
